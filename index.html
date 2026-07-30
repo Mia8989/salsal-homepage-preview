@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Save a Leg, Save a Life Foundation</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+  :root{
+    --red:#DD2036; --red-dk:#B81A2C; --navy:#0E2845; --blue:#30698D;
+    --sky:#00A1D9; --sand:#EFE2D6; --white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',sans-serif;color:var(--navy);background:#fff;}
+  a{text-decoration:none;color:inherit;}
+
+  /* ---------- NAV ---------- */
+  .nav{position:sticky;top:0;z-index:20;background:#fff;display:flex;align-items:center;gap:28px;padding:12px 40px;box-shadow:0 1px 0 #eee;}
+  .nav .logo{height:54px;}
+  .nav .links{display:flex;gap:26px;margin-left:6px;}
+  .nav .links a{font-family:'Poppins',sans-serif;font-weight:600;font-size:15px;color:var(--navy);white-space:nowrap;position:relative;padding:4px 0;}
+  .nav .links a::after{content:'';position:absolute;left:0;right:100%;bottom:-2px;height:2px;background:var(--sky);transition:right .25s ease;}
+  .nav .links a:hover{color:var(--sky);}
+  .nav .links a:hover::after{right:0;}
+  .nav .spacer{flex:1;}
+  .btn{font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;border-radius:999px;padding:11px 22px;display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:2px solid transparent;white-space:nowrap;position:relative;overflow:hidden;transition:transform .18s ease, background .18s ease, box-shadow .18s ease;}
+  .btn-donate{background:var(--red);color:#fff;box-shadow:0 4px 14px rgba(221,32,54,.28);}
+  .btn-donate:hover{background:var(--red-dk);transform:translateY(-2px);box-shadow:0 8px 22px rgba(221,32,54,.4);}
+  .btn-shop{background:#fff;color:var(--navy);border-color:var(--navy);}
+  .btn-shop:hover{background:var(--navy);color:#fff;transform:translateY(-2px);}
+  .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.75);}
+  .btn-ghost:hover{background:#fff;color:var(--navy);border-color:#fff;transform:translateY(-2px);}
+  .btn-ghost .arw{transition:transform .2s ease;}
+  .btn-ghost:hover .arw{transform:translateX(4px);}
+  /* subtle shine sweep on red buttons (button itself does NOT move) */
+  .btn-donate::after{content:'';position:absolute;top:0;left:0;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:translateX(-160%) skewX(-18deg);animation:shine 5.5s ease-in-out infinite;}
+  @keyframes shine{0%,72%{transform:translateX(-160%) skewX(-18deg);}86%{transform:translateX(320%) skewX(-18deg);}100%{transform:translateX(320%) skewX(-18deg);}}
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;height:min(90vh,720px);min-height:560px;overflow:hidden;background:var(--navy);}
+  .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.1s ease;}
+  .slide.on{opacity:1;}
+  .slide .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05);}
+  .slide.on .bg{animation:zoomFace 8s ease-out forwards;}
+  @keyframes zoomFace{from{transform:scale(1.05);}to{transform:scale(1.2);}}
+  .scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,40,69,.94) 0%,rgba(14,40,69,.82) 40%,rgba(14,40,69,.4) 72%,rgba(14,40,69,.2) 100%);}
+  .hero .wrap{position:relative;height:100%;max-width:1240px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;justify-content:center;z-index:2;}
+  .inner{max-width:660px;transition:opacity .5s ease, transform .5s ease;}
+  .kicker{display:inline-flex;align-items:center;gap:9px;background:rgba(0,161,217,.16);border:1px solid rgba(0,161,217,.5);color:#7fd1f0;font-family:'Poppins',sans-serif;font-weight:600;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;padding:7px 15px;border-radius:999px;margin-bottom:22px;}
+  .kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(221,32,54,.55);animation:pulse 2s infinite;}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(221,32,54,.55);}70%{box-shadow:0 0 0 9px rgba(221,32,54,0);}100%{box-shadow:0 0 0 0 rgba(221,32,54,0);}}
+  .hero h1{font-family:'Poppins',sans-serif;font-weight:800;font-size:58px;line-height:1.03;letter-spacing:-0.02em;color:#fff;margin-bottom:20px;}
+  .hero h1 .accent{color:var(--sky);}
+  .hero p.sub{font-size:20px;line-height:1.5;color:#d3e2ef;max-width:540px;margin-bottom:32px;}
+  .cta-row{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
+  .btn-lg{padding:16px 32px;font-size:16px;}
+  .dots{position:absolute;left:40px;bottom:30px;display:flex;gap:10px;z-index:3;}
+  .dots button{width:36px;height:5px;border-radius:3px;background:rgba(255,255,255,.35);border:none;padding:0;cursor:pointer;transition:background .3s;}
+  .dots button.on{background:var(--red);}
+  .scrollcue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:3;color:rgba(255,255,255,.75);display:flex;flex-direction:column;align-items:center;gap:6px;font-family:'Poppins',sans-serif;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;}
+  .scrollcue .ch{width:20px;height:20px;border-right:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(45deg);animation:bob 1.8s infinite;opacity:.8;}
+  @keyframes bob{0%,100%{transform:rotate(45deg) translate(0,0);opacity:.4;}50%{transform:rotate(45deg) translate(4px,4px);opacity:.9;}}
+
+  /* ---------- impact strip (scroll payoff peek) ---------- */
+  .impact{background:var(--sand);padding:40px 40px;}
+  .impact .in{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+  .stat{text-align:center;}
+  .stat .n{font-family:'Poppins',sans-serif;font-weight:800;font-size:44px;color:var(--red);line-height:1;}
+  .stat .n small{font-size:24px;}
+  .stat .t{font-size:15px;color:var(--navy);margin-top:8px;line-height:1.4;font-weight:500;}
+
+  @media(max-width:900px){
+    .nav{gap:14px;padding:10px 18px;}
+    .nav .links{display:none;}
+    .hero h1{font-size:38px;}
+    .hero p.sub{font-size:17px;}
+    .impact .in{grid-template-columns:1fr;gap:20px;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation">
+  <div class="links">
+    <a>Mission</a><a>How We Help</a><a>Learning Center</a><a>Impact</a><a>Get Involved</a>
+  </div>
+  <div class="spacer"></div>
+  <a class="btn btn-shop">Shop</a>
+  <a class="btn btn-donate">Donate</a>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="slide on">
+    <div class="bg" style="background-image:url('assets/hero-clinicians.jpg');transform-origin:55% 19%"></div>
+    <div class="scrim"></div>
+  </div>
+  <div class="slide">
+    <div class="bg" style="background-image:url('assets/hero-audience.jpg');transform-origin:44% 58%"></div>
+    <div class="scrim"></div>
+  </div>
+  <div class="slide">
+    <div class="bg" style="background-image:url('assets/hero-group.jpg');transform-origin:50% 44%"></div>
+    <div class="scrim"></div>
+  </div>
+
+  <div class="wrap">
+    <div class="inner" id="heroContent">
+      <span class="kicker"><span class="dot"></span> Our Mission</span>
+      <h1>Most amputations are <span class="accent">preventable.</span></h1>
+      <p class="sub">We help patients keep their limbs through education, advocacy, and access to advanced wound care.</p>
+      <div class="cta-row">
+        <a class="btn btn-donate btn-lg">Support the mission</a>
+        <a class="btn btn-ghost btn-lg">How we help <span class="arw">&rsaquo;</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="dots" id="dots">
+    <button class="on" aria-label="Slide 1"></button>
+    <button aria-label="Slide 2"></button>
+    <button aria-label="Slide 3"></button>
+  </div>
+  <a class="scrollcue" href="#impact"><span>Scroll</span><span class="ch"></span></a>
+</section>
+
+<section class="impact" id="impact">
+  <div class="in">
+    <div class="stat"><div class="n">Up to 85<small>%</small></div><div class="t">of lower-limb amputations are preventable with early, evidence-based care.</div></div>
+    <div class="stat"><div class="n">Every 3<small> min</small></div><div class="t">someone in the U.S. loses a limb to diabetes or vascular disease.</div></div>
+    <div class="stat"><div class="n">50<small>+</small></div><div class="t">free community screenings, provider trainings, and patient resources.</div></div>
+  </div>
+</section>
+
+<script>
+  const content = [
+    {k:'Our Mission', h:'Most amputations are <span class="accent">preventable.</span>', s:'We help patients keep their limbs through education, advocacy, and access to advanced wound care.', c1:'Support the mission', c2:'How we help'},
+    {k:'Free Community Screening', h:'Find a <span class="accent">free limb screening</span> near you.', s:'Early detection saves limbs. Join a SALSAL screening and education event in your area.', c1:'Find a screening', c2:'See all events'},
+    {k:'Upcoming Webinar', h:'Life on MARS: <span class="accent">watch on demand.</span>', s:'Findings from the Manchester Amputation Reduction System. Free to register and watch anytime.', c1:'Register to watch', c2:'All webinars'}
+  ];
+  const slides=[...document.querySelectorAll('#hero .slide')];
+  const dots=[...document.querySelectorAll('#dots button')];
+  const box=document.getElementById('heroContent');
+  let i=0, timer;
+
+  function render(c){
+    box.innerHTML='<span class="kicker"><span class="dot"></span> '+c.k+'</span>'
+      +'<h1>'+c.h+'</h1>'
+      +'<p class="sub">'+c.s+'</p>'
+      +'<div class="cta-row"><a class="btn btn-donate btn-lg">'+c.c1+'</a>'
+      +'<a class="btn btn-ghost btn-lg">'+c.c2+' <span class="arw">&rsaquo;</span></a></div>';
+  }
+  function go(n){
+    i=(n+slides.length)%slides.length;
+    slides.forEach((s,idx)=>{
+      s.classList.toggle('on', idx===i);
+      if(idx===i){ const bg=s.querySelector('.bg'); bg.style.animation='none'; void bg.offsetWidth; bg.style.animation=''; }
+    });
+    dots.forEach((d,idx)=>d.classList.toggle('on', idx===i));
+    box.style.opacity=0; box.style.transform='translateY(14px)';
+    setTimeout(()=>{ render(content[i]); box.style.opacity=1; box.style.transform='translateY(0)'; }, 360);
+  }
+  function play(){ timer=setInterval(()=>go(i+1), 6000); }
+  function reset(){ clearInterval(timer); play(); }
+  dots.forEach((d,idx)=>d.addEventListener('click',()=>{go(idx);reset();}));
+  play();
+</script>
+</body>
+</html>
