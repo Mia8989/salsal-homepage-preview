@@ -115,6 +115,17 @@
     font-weight:600;font-size:12px;letter-spacing:.04em;padding:7px 12px;border-radius:999px;}
   .ph-tag .live{width:8px;height:8px;border-radius:50%;background:#39d98a;box-shadow:0 0 0 0 rgba(57,217,138,.6);animation:pulse2 1.8s infinite;}
   @keyframes pulse2{0%{box-shadow:0 0 0 0 rgba(57,217,138,.6);}70%{box-shadow:0 0 0 7px rgba(57,217,138,0);}100%{box-shadow:0 0 0 0 rgba(57,217,138,0);}}
+  /* speaker panel shown as the big visual on the Featured Webinar slide */
+  .spkpanel{position:absolute;inset:0;background:linear-gradient(160deg,#0E2845 0%,#081b31 55%,#12324f 100%);padding:32px 28px 0;overflow:hidden;}
+  .spkpanel::after{content:'';position:absolute;inset:0;background:radial-gradient(60% 48% at 82% 8%,rgba(0,161,217,.28),transparent 60%),radial-gradient(50% 40% at 6% 96%,rgba(221,32,54,.14),transparent 60%);pointer-events:none;}
+  .spkpanel .ph{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#7fd1f0;margin-bottom:18px;position:relative;display:flex;align-items:center;gap:9px;}
+  .spkpanel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative;}
+  .spkpanel figure{margin:0;text-align:center;opacity:0;transform:translateY(12px);}
+  .slide.on .spkpanel figure{animation:rise .55s ease forwards;}
+  .slide.on .spkpanel figure:nth-child(2){animation-delay:.1s;} .slide.on .spkpanel figure:nth-child(3){animation-delay:.2s;}
+  .spkpanel figure .sp{display:block;width:100%;aspect-ratio:1/1.12;border-radius:16px;background:#26527a center 22%/cover no-repeat;box-shadow:0 12px 26px rgba(0,0,0,.4);border:2px solid rgba(255,255,255,.16);}
+  .spkpanel figure b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-top:11px;line-height:1.15;}
+  .spkpanel figure i{display:block;font-size:11px;color:#9fc4dd;font-style:normal;margin-top:3px;letter-spacing:.02em;}
 
   /* rotating event card (glass) overlapping bottom */
   .evcard{position:absolute;left:22px;right:22px;bottom:22px;z-index:3;
@@ -199,10 +210,19 @@
     <div class="rail">
       <div class="photo" id="photo">
         <div class="slide on"><div class="bg" style="background-image:url('assets/hero-group.jpg');transform-origin:50% 44%"></div></div>
-        <div class="slide"><div class="bg" style="background-image:url('assets/hero-clinicians.jpg');transform-origin:55% 19%"></div></div>
+        <div class="slide">
+          <div class="spkpanel">
+            <div class="ph"><span class="playbig">&#9654;</span> Featured speakers</div>
+            <div class="spkpanel-grid">
+              <figure><span class="sp" style="background-image:url('assets/speakers/matthew-myntti.jpg')"></span><b>Matthew Myntti, PhD</b><i>Speaker</i></figure>
+              <figure><span class="sp" style="background-image:url('assets/speakers/matthew-regulski.jpg')"></span><b>Dr. Matthew Regulski</b><i>Speaker</i></figure>
+              <figure><span class="sp" style="background-image:url('assets/speakers/karen-bauer.jpg')"></span><b>Karen Bauer, DNP</b><i>Moderator</i></figure>
+            </div>
+          </div>
+        </div>
         <div class="slide"><div class="bg" style="background-image:url('assets/hero-audience.jpg');transform-origin:44% 58%"></div></div>
         <div class="vig"></div>
-        <span class="ph-tag"><span class="live"></span> Community screening &middot; 2026</span>
+        <span class="ph-tag" id="phtag"><span class="live"></span> Community screening &middot; 2026</span>
         <div class="evcard" id="evcard">
           <div class="pg"><i class="on"></i><i></i><i></i></div>
           <div class="ev on">
@@ -213,16 +233,8 @@
           </div>
           <div class="ev">
             <span class="evtag web">Featured Webinar</span>
-            <h3>Time Is Tissue: disrupting biofilm</h3>
+            <h3>Time Is Tissue: disrupting biofilm to prevent amputation</h3>
             <div class="meta">On demand &middot; free to watch</div>
-            <div class="spk">
-              <span class="avs">
-                <span class="av" style="background-image:url('assets/speakers/matthew-myntti.jpg')"></span>
-                <span class="av" style="background-image:url('assets/speakers/matthew-regulski.jpg')"></span>
-                <span class="av" style="background-image:url('assets/speakers/karen-bauer.jpg')"></span>
-              </span>
-              <span class="spk-t">Myntti, Regulski &amp; Bauer</span>
-            </div>
             <a class="go">Watch on demand <span class="arw">&rsaquo;</span></a>
           </div>
           <div class="ev">
@@ -256,15 +268,18 @@
   const slides=[...document.querySelectorAll('#photo .slide')];
   const evs=[...document.querySelectorAll('#evcard .ev')];
   const pgs=[...document.querySelectorAll('#evcard .pg i')];
+  const phtag=document.getElementById('phtag');
+  const caps=['<span class="live"></span> Community screening &middot; 2026','','<span class="live"></span> On-demand webinar library'];
   let i=0;
   setInterval(()=>{
     i=(i+1)%slides.length;
     slides.forEach((s,idx)=>{
       s.classList.toggle('on',idx===i);
-      if(idx===i){const bg=s.querySelector('.bg');bg.style.animation='none';void bg.offsetWidth;bg.style.animation='';}
+      if(idx===i){const bg=s.querySelector('.bg'); if(bg){bg.style.animation='none';void bg.offsetWidth;bg.style.animation='';}}
     });
     evs.forEach((e,idx)=>e.classList.toggle('on',idx===i));
     pgs.forEach((p,idx)=>p.classList.toggle('on',idx===i));
+    if(phtag){ phtag.innerHTML=caps[i]||''; phtag.style.display=caps[i]?'inline-flex':'none'; }
   },4200);
 
   // count up stat
