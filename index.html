@@ -31,6 +31,21 @@
   .nav .links a{font-weight:600;font-size:14.5px;color:var(--navy);white-space:nowrap;position:relative;padding:6px 0;}
   .nav .links a::after{content:'';position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--sky);transition:right .25s;}
   .nav .links a:hover::after{right:0;}
+  /* webinars dropdown */
+  .dd{position:relative;}
+  .dd .ddt{font-weight:600;font-size:14.5px;color:var(--navy);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:6px 0;}
+  .dd .caret{font-size:10px;transition:transform .22s;color:var(--sky);}
+  .dd:hover .caret{transform:rotate(180deg);}
+  .ddmenu{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(8px);min-width:270px;
+    background:rgba(255,255,255,.99);backdrop-filter:blur(16px);border:1px solid rgba(14,40,69,.08);border-radius:16px;
+    box-shadow:0 22px 55px rgba(8,27,49,.24);padding:8px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:70;}
+  .dd:hover .ddmenu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
+  .ddmenu::before{content:'';position:absolute;top:-7px;left:50%;transform:translateX(-50%) rotate(45deg);width:14px;height:14px;background:#fff;border-left:1px solid rgba(14,40,69,.08);border-top:1px solid rgba(14,40,69,.08);}
+  .ddi{display:block;padding:11px 14px;border-radius:12px;position:relative;}
+  .ddi:hover{background:var(--sand);}
+  .ddi b{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14.5px;color:var(--navy);}
+  .ddi span{display:block;font-size:12.5px;color:var(--blue);margin-top:3px;}
+  .ddi .play{width:20px;height:20px;border-radius:50%;background:var(--red);color:#fff;font-size:9px;display:inline-flex;align-items:center;justify-content:center;padding-left:1px;}
   .nav .sp{flex:1;}
   .btn{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14.5px;border-radius:14px;padding:11px 20px;
     display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:2px solid transparent;white-space:nowrap;position:relative;overflow:hidden;
@@ -109,7 +124,15 @@
   .evcard .ev.on{display:block;animation:evlift .5s ease;}
   @keyframes evlift{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
   .evtag{display:inline-block;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;padding:5px 11px;border-radius:999px;margin-bottom:10px;color:#fff;}
-  .evtag.web{background:rgba(0,161,217,.9);} .evtag.scr{background:rgba(57,180,110,.95);} .evtag.shop{background:var(--red);}
+  .evtag.web{background:rgba(0,161,217,.9);} .evtag.scr{background:rgba(57,180,110,.95);} .evtag.shop{background:var(--red);} .evtag.lib{background:rgba(48,105,141,.98);}
+  /* speaker avatars in webinar card (swap .av background-image with real headshots) */
+  .spk{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .spk .avs{display:flex;}
+  .spk .av{width:34px;height:34px;border-radius:50%;border:2px solid rgba(255,255,255,.9);margin-left:-10px;background:#cfe0ee center/cover no-repeat;box-shadow:0 2px 6px rgba(0,0,0,.25);}
+  .spk .av:first-child{margin-left:0;}
+  .spk .av.a1{background-image:linear-gradient(135deg,#30698D,#0E2845);} .spk .av.a2{background-image:linear-gradient(135deg,#00A1D9,#30698D);} .spk .av.a3{background-image:linear-gradient(135deg,#DD2036,#8a1622);}
+  .spk .spk-t{font-size:12.5px;color:#e6f0f8;font-weight:500;}
+  .playbig{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-size:9px;padding-left:1px;margin-right:4px;vertical-align:middle;}
   .evcard h3{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:20px;line-height:1.12;color:#fff;margin-bottom:4px;}
   .evcard .meta{font-size:13px;color:#cdddea;margin-bottom:12px;}
   .evcard .go{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px;color:#fff;display:inline-flex;align-items:center;gap:7px;}
@@ -139,7 +162,17 @@
 <div class="navwrap">
   <nav class="nav">
     <img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation">
-    <div class="links"><a>Mission</a><a>How We Help</a><a>Learning Center</a><a>Impact</a><a>Get Involved</a></div>
+    <div class="links">
+      <a>Mission</a><a>How We Help</a><a>Learning Center</a>
+      <div class="dd">
+        <span class="ddt">Webinars <span class="caret">&#9662;</span></span>
+        <div class="ddmenu">
+          <a class="ddi"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
+          <a class="ddi"><b><span class="play">&#9654;</span> On-Demand Library</b><span>Watch every recorded session, anytime</span></a>
+        </div>
+      </div>
+      <a>Impact</a><a>Get Involved</a>
+    </div>
     <div class="sp"></div>
     <a class="btn outline">Shop</a>
     <a class="btn red">Donate</a>
@@ -180,15 +213,19 @@
           </div>
           <div class="ev">
             <span class="evtag web">Upcoming Webinar</span>
-            <h3>Life on MARS: watch on demand</h3>
-            <div class="meta">Free registration &middot; watch anytime</div>
-            <a class="go">Register to watch <span class="arw">&rsaquo;</span></a>
+            <h3>Life on MARS: reducing amputations</h3>
+            <div class="meta">Live &middot; free registration</div>
+            <div class="spk">
+              <span class="avs"><span class="av a1"></span><span class="av a2"></span><span class="av a3"></span></span>
+              <span class="spk-t">Featuring 3 expert speakers</span>
+            </div>
+            <a class="go">Save my seat <span class="arw">&rsaquo;</span></a>
           </div>
           <div class="ev">
-            <span class="evtag shop">Shop to Give</span>
-            <h3>Every purchase helps save a limb</h3>
-            <div class="meta">Bottles, tumblers &amp; more</div>
-            <a class="go">Visit the shop <span class="arw">&rsaquo;</span></a>
+            <span class="evtag lib">On-Demand Library</span>
+            <h3><span class="playbig">&#9654;</span> Watch past webinars anytime</h3>
+            <div class="meta">Our full library of recorded sessions</div>
+            <a class="go">Browse the library <span class="arw">&rsaquo;</span></a>
           </div>
         </div>
       </div>
