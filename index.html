@@ -118,12 +118,23 @@
   /* speaker panel shown as the big visual on the Featured Webinar slide */
   .spkpanel{position:absolute;inset:0;background:linear-gradient(160deg,#0E2845 0%,#081b31 55%,#12324f 100%);padding:32px 28px 0;overflow:hidden;}
   .spkpanel::after{content:'';position:absolute;inset:0;background:radial-gradient(60% 48% at 82% 8%,rgba(0,161,217,.28),transparent 60%),radial-gradient(50% 40% at 6% 96%,rgba(221,32,54,.14),transparent 60%);pointer-events:none;}
-  .spkpanel .ph{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#7fd1f0;margin-bottom:18px;position:relative;display:flex;align-items:center;gap:9px;}
+  .spkpanel .ph,.libpanel .ph{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#7fd1f0;margin-bottom:18px;position:relative;display:flex;align-items:center;gap:9px;}
   .spkpanel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative;}
   .spkpanel figure{margin:0;text-align:center;opacity:0;transform:translateY(12px);}
   .slide.on .spkpanel figure{animation:rise .55s ease forwards;}
   .slide.on .spkpanel figure:nth-child(2){animation-delay:.1s;} .slide.on .spkpanel figure:nth-child(3){animation-delay:.2s;}
-  .spkpanel figure .sp{display:block;width:100%;aspect-ratio:1/1.12;border-radius:16px;background:#26527a center 22%/cover no-repeat;box-shadow:0 12px 26px rgba(0,0,0,.4);border:2px solid rgba(255,255,255,.16);}
+  .spkpanel figure .sp{display:block;width:100%;aspect-ratio:1/1.18;border-radius:16px;background:#26527a center 14%/cover no-repeat;box-shadow:0 12px 26px rgba(0,0,0,.4);border:2px solid rgba(255,255,255,.16);}
+  /* on-demand library faculty wall */
+  .libpanel{position:absolute;inset:0;background:linear-gradient(160deg,#0E2845 0%,#081b31 55%,#10304c 100%);padding:30px 28px 0;overflow:hidden;}
+  .libpanel::after{content:'';position:absolute;inset:0;background:radial-gradient(55% 45% at 88% 8%,rgba(0,161,217,.26),transparent 60%),radial-gradient(45% 38% at 4% 98%,rgba(221,32,54,.14),transparent 60%);pointer-events:none;}
+  .libcap{font-size:13.5px;color:#c2d6e7;margin:-6px 0 16px;position:relative;}
+  .libgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;}
+  .libgrid .face{height:120px;border-radius:14px;background:#26527a center 10%/cover no-repeat;border:2px solid rgba(255,255,255,.14);box-shadow:0 8px 20px rgba(0,0,0,.35);opacity:0;transform:translateY(10px);}
+  .slide.on .libgrid .face{animation:rise .5s ease forwards;}
+  .slide.on .libgrid .face:nth-child(2){animation-delay:.06s;} .slide.on .libgrid .face:nth-child(3){animation-delay:.12s;}
+  .slide.on .libgrid .face:nth-child(4){animation-delay:.18s;} .slide.on .libgrid .face:nth-child(5){animation-delay:.24s;} .slide.on .libgrid .face:nth-child(6){animation-delay:.3s;}
+  .libgrid .more{height:120px;border-radius:14px;border:2px dashed rgba(255,255,255,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#9fc4dd;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:15px;text-align:center;line-height:1.15;gap:2px;}
+  .libgrid .more small{font-size:11px;font-weight:600;color:#7fa6c4;}
   .spkpanel figure b{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-top:11px;line-height:1.15;}
   .spkpanel figure i{display:block;font-size:11px;color:#9fc4dd;font-style:normal;margin-top:3px;letter-spacing:.02em;}
 
@@ -220,7 +231,20 @@
             </div>
           </div>
         </div>
-        <div class="slide"><div class="bg" style="background-image:url('assets/hero-audience.jpg');transform-origin:44% 58%"></div></div>
+        <div class="slide">
+          <div class="libpanel">
+            <div class="ph"><span class="playbig">&#9654;</span> On-demand library</div>
+            <div class="libcap">Watch past webinars from leading limb-preservation experts.</div>
+            <div class="libgrid">
+              <span class="face" style="background-image:url('assets/speakers/alton-johnson.jpg')"></span>
+              <span class="face" style="background-image:url('assets/speakers/mark-melin.jpg')"></span>
+              <span class="face" style="background-image:url('assets/speakers/matthew-regulski.jpg')"></span>
+              <span class="face" style="background-image:url('assets/speakers/karen-bauer.jpg')"></span>
+              <span class="face" style="background-image:url('assets/speakers/matthew-myntti.jpg')"></span>
+              <span class="more">7 webinars<small>and counting</small></span>
+            </div>
+          </div>
+        </div>
         <div class="vig"></div>
         <span class="ph-tag" id="phtag"><span class="live"></span> Community screening &middot; 2026</span>
         <div class="evcard" id="evcard">
@@ -269,7 +293,7 @@
   const evs=[...document.querySelectorAll('#evcard .ev')];
   const pgs=[...document.querySelectorAll('#evcard .pg i')];
   const phtag=document.getElementById('phtag');
-  const caps=['<span class="live"></span> Community screening &middot; 2026','','<span class="live"></span> On-demand webinar library'];
+  const caps=['<span class="live"></span> Community screening &middot; 2026','',''];
   let i=0;
   setInterval(()=>{
     i=(i+1)%slides.length;
