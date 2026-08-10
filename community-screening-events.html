@@ -62,7 +62,7 @@
 <section class="section">
   <div class="container">
     <div class="split">
-      <div class="media" style="background-image:url('assets/event-group.jpg');background-position:center 30%;"></div>
+      <div class="media duo" style="background-image:url('assets/event-group.jpg');background-position:center 30%;"></div>
       <div>
         <div class="eyebrow">What to expect</div>
         <h2 class="sectitle">Not a health fair. A full day built to catch PAD.</h2>
@@ -109,7 +109,7 @@
         <p>Screenings, provider consultations, and education on preventing complications from diabetes and PAD, all at no cost to attendees. Space fills up. Register in advance and we will notify you of any changes to event details.</p>
         <a class="btn btn-red" href="mailto:info@thesalsal.org?subject=Houston%20Screening%20Registration">Register for Houston <span class="arw">&rsaquo;</span></a>
       </div>
-      <div class="media" style="background-image:url('assets/event-audience.jpg');background-position:center 20%;"></div>
+      <div class="media duo" style="background-image:url('assets/event-audience.jpg');background-position:center 20%;"></div>
     </div>
   </div>
 </section>
@@ -118,7 +118,7 @@
 <section class="section alt" id="buffalo">
   <div class="container">
     <div class="split">
-      <div class="media" style="background-image:url('assets/event-clinicians.jpg');background-position:center 30%;"></div>
+      <div class="media duo" style="background-image:url('assets/event-clinicians.jpg');background-position:center 30%;"></div>
       <div>
         <div class="eyebrow">Recently held</div>
         <h2 class="sectitle">Buffalo, NY</h2>
@@ -222,6 +222,27 @@
     </div>
   </div>
 </footer>
+<!-- global: duotone photo filter (navy to sky), used by .media.duo and hero photos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="duo" color-interpolation-filters="sRGB">
+  <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 1 0"/>
+  <feComponentTransfer>
+    <feFuncR type="table" tableValues="0.11 0.87"/>
+    <feFuncG type="table" tableValues="0.21 0.94"/>
+    <feFuncB type="table" tableValues="0.34 0.98"/>
+  </feComponentTransfer>
+</filter></svg>
+<!-- global: scroll-reveal (content stays visible if JS is off) -->
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var els=document.querySelectorAll('.section .container>*');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
 <!-- FOOTER:END -->
 
 </body>

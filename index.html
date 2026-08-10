@@ -243,7 +243,7 @@
           <a class="btn btn-outline" href="upcoming-webinars.html">Upcoming webinars</a>
         </div>
       </div>
-      <div class="media" style="background-image:url('assets/event-audience.jpg');background-position:center 55%;"></div>
+      <div class="media duo" style="background-image:url('assets/event-audience.jpg');background-position:center 55%;"></div>
     </div>
   </div>
 </section>
@@ -252,7 +252,7 @@
 <section class="section alt">
   <div class="container">
     <div class="split">
-      <div class="media" style="background-image:url('assets/event-clinicians.jpg');background-position:center 22%;"></div>
+      <div class="media duo" style="background-image:url('assets/event-clinicians.jpg');background-position:center 22%;"></div>
       <div>
         <div class="eyebrow">Join us in person</div>
         <h2 class="sectitle">Free community health screening, Houston</h2>
@@ -293,16 +293,6 @@
 </section>
 
 </div><!-- /pagebody -->
-
-<!-- duotone filter for hero photos -->
-<svg width="0" height="0" style="position:absolute"><filter id="duo" color-interpolation-filters="sRGB">
-  <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 1 0"/>
-  <feComponentTransfer>
-    <feFuncR type="table" tableValues="0.11 0.87"/>
-    <feFuncG type="table" tableValues="0.21 0.94"/>
-    <feFuncB type="table" tableValues="0.34 0.98"/>
-  </feComponentTransfer>
-</filter></svg>
 
 <script>
   // hero rotation: photo slide + event card + caption stay in sync
@@ -379,6 +369,27 @@
     </div>
   </div>
 </footer>
+<!-- global: duotone photo filter (navy to sky), used by .media.duo and hero photos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="duo" color-interpolation-filters="sRGB">
+  <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 1 0"/>
+  <feComponentTransfer>
+    <feFuncR type="table" tableValues="0.11 0.87"/>
+    <feFuncG type="table" tableValues="0.21 0.94"/>
+    <feFuncB type="table" tableValues="0.34 0.98"/>
+  </feComponentTransfer>
+</filter></svg>
+<!-- global: scroll-reveal (content stays visible if JS is off) -->
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var els=document.querySelectorAll('.section .container>*');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
 <!-- FOOTER:END -->
 
 </body>

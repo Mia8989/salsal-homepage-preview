@@ -62,7 +62,7 @@
 <section class="section">
   <div class="container">
     <div class="split">
-      <div class="media" style="background-image:url('assets/event-clinicians.jpg');background-position:center 25%;"></div>
+      <div class="media duo" style="background-image:url('assets/event-clinicians.jpg');background-position:center 25%;"></div>
       <div>
         <div class="eyebrow">Program one</div>
         <h2 class="sectitle">Provider education</h2>
@@ -84,7 +84,7 @@
         <p>The American Board of Wound Management Foundation administers this scholarship, funded by the Save A Leg, Save A Life Foundation, to help healthcare providers earn their wound certification. Every provider who becomes wound-certified through this scholarship is another clinician equipped to catch a preventable amputation before it happens.</p>
         <a class="btn btn-outline" href="get-involved.html#scholarship">Learn about the scholarship <span class="arw">&rsaquo;</span></a>
       </div>
-      <div class="media" style="background-image:url('assets/event-group.jpg');background-position:center 30%;"></div>
+      <div class="media duo" style="background-image:url('assets/event-group.jpg');background-position:center 30%;"></div>
     </div>
   </div>
 </section>
@@ -93,7 +93,7 @@
 <section class="section">
   <div class="container">
     <div class="split">
-      <div class="media" style="background-image:url('assets/event-audience.jpg');background-position:center 25%;"></div>
+      <div class="media duo" style="background-image:url('assets/event-audience.jpg');background-position:center 25%;"></div>
       <div>
         <div class="eyebrow">Program three</div>
         <h2 class="sectitle">Patient assistance</h2>
@@ -184,6 +184,27 @@
     </div>
   </div>
 </footer>
+<!-- global: duotone photo filter (navy to sky), used by .media.duo and hero photos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="duo" color-interpolation-filters="sRGB">
+  <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 1 0"/>
+  <feComponentTransfer>
+    <feFuncR type="table" tableValues="0.11 0.87"/>
+    <feFuncG type="table" tableValues="0.21 0.94"/>
+    <feFuncB type="table" tableValues="0.34 0.98"/>
+  </feComponentTransfer>
+</filter></svg>
+<!-- global: scroll-reveal (content stays visible if JS is off) -->
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var els=document.querySelectorAll('.section .container>*');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
 <!-- FOOTER:END -->
 
 </body>
