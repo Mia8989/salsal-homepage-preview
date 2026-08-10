@@ -1,0 +1,30 @@
+<div class="navwrap">
+  <nav class="nav">
+    <a href="index.html"><img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation"></a>
+    <div class="links">
+      <a href="mission-vision.html">Mission</a>
+      <a href="how-we-help.html">How We Help</a>
+      <a href="learning-center.html">Learning Center</a>
+      <div class="dd">
+        <span class="ddt">Webinars <span class="caret">&#9662;</span></span>
+        <div class="ddmenu">
+          <a class="ddi" href="upcoming-webinars.html"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
+          <a class="ddi" href="resource-library.html#webinars"><b>Resource Library</b><span>Watch recordings, download guides</span></a>
+        </div>
+      </div>
+      <a href="community-screening-events.html">Impact</a>
+      <a href="get-involved.html">Get Involved</a>
+    </div>
+    <div class="sp"></div>
+    <a class="btn btn-outline" href="shop.html">Shop</a>
+    <a class="btn btn-red" href="donate.html">Donate</a>
+  </nav>
+</div>
+<script>
+(function(){
+  var here=(location.pathname.split('/').pop()||'index.html');
+  document.querySelectorAll('.nav .links a').forEach(function(a){
+    if(a.getAttribute('href')===here){a.classList.add('active');}
+  });
+})();
+</script>

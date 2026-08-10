@@ -5,156 +5,70 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Save a Leg, Save a Life Foundation</title>
+<meta name="description" content="SALSAL is a 501(c)(3) foundation working to prevent lower extremity amputations through education, advocacy, free community screenings, and provider training.">
+<link rel="stylesheet" href="assets/site.css">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
-  :root{
-    --navy:#1C3557; --navy2:#10233b; --red:#E63947; --red-dk:#C62C3A;
-    --blue:#467C9B; --sky:#00AEDF; --sky-l:#7fd3ef; --sand:#F2E8DE; --paper:#F2E8DE;
-  }
-  *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{font-family:'Inter',sans-serif;color:#fff;background:var(--navy2);-webkit-font-smoothing:antialiased;}
-  a{text-decoration:none;color:inherit;}
-  .disp{font-family:'Poppins',sans-serif;}
-
-  /* grain overlay */
-  .grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:.05;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
-
-  /* floating glass nav */
-  .navwrap{position:sticky;top:0;z-index:50;padding:18px 24px;}
-  .nav{max-width:1240px;margin:0 auto;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);
-    border:1px solid rgba(255,255,255,.6);border-radius:20px;box-shadow:0 12px 40px rgba(16,35,59,.28);
-    display:flex;align-items:center;gap:26px;padding:10px 14px 10px 20px;}
-  .nav .logo{height:46px;}
-  .nav .links{display:flex;gap:24px;margin-left:6px;}
-  .nav .links a{font-weight:600;font-size:14.5px;color:var(--navy);white-space:nowrap;position:relative;padding:6px 0;}
-  .nav .links a::after{content:'';position:absolute;left:0;right:100%;bottom:0;height:2px;background:var(--sky);transition:right .25s;}
-  .nav .links a:hover::after{right:0;}
-  /* webinars dropdown */
-  .dd{position:relative;}
-  .dd .ddt{font-weight:600;font-size:14.5px;color:var(--navy);cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:6px 0;}
-  .dd .caret{font-size:10px;transition:transform .22s;color:var(--sky);}
-  .dd:hover .caret{transform:rotate(180deg);}
-  .ddmenu{position:absolute;top:calc(100% + 16px);left:50%;transform:translateX(-50%) translateY(8px);min-width:270px;
-    background:rgba(255,255,255,.99);backdrop-filter:blur(16px);border:1px solid rgba(28,53,87,.08);border-radius:16px;
-    box-shadow:0 22px 55px rgba(16,35,59,.24);padding:8px;opacity:0;pointer-events:none;transition:opacity .2s,transform .2s;z-index:70;}
-  .dd:hover .ddmenu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0);}
-  .ddmenu::before{content:'';position:absolute;top:-7px;left:50%;transform:translateX(-50%) rotate(45deg);width:14px;height:14px;background:#fff;border-left:1px solid rgba(28,53,87,.08);border-top:1px solid rgba(28,53,87,.08);}
-  .ddi{display:block;padding:11px 14px;border-radius:12px;position:relative;}
-  .ddi:hover{background:var(--sand);}
-  .ddi b{display:flex;align-items:center;gap:8px;font-weight:700;font-size:14.5px;color:var(--navy);}
-  .ddi span{display:block;font-size:12.5px;color:var(--blue);margin-top:3px;}
-  .ddi .play{width:20px;height:20px;border-radius:50%;background:var(--red);color:#fff;font-size:9px;display:inline-flex;align-items:center;justify-content:center;padding-left:1px;}
-  .nav .sp{flex:1;}
-  .btn{font-family:'Poppins',sans-serif;font-weight:700;font-size:14.5px;border-radius:14px;padding:11px 20px;
-    display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:2px solid transparent;white-space:nowrap;position:relative;overflow:hidden;
-    transition:transform .18s, background .18s, box-shadow .18s;}
-  .btn.red{background:var(--red);color:#fff;box-shadow:0 6px 18px rgba(230,57,71,.32);}
-  .btn.red:hover{background:var(--red-dk);transform:translateY(-2px);box-shadow:0 10px 26px rgba(230,57,71,.45);}
-  .btn.outline{background:transparent;color:var(--navy);border-color:rgba(28,53,87,.25);}
-  .btn.outline:hover{border-color:var(--navy);transform:translateY(-2px);}
-  .btn.red::after{content:'';position:absolute;top:0;left:0;width:38%;height:100%;
-    background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:translateX(-170%) skewX(-18deg);animation:shine 5.5s ease-in-out infinite;}
-  @keyframes shine{0%,74%{transform:translateX(-170%) skewX(-18deg);}88%{transform:translateX(340%) skewX(-18deg);}100%{transform:translateX(340%) skewX(-18deg);}}
-  .btn.ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.28);backdrop-filter:blur(6px);}
-  .btn.ghost:hover{background:#fff;color:var(--navy);transform:translateY(-2px);}
-  .btn.ghost .arw{transition:transform .2s;}
-  .btn.ghost:hover .arw{transform:translateX(4px);}
-  .btn.lg{padding:15px 26px;font-size:16px;}
-
-  /* hero */
-  .hero{position:relative;overflow:hidden;background:var(--navy);}
-  .hero .glow{position:absolute;inset:0;z-index:0;
-    background:
-      radial-gradient(60% 55% at 12% 8%, rgba(0,174,223,.28), transparent 60%),
-      radial-gradient(45% 50% at 92% 96%, rgba(230,57,71,.22), transparent 60%),
-      radial-gradient(50% 60% at 85% 10%, rgba(70,124,157,.35), transparent 65%);}
-  .hero-grid{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:56px 24px 64px;
-    display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center;min-height:calc(100vh - 84px);}
+  /* homepage hero (ported from the approved design) */
+  body{background:var(--navy2);}
+  .homehero{position:relative;overflow:hidden;background:var(--navy);color:#fff;}
+  .homehero .glow{position:absolute;inset:0;background:radial-gradient(60% 55% at 12% 8%,rgba(0,174,223,.28),transparent 60%),radial-gradient(45% 50% at 92% 96%,rgba(230,57,71,.22),transparent 60%),radial-gradient(50% 60% at 85% 10%,rgba(70,124,157,.35),transparent 65%);}
+  .hero-grid{position:relative;z-index:1;max-width:1240px;margin:0 auto;padding:48px 24px 64px;display:grid;grid-template-columns:1.02fr .98fr;gap:44px;align-items:center;min-height:calc(96vh - 90px);}
   .hero-grid>.lead,.hero-grid>.rail{min-width:0;}
-
-  .chip{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);
-    color:#cfe0ee;font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:8px 15px;border-radius:999px;margin-bottom:26px;}
-  .chip .d{width:7px;height:7px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 0 rgba(0,174,223,.5);animation:pulse 2.2s infinite;}
-  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(0,174,223,.5);}70%{box-shadow:0 0 0 8px rgba(0,174,223,0);}100%{box-shadow:0 0 0 0 rgba(0,174,223,0);}}
-  h1{font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(38px,4.4vw,60px);line-height:1.0;letter-spacing:-0.03em;margin-bottom:22px;}
-  h1 .hl{position:relative;color:var(--sky-l);white-space:nowrap;}
-  h1 .hl::after{content:'';position:absolute;left:0;right:0;bottom:.05em;height:.16em;border-radius:4px;z-index:-1;opacity:.95;
-    background:linear-gradient(90deg,var(--red) 0%,#ff5d6e 48%,var(--red) 100%);background-size:230% 100%;background-position:120% 0;
-    transform:scaleX(0);transform-origin:left;
-    animation:drawLine 0.9s .45s cubic-bezier(.6,.05,.2,1) forwards, lineShimmer 2.6s 1.45s linear infinite;}
+  .homehero .chip{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);color:#cfe6f2;font-family:'Poppins',sans-serif;font-weight:600;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;padding:8px 15px;border-radius:999px;margin-bottom:26px;}
+  .homehero .chip .d{width:7px;height:7px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 0 rgba(0,174,223,.5);animation:hpulse 2.2s infinite;}
+  @keyframes hpulse{0%{box-shadow:0 0 0 0 rgba(0,174,223,.5);}70%{box-shadow:0 0 0 8px rgba(0,174,223,0);}100%{box-shadow:0 0 0 0 rgba(0,174,223,0);}}
+  .homehero h1{font-weight:800;font-size:clamp(38px,4.4vw,60px);line-height:1.0;letter-spacing:-0.03em;margin-bottom:22px;color:#fff;}
+  .homehero h1 .hl{position:relative;color:var(--sky-l);white-space:nowrap;}
+  .homehero h1 .hl::after{content:'';position:absolute;left:0;right:0;bottom:.05em;height:.16em;border-radius:4px;z-index:-1;opacity:.95;background:linear-gradient(90deg,var(--red) 0%,#ff5d6e 48%,var(--red) 100%);background-size:230% 100%;background-position:120% 0;transform:scaleX(0);transform-origin:left;animation:drawLine .9s .45s cubic-bezier(.6,.05,.2,1) forwards,lineShimmer 2.6s 1.45s linear infinite;}
   @keyframes drawLine{to{transform:scaleX(1);}}
   @keyframes lineShimmer{0%{background-position:120% 0;}100%{background-position:-120% 0;}}
-  .lead p.sub{font-size:19px;line-height:1.55;color:#c4d4e3;max-width:500px;margin-bottom:30px;}
-  .cta{display:flex;gap:13px;align-items:center;flex-wrap:wrap;margin-bottom:34px;}
-  /* marquee */
+  .homehero p.sub{font-size:19px;line-height:1.55;color:#c4d4e3;max-width:500px;margin-bottom:30px;}
+  .homehero .cta{display:flex;gap:13px;align-items:center;flex-wrap:wrap;margin-bottom:34px;}
   .marq{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);}
-  .marq .trk{display:inline-flex;gap:34px;white-space:nowrap;animation:scroll 22s linear infinite;color:#8fb0cc;font-weight:600;font-size:14px;letter-spacing:.02em;}
+  .marq .trk{display:inline-flex;gap:34px;white-space:nowrap;animation:mscroll 22s linear infinite;color:#8fb0cc;font-weight:600;font-size:14px;}
   .marq .trk span{display:inline-flex;align-items:center;gap:34px;}
   .marq .trk b{color:var(--sky-l);}
   .marq i{width:6px;height:6px;border-radius:50%;background:var(--red);display:inline-block;}
-  @keyframes scroll{to{transform:translateX(-50%);}}
+  @keyframes mscroll{to{transform:translateX(-50%);}}
   .lead>*{opacity:0;transform:translateY(16px);animation:rise .7s ease forwards;}
-  .lead .chip{animation-delay:.05s;} .lead h1{animation-delay:.15s;} .lead .sub{animation-delay:.3s;}
-  .lead .cta{animation-delay:.42s;} .lead .marq{animation-delay:.54s;}
+  .lead .chip{animation-delay:.05s;} .lead h1{animation-delay:.15s;} .lead .sub{animation-delay:.3s;} .lead .cta{animation-delay:.42s;} .lead .marq{animation-delay:.54s;}
   @keyframes rise{to{opacity:1;transform:translateY(0);}}
-
-  /* right rail: bento */
   .rail{position:relative;height:min(70vh,560px);opacity:0;transform:translateY(20px);animation:rise .8s .35s ease forwards;}
   .photo{position:absolute;inset:0;border-radius:26px;overflow:hidden;box-shadow:0 30px 70px rgba(4,14,26,.55);background:var(--navy);}
-  .photo .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.06);filter:url(#duo) brightness(1.12) contrast(1.03);}
-  .photo.on .bg,.photo .slide.on{}
   .photo .slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;}
   .photo .slide.on{opacity:1;}
+  .photo .bg{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.06);filter:url(#duo) brightness(1.12) contrast(1.03);}
   .photo .slide.on .bg{animation:zoomFace 8s ease-out forwards;}
   @keyframes zoomFace{from{transform:scale(1.06);}to{transform:scale(1.2);}}
   .photo .vig{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,35,59,0) 30%,rgba(16,35,59,.5));z-index:1;}
-  .photo .ph-tag{position:absolute;top:16px;left:16px;z-index:2;display:inline-flex;align-items:center;gap:8px;
-    background:rgba(16,35,59,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);color:#eaf3fa;
-    font-weight:600;font-size:12px;letter-spacing:.04em;padding:7px 12px;border-radius:999px;}
-  .ph-tag .live{width:8px;height:8px;border-radius:50%;background:#39d98a;box-shadow:0 0 0 0 rgba(57,217,138,.6);animation:pulse2 1.8s infinite;}
-  @keyframes pulse2{0%{box-shadow:0 0 0 0 rgba(57,217,138,.6);}70%{box-shadow:0 0 0 7px rgba(57,217,138,0);}100%{box-shadow:0 0 0 0 rgba(57,217,138,0);}}
-  /* speaker panel shown as the big visual on the Featured Webinar slide */
-  .spkpanel{position:absolute;inset:0;background:linear-gradient(160deg,#1C3557 0%,#10233b 55%,#234465 100%);padding:32px 28px 0;overflow:hidden;}
-  .spkpanel::after{content:'';position:absolute;inset:0;background:radial-gradient(60% 48% at 82% 8%,rgba(0,174,223,.28),transparent 60%),radial-gradient(50% 40% at 6% 96%,rgba(230,57,71,.14),transparent 60%);pointer-events:none;}
+  .photo .ph-tag{position:absolute;top:16px;left:16px;z-index:2;display:inline-flex;align-items:center;gap:8px;background:rgba(16,35,59,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.18);color:#eaf3fa;font-weight:600;font-size:12px;padding:7px 12px;border-radius:999px;}
+  .ph-tag .live{width:8px;height:8px;border-radius:50%;background:#39d98a;box-shadow:0 0 0 0 rgba(57,217,138,.6);animation:gpulse 1.8s infinite;}
+  @keyframes gpulse{0%{box-shadow:0 0 0 0 rgba(57,217,138,.6);}70%{box-shadow:0 0 0 7px rgba(57,217,138,0);}100%{box-shadow:0 0 0 0 rgba(57,217,138,0);}}
+  .spkpanel,.libpanel{position:absolute;inset:0;background:linear-gradient(160deg,#1C3557 0%,#10233b 55%,#234465 100%);padding:30px 28px 0;overflow:hidden;}
+  .spkpanel::after,.libpanel::after{content:'';position:absolute;inset:0;background:radial-gradient(60% 48% at 82% 8%,rgba(0,174,223,.28),transparent 60%),radial-gradient(50% 40% at 6% 96%,rgba(230,57,71,.14),transparent 60%);pointer-events:none;}
   .spkpanel .ph,.libpanel .ph{font-family:'Poppins',sans-serif;font-weight:700;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:#7fd3ef;margin-bottom:18px;position:relative;display:flex;align-items:center;gap:9px;}
+  .playbig{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-size:9px;padding-left:1px;}
   .spkpanel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;position:relative;}
   .spkpanel figure{margin:0;text-align:center;opacity:0;transform:translateY(12px);}
   .slide.on .spkpanel figure{animation:rise .55s ease forwards;}
   .slide.on .spkpanel figure:nth-child(2){animation-delay:.1s;} .slide.on .spkpanel figure:nth-child(3){animation-delay:.2s;}
   .spkpanel figure .sp{display:block;width:100%;aspect-ratio:1/1.18;border-radius:16px;background:#467C9B center 14%/cover no-repeat;box-shadow:0 12px 26px rgba(0,0,0,.4);border:2px solid rgba(255,255,255,.16);}
-  /* on-demand library faculty wall */
-  .libpanel{position:absolute;inset:0;background:linear-gradient(160deg,#1C3557 0%,#10233b 55%,#1a3a5a 100%);padding:30px 28px 0;overflow:hidden;}
-  .libpanel::after{content:'';position:absolute;inset:0;background:radial-gradient(55% 45% at 88% 8%,rgba(0,174,223,.26),transparent 60%),radial-gradient(45% 38% at 4% 98%,rgba(230,57,71,.14),transparent 60%);pointer-events:none;}
+  .spkpanel figure b{display:block;font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-top:11px;line-height:1.15;}
+  .spkpanel figure i{display:block;font-size:11px;color:#9fc4dd;font-style:normal;margin-top:3px;}
   .libcap{font-size:13.5px;color:#c2d6e7;margin:-6px 0 16px;position:relative;}
   .libgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;position:relative;}
   .libgrid .face{height:120px;border-radius:14px;background:#467C9B center 10%/cover no-repeat;border:2px solid rgba(255,255,255,.14);box-shadow:0 8px 20px rgba(0,0,0,.35);opacity:0;transform:translateY(10px);}
   .slide.on .libgrid .face{animation:rise .5s ease forwards;}
   .slide.on .libgrid .face:nth-child(2){animation-delay:.06s;} .slide.on .libgrid .face:nth-child(3){animation-delay:.12s;}
-  .slide.on .libgrid .face:nth-child(4){animation-delay:.18s;} .slide.on .libgrid .face:nth-child(5){animation-delay:.24s;} .slide.on .libgrid .face:nth-child(6){animation-delay:.3s;}
+  .slide.on .libgrid .face:nth-child(4){animation-delay:.18s;} .slide.on .libgrid .face:nth-child(5){animation-delay:.24s;}
   .libgrid .more{height:120px;border-radius:14px;border:2px dashed rgba(255,255,255,.3);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#9fc4dd;font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;text-align:center;line-height:1.15;gap:2px;}
   .libgrid .more small{font-size:11px;font-weight:600;color:#7fa6c4;}
-  .spkpanel figure b{display:block;font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;color:#fff;margin-top:11px;line-height:1.15;}
-  .spkpanel figure i{display:block;font-size:11px;color:#9fc4dd;font-style:normal;margin-top:3px;letter-spacing:.02em;}
-
-  /* rotating event card (glass) overlapping bottom */
-  .evcard{position:absolute;left:22px;right:22px;bottom:22px;z-index:3;
-    background:rgba(255,255,255,.14);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.28);
-    border-radius:20px;padding:18px 20px;box-shadow:0 18px 40px rgba(4,14,26,.4);}
+  .evcard{position:absolute;left:22px;right:22px;bottom:22px;z-index:3;background:rgba(255,255,255,.14);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.28);border-radius:20px;padding:18px 20px;box-shadow:0 18px 40px rgba(4,14,26,.4);}
   .evcard .ev{display:none;}
   .evcard .ev.on{display:block;animation:evlift .5s ease;}
   @keyframes evlift{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
   .evtag{display:inline-block;font-family:'Poppins',sans-serif;font-weight:700;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;padding:5px 11px;border-radius:999px;margin-bottom:10px;color:#fff;}
-  .evtag.web{background:rgba(0,174,223,.9);} .evtag.scr{background:rgba(57,180,110,.95);} .evtag.shop{background:var(--red);} .evtag.lib{background:rgba(70,124,157,.98);}
-  /* speaker avatars in webinar card (swap .av background-image with real headshots) */
-  .spk{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-  .spk .avs{display:flex;}
-  .spk .av{width:34px;height:34px;border-radius:50%;border:2px solid rgba(255,255,255,.9);margin-left:-10px;background:#cfe0ee center/cover no-repeat;box-shadow:0 2px 6px rgba(0,0,0,.25);}
-  .spk .av:first-child{margin-left:0;}
-  .spk .av.a1{background-image:linear-gradient(135deg,#467C9B,#1C3557);} .spk .av.a2{background-image:linear-gradient(135deg,#00AEDF,#467C9B);} .spk .av.a3{background-image:linear-gradient(135deg,#E63947,#8a1622);}
-  .spk .spk-t{font-size:12.5px;color:#e6f0f8;font-weight:500;}
-  .playbig{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--red);color:#fff;font-size:9px;padding-left:1px;margin-right:4px;vertical-align:middle;}
+  .evtag.web{background:rgba(0,174,223,.9);} .evtag.scr{background:rgba(57,180,110,.95);} .evtag.lib{background:rgba(70,124,157,.98);}
   .evcard h3{font-family:'Poppins',sans-serif;font-weight:700;font-size:20px;line-height:1.12;color:#fff;margin-bottom:4px;}
   .evcard .meta{font-size:13px;color:#cdddea;margin-bottom:12px;}
   .evcard .go{font-family:'Poppins',sans-serif;font-weight:700;font-size:14px;color:#fff;display:inline-flex;align-items:center;gap:7px;}
@@ -162,55 +76,62 @@
   .evcard .pg{position:absolute;top:16px;right:18px;display:flex;gap:6px;}
   .evcard .pg i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);}
   .evcard .pg i.on{background:#fff;}
-
-  /* floating stat chip */
-  .statchip{position:absolute;top:-18px;right:-14px;z-index:4;background:#fff;color:var(--navy);border-radius:18px;
-    padding:14px 18px;box-shadow:0 16px 40px rgba(4,14,26,.4);text-align:center;}
-  .statchip .n{font-family:'Poppins',sans-serif;font-weight:800;font-size:34px;color:var(--red);line-height:1;}
-  .statchip .n small{font-size:19px;}
-  .statchip .t{font-size:11px;color:var(--blue);font-weight:600;margin-top:3px;max-width:120px;line-height:1.25;}
-
-  @media(max-width:960px){
-    .nav .links{display:none;}
-    .hero-grid{grid-template-columns:1fr;gap:30px;min-height:auto;padding:36px 20px 48px;}
-    .rail{height:60vh;min-height:380px;}
-    .statchip{right:8px;top:-14px;}
-  }
+  .statchip{position:absolute;top:-18px;right:-14px;z-index:4;background:#fff;color:var(--navy);border-radius:18px;padding:14px 18px;box-shadow:0 16px 40px rgba(4,14,26,.4);text-align:center;}
+  .statchip .n{font-family:'Poppins',sans-serif;font-weight:800;font-size:30px;color:var(--red);line-height:1;}
+  .statchip .t{font-size:11px;color:var(--blue);font-weight:600;margin-top:3px;max-width:130px;line-height:1.25;}
+  .btn.red-shine{position:relative;overflow:hidden;}
+  .btn.red-shine::after{content:'';position:absolute;top:0;left:0;width:38%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);transform:translateX(-170%) skewX(-18deg);animation:shine 5.5s ease-in-out infinite;}
+  @keyframes shine{0%,74%{transform:translateX(-170%) skewX(-18deg);}88%{transform:translateX(340%) skewX(-18deg);}100%{transform:translateX(340%) skewX(-18deg);}}
+  /* below-hero page background returns to paper */
+  .pagebody{background:var(--paper);color:var(--ink);}
+  @media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:30px;min-height:auto;padding:32px 20px 44px;}.rail{height:60vh;min-height:380px;}.statchip{right:8px;top:-14px;}}
 </style>
 </head>
 <body>
-<div class="grain"></div>
 
+<!-- NAV:START (edit partials/nav.html, then run build.py) -->
 <div class="navwrap">
   <nav class="nav">
-    <img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation">
+    <a href="index.html"><img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation"></a>
     <div class="links">
-      <a>Mission</a><a>How We Help</a><a>Learning Center</a>
+      <a href="mission-vision.html">Mission</a>
+      <a href="how-we-help.html">How We Help</a>
+      <a href="learning-center.html">Learning Center</a>
       <div class="dd">
         <span class="ddt">Webinars <span class="caret">&#9662;</span></span>
         <div class="ddmenu">
-          <a class="ddi"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
-          <a class="ddi"><b><span class="play">&#9654;</span> On-Demand Library</b><span>Watch every recorded session, anytime</span></a>
+          <a class="ddi" href="upcoming-webinars.html"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
+          <a class="ddi" href="resource-library.html#webinars"><b>Resource Library</b><span>Watch recordings, download guides</span></a>
         </div>
       </div>
-      <a>Impact</a><a>Get Involved</a>
+      <a href="community-screening-events.html">Impact</a>
+      <a href="get-involved.html">Get Involved</a>
     </div>
     <div class="sp"></div>
-    <a class="btn outline">Shop</a>
-    <a class="btn red">Donate</a>
+    <a class="btn btn-outline" href="shop.html">Shop</a>
+    <a class="btn btn-red" href="donate.html">Donate</a>
   </nav>
 </div>
+<script>
+(function(){
+  var here=(location.pathname.split('/').pop()||'index.html');
+  document.querySelectorAll('.nav .links a').forEach(function(a){
+    if(a.getAttribute('href')===here){a.classList.add('active');}
+  });
+})();
+</script>
+<!-- NAV:END -->
 
-<header class="hero">
+<header class="homehero">
   <div class="glow"></div>
   <div class="hero-grid">
     <div class="lead">
       <span class="chip"><span class="d"></span> Amputation prevention &middot; advocacy &middot; education</span>
-      <h1 class="disp">Most amputations are <span class="hl">preventable</span>.</h1>
+      <h1>Most amputations are <span class="hl">preventable</span>.</h1>
       <p class="sub">We help patients keep their limbs through education, advocacy, and access to advanced, evidence-based wound care.</p>
       <div class="cta">
-        <a class="btn red lg">Donate</a>
-        <a class="btn ghost lg">How we help <span class="arw">&rsaquo;</span></a>
+        <a class="btn btn-red btn-lg red-shine" href="donate.html">Donate</a>
+        <a class="btn btn-ghost btn-lg" href="how-we-help.html">How we help <span class="arw">&rsaquo;</span></a>
       </div>
       <div class="marq"><div class="trk">
         <span><b>Free community screenings</b><i></i> Provider training<i></i> Patient resources<i></i> Live webinars<i></i> Policy advocacy<i></i></span>
@@ -220,7 +141,10 @@
 
     <div class="rail">
       <div class="photo" id="photo">
-        <div class="slide on"><div class="bg" style="background-image:url('assets/hero-group.jpg');transform-origin:50% 44%"></div></div>
+        <div class="slide on">
+          <div class="bg" style="background-image:url('assets/event-group.jpg');transform-origin:50% 44%"></div>
+          <div class="vig"></div>
+        </div>
         <div class="slide">
           <div class="spkpanel">
             <div class="ph"><span class="playbig">&#9654;</span> Featured speakers</div>
@@ -233,7 +157,7 @@
         </div>
         <div class="slide">
           <div class="libpanel">
-            <div class="ph"><span class="playbig">&#9654;</span> On-demand library</div>
+            <div class="ph"><span class="playbig">&#9654;</span> Resource library</div>
             <div class="libcap">Watch past webinars from leading limb-preservation experts.</div>
             <div class="libgrid">
               <span class="face" style="background-image:url('assets/speakers/alton-johnson.jpg')"></span>
@@ -241,43 +165,136 @@
               <span class="face" style="background-image:url('assets/speakers/matthew-regulski.jpg')"></span>
               <span class="face" style="background-image:url('assets/speakers/karen-bauer.jpg')"></span>
               <span class="face" style="background-image:url('assets/speakers/matthew-myntti.jpg')"></span>
-              <span class="more">7 webinars<small>and counting</small></span>
+              <span class="more">6 webinars<small>and counting</small></span>
             </div>
           </div>
         </div>
-        <div class="vig"></div>
         <span class="ph-tag" id="phtag"><span class="live"></span> Community screening &middot; 2026</span>
         <div class="evcard" id="evcard">
           <div class="pg"><i class="on"></i><i></i><i></i></div>
           <div class="ev on">
             <span class="evtag scr">Free Screening</span>
-            <h3>Find a free limb screening near you</h3>
-            <div class="meta">Early detection saves limbs</div>
-            <a class="go">See screening events <span class="arw">&rsaquo;</span></a>
+            <h3>Free community limb screening, Houston</h3>
+            <div class="meta">Sat, Sep 26, 2026 &middot; 9 AM to 2 PM &middot; 100% free</div>
+            <a class="go" href="community-screening-events.html">See screening events <span class="arw">&rsaquo;</span></a>
           </div>
           <div class="ev">
             <span class="evtag web">Featured Webinar</span>
             <h3>Time Is Tissue: disrupting biofilm to prevent amputation</h3>
             <div class="meta">On demand &middot; free to watch</div>
-            <a class="go">Watch on demand <span class="arw">&rsaquo;</span></a>
+            <a class="go" href="resource-library.html#webinars">Watch on demand <span class="arw">&rsaquo;</span></a>
           </div>
           <div class="ev">
-            <span class="evtag lib">On-Demand Library</span>
-            <h3><span class="playbig">&#9654;</span> Watch past webinars anytime</h3>
-            <div class="meta">Our full library of recorded sessions</div>
-            <a class="go">Browse the library <span class="arw">&rsaquo;</span></a>
+            <span class="evtag lib">Resource Library</span>
+            <h3>Watch past webinars anytime</h3>
+            <div class="meta">Recorded sessions plus free fact sheets</div>
+            <a class="go" href="resource-library.html">Browse the library <span class="arw">&rsaquo;</span></a>
           </div>
         </div>
       </div>
       <div class="statchip">
-        <div class="n"><span id="cnt">0</span><small>%</small></div>
-        <div class="t">of amputations are preventable with early care</div>
+        <div class="n">2015</div>
+        <div class="t">fighting preventable amputations since our founding</div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- duotone filter (navy shadows -> light-sky highlights) -->
+<div class="pagebody">
+
+<!-- PILLARS -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow center">Three ways we save limbs and lives</div>
+    <h2 class="sectitle center">Pillars, not slogans</h2>
+    <div class="grid g3">
+      <div class="card"><div class="ic">E</div><h3>Educate</h3><p>We inform the public and healthcare professionals about evidence-based measures that prevent or delay non-traumatic amputations.</p></div>
+      <div class="card red"><div class="ic">A</div><h3>Advocate</h3><p>We stand behind patients with limb loss and the populations at highest risk for amputation, in the exam room and in policy.</p></div>
+      <div class="card"><div class="ic">C</div><h3>Communicate</h3><p>We build the lines of communication between the healthcare professionals who treat amputation-vulnerable patients, so care does not fall through the cracks.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="section alt">
+  <div class="container">
+    <div class="eyebrow">Our programs</div>
+    <h2 class="sectitle">Four programs carry the mission</h2>
+    <div class="grid g2">
+      <div class="card"><h3>Community screening and education</h3><p>Free health screenings and provider education, hosted in the communities that need them most, so at-risk patients find out their risk level before it becomes an emergency.</p><a class="more" href="community-screening-events.html">Screening events &rsaquo;</a></div>
+      <div class="card"><h3>Provider education</h3><p>Webinars, training, and networking conferences that keep clinicians current on peripheral arterial disease, critical limb ischemia, and preventable lower extremity amputation.</p><a class="more" href="learning-center.html">Learning Center &rsaquo;</a></div>
+      <div class="card"><h3>Harold L. Johnson Memorial Scholarship</h3><p>Administered by the American Board of Wound Management Foundation and funded by SALSAL, this scholarship helps healthcare providers earn their wound certification.</p><a class="more" href="get-involved.html">About the scholarship &rsaquo;</a></div>
+      <div class="card"><h3>Patient assistance</h3><p>Direct support, including diabetic shoes, dressing supplies, knee walkers, and other wound-healing items, for patients working to prevent amputation.</p><a class="more" href="how-we-help.html">How we help &rsaquo;</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- LEARN -->
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="eyebrow">Learn from the experts</div>
+        <h2 class="sectitle">Real sessions from real specialists</h2>
+        <p>Our Resource Library holds recorded sessions like "Life on MARS: Findings from the Successful Implementation of the Manchester Amputation Reduction System" and "Enhancing Patient Care in Peripheral Arterial Disease," featuring specialists from leading wound care and vascular programs. Continuing education credit is available on select sessions.</p>
+        <p><em>This information is for educational purposes only and is not intended to replace professional medical advice. Always consult your healthcare provider.</em></p>
+        <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+          <a class="btn btn-red" href="resource-library.html">Browse the Resource Library</a>
+          <a class="btn btn-outline" href="upcoming-webinars.html">Upcoming webinars</a>
+        </div>
+      </div>
+      <div class="media" style="background-image:url('assets/event-audience.jpg');background-position:center 55%;"></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOUSTON EVENT -->
+<section class="section alt">
+  <div class="container">
+    <div class="split">
+      <div class="media" style="background-image:url('assets/event-clinicians.jpg');background-position:center 22%;"></div>
+      <div>
+        <div class="eyebrow">Join us in person</div>
+        <h2 class="sectitle">Free community health screening, Houston</h2>
+        <p><strong>Saturday, September 26, 2026, 9:00 AM to 2:00 PM</strong><br>Fifth Ward Multi-Service Center, 4104 Market St., Houston, TX 77020. 100% free.</p>
+        <p>Early screening finds risk before it becomes an amputation. If you are in the Houston area, or know someone at risk for diabetes-related wounds or PAD, this is the event to bring them to.</p>
+        <a class="btn btn-red" href="community-screening-events.html">Event details &amp; registration</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section class="section tight">
+  <div class="container">
+    <div class="ctaband">
+      <h2>Put your support behind prevention</h2>
+      <p>"SALSAL is committed to taking action, not just talking about the problem of often-preventable lower extremity amputation." Dr. Desmond Bell, founder. Your donation funds patient assistance, free screenings, and provider education. The Save A Leg, Save A Life Foundation is a 501(c)(3) nonprofit, Tax ID 32-0467696.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+        <a class="btn btn-red btn-lg" href="donate.html">Donate now</a>
+        <a class="btn btn-ghost btn-lg" href="shop.html">Shop to give <span class="arw">&rsaquo;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="section">
+  <div class="container">
+    <div class="eyebrow">What's new at SALSAL</div>
+    <h2 class="sectitle">Latest news</h2>
+    <!-- LIVE FEED: wire the 3 most recent News posts here at launch -->
+    <div class="grid g3">
+      <div class="card"><h3>SALSAL welcomes new board members</h3><p>Five new directors, each bringing wound care, research, and operations expertise, joined the Board of Directors in 2026.</p><a class="more" href="news.html">Read more &rsaquo;</a></div>
+      <div class="card"><h3>Advancing education in limb salvage</h3><p>An educational webinar for healthcare professionals covering innovative approaches and collaborative care in preventing amputations.</p><a class="more" href="news.html">Read more &rsaquo;</a></div>
+      <div class="card"><h3>Life on MARS: real-world findings</h3><p>A recorded session on outcomes from the UK's Manchester Amputation Reduction System approach to limb preservation.</p><a class="more" href="resource-library.html#webinars">Watch &rsaquo;</a></div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /pagebody -->
+
+<!-- duotone filter for hero photos -->
 <svg width="0" height="0" style="position:absolute"><filter id="duo" color-interpolation-filters="sRGB">
   <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 1 0"/>
   <feComponentTransfer>
@@ -288,7 +305,7 @@
 </filter></svg>
 
 <script>
-  // rotate photo (face-zoom) + event card together
+  // hero rotation: photo slide + event card + caption stay in sync
   const slides=[...document.querySelectorAll('#photo .slide')];
   const evs=[...document.querySelectorAll('#evcard .ev')];
   const pgs=[...document.querySelectorAll('#evcard .pg i')];
@@ -305,10 +322,64 @@
     pgs.forEach((p,idx)=>p.classList.toggle('on',idx===i));
     if(phtag){ phtag.innerHTML=caps[i]||''; phtag.style.display=caps[i]?'inline-flex':'none'; }
   },4200);
-
-  // count up stat
-  const cnt=document.getElementById('cnt');let v=0;
-  const t=setInterval(()=>{v+=2;if(v>=85){v=85;clearInterval(t);}cnt.textContent=v;},22);
 </script>
+
+<!-- FOOTER:START (edit partials/footer.html, then run build.py) -->
+<footer class="footer">
+  <div class="container">
+    <div class="cols">
+      <div class="about">
+        <img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation">
+        <p>The Save A Leg, Save A Life Foundation is a 501(c)(3) nonprofit working to reduce preventable lower extremity amputations. Federal Tax ID 32-0467696. Florida Solicitation Registration CH47375.</p>
+        <p>4403 5th Ave NE, Bradenton, FL 34208<br>+1 813-445-3857 &middot; info@thesalsal.org</p>
+      </div>
+      <div>
+        <h4>About</h4>
+        <a href="mission-vision.html">Mission &amp; Vision</a>
+        <a href="how-we-help.html">How We Help</a>
+        <a href="board-of-directors.html">Board of Directors</a>
+        <a href="news.html">News</a>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <a href="learning-center.html">Learning Center</a>
+        <a href="resource-library.html">Resource Library</a>
+        <a href="upcoming-webinars.html">Upcoming Webinars</a>
+        <a href="community-screening-events.html">Screening Events</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="donate.html">Donate</a>
+        <a href="become-supporter.html">Become a Supporter</a>
+        <a href="corporate-sponsorship.html">Corporate Sponsorship</a>
+        <a href="shop.html">Shop</a>
+      </div>
+    </div>
+    <div class="partners">
+      <div class="lbl">Mission partners</div>
+      <div class="row">
+        <img src="assets/partners/organogenesis-logo-1.png" alt="Organogenesis">
+        <img src="assets/partners/MC-WM-transparent-1.png" alt="Medline">
+        <img src="assets/partners/imgi_1_halliburton-logo.svg" alt="Halliburton">
+        <img src="assets/partners/Advanced-Solution-Logo-Color-MAIN-1024x332.png" alt="Advanced Solution">
+        <img src="assets/partners/AIROS-MEDICAL-HORIZONTAL-NO-MARGINS-2.png" alt="Airos Medical">
+        <img src="assets/partners/MIMOSA-Logo-Blue-1-1024x229.jpg" alt="Mimosa">
+        <img src="assets/partners/SweetBio_Logo_Manuka.png" alt="SweetBio">
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 The Save A Leg, Save A Life Foundation. All rights reserved.</span>
+      <span class="socials">
+        <a href="https://www.facebook.com/TheSALSALorg">Facebook</a>
+        <a href="https://twitter.com/thesalsalorg">X</a>
+        <a href="https://www.instagram.com/thesalsalfoundation">Instagram</a>
+        <a href="https://www.linkedin.com/company/the-save-a-leg-save-a-life-foundation/">LinkedIn</a>
+        <a href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">YouTube</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<!-- FOOTER:END -->
+
 </body>
 </html>
