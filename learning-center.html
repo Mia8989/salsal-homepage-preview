@@ -53,6 +53,18 @@
   document.querySelectorAll('.nav .links a').forEach(function(a){
     if(a.getAttribute('href')===here){a.classList.add('active');}
   });
+  // dropdowns: click/tap toggles (hover also works on desktop)
+  document.querySelectorAll('.nav .dd .ddt').forEach(function(t){
+    t.addEventListener('click',function(e){
+      e.stopPropagation();
+      var dd=t.parentElement;
+      document.querySelectorAll('.nav .dd').forEach(function(o){ if(o!==dd) o.classList.remove('open'); });
+      dd.classList.toggle('open');
+    });
+  });
+  document.addEventListener('click',function(){
+    document.querySelectorAll('.nav .dd').forEach(function(o){ o.classList.remove('open'); });
+  });
 })();
 </script>
 <!-- NAV:END -->
@@ -60,7 +72,7 @@
 <!-- PAGE HERO -->
 <header class="phero">
   <div class="glow"></div>
-  <div class="in">
+  <div class="in herogrid"><div class="plead">
     <span class="kicker"><span class="d"></span> Learning center</span>
     <h1>The <span class="hl">Learning</span> Center.</h1>
     <p class="sub">One place for the evidence, the policy, and the plain-language resources that help providers and patients catch peripheral arterial disease before it costs a limb.</p>
@@ -68,7 +80,12 @@
       <a class="btn btn-red btn-lg" href="resource-library.html">Explore patient resources</a>
       <a class="btn btn-ghost btn-lg" href="#salsal-challenge">Read the SALSAL Challenge <span class="arw">&rsaquo;</span></a>
     </div>
-  </div>
+  </div><div class="pvisual">
+      <div class="ptile"><div class="pimg" style="background-image:url('assets/event-audience.jpg');background-position:center 50%;"></div>
+        <span class="ptag"><span class="live"></span> Provider education, live</span>
+      </div>
+      <div class="pchip"><b>5</b><span>free fact sheets to download</span></div>
+    </div></div>
 </header>
 
 <!-- WHY THIS PAGE EXISTS -->

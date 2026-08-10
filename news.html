@@ -53,6 +53,18 @@
   document.querySelectorAll('.nav .links a').forEach(function(a){
     if(a.getAttribute('href')===here){a.classList.add('active');}
   });
+  // dropdowns: click/tap toggles (hover also works on desktop)
+  document.querySelectorAll('.nav .dd .ddt').forEach(function(t){
+    t.addEventListener('click',function(e){
+      e.stopPropagation();
+      var dd=t.parentElement;
+      document.querySelectorAll('.nav .dd').forEach(function(o){ if(o!==dd) o.classList.remove('open'); });
+      dd.classList.toggle('open');
+    });
+  });
+  document.addEventListener('click',function(){
+    document.querySelectorAll('.nav .dd').forEach(function(o){ o.classList.remove('open'); });
+  });
 })();
 </script>
 <!-- NAV:END -->
@@ -60,7 +72,7 @@
 <!-- PAGE HERO -->
 <header class="phero">
   <div class="glow"></div>
-  <div class="in">
+  <div class="in herogrid"><div class="plead">
     <span class="kicker"><span class="d"></span> The latest</span>
     <h1>What's happening at <span class="hl">SALSAL</span></h1>
     <p class="sub">What's happening at the Save A Leg, Save A Life Foundation, from new board members to the next webinar on the calendar.</p>
@@ -68,7 +80,12 @@
       <a class="btn btn-red btn-lg" href="#">Join the Newsletter</a>
       <a class="btn btn-ghost btn-lg" href="resource-library.html#webinars">Browse the On-Demand Library <span class="arw">&rsaquo;</span></a>
     </div>
-  </div>
+  </div><div class="pvisual">
+      <div class="ptile"><div class="pimg" style="background-image:url('assets/event-group.jpg');background-position:center 42%;"></div>
+        <span class="ptag"><span class="live"></span> Latest from SALSAL</span>
+      </div>
+      <div class="pchip"><b>2026</b><span>five new board members</span></div>
+    </div></div>
 </header>
 
 <!-- HOW THIS PAGE IS ORGANIZED -->

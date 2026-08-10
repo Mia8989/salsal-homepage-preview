@@ -62,13 +62,25 @@
   document.querySelectorAll('.nav .links a').forEach(function(a){
     if(a.getAttribute('href')===here){a.classList.add('active');}
   });
+  // dropdowns: click/tap toggles (hover also works on desktop)
+  document.querySelectorAll('.nav .dd .ddt').forEach(function(t){
+    t.addEventListener('click',function(e){
+      e.stopPropagation();
+      var dd=t.parentElement;
+      document.querySelectorAll('.nav .dd').forEach(function(o){ if(o!==dd) o.classList.remove('open'); });
+      dd.classList.toggle('open');
+    });
+  });
+  document.addEventListener('click',function(){
+    document.querySelectorAll('.nav .dd').forEach(function(o){ o.classList.remove('open'); });
+  });
 })();
 </script>
 <!-- NAV:END -->
 
 <header class="phero">
   <div class="glow"></div>
-  <div class="in">
+  <div class="in herogrid"><div class="plead">
     <span class="kicker"><span class="d"></span> Board of Directors</span>
     <h1>The people <span class="hl">behind</span> the mission.</h1>
     <p class="sub">SALSAL's Board of Directors is made up of wound care physicians, nurse practitioners, researchers, and industry leaders who volunteer their time because they have seen how many amputations did not have to happen.</p>
@@ -76,7 +88,12 @@
       <a class="btn btn-red btn-lg" href="donate.html">Donate</a>
       <a class="btn btn-ghost btn-lg" href="mission-vision.html">Read our mission <span class="arw">&rsaquo;</span></a>
     </div>
-  </div>
+  </div><div class="pvisual">
+      <div class="ptile"><div class="pimg" style="background-image:url('assets/board/desmond-bell.jpg');background-position:center 16%;"></div>
+        <span class="ptag"><span class="live"></span> Leadership</span>
+      </div>
+      <div class="pchip"><b>18</b><span>board members strong</span></div>
+    </div></div>
 </header>
 
 <!-- FOUNDER -->
