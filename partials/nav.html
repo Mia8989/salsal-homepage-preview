@@ -1,43 +1,44 @@
 <div class="navwrap">
   <nav class="nav">
-    <a href="index.html"><img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation"></a>
+    <a href="./"><img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation"></a>
     <div class="links">
       <div class="dd">
         <span class="ddt">About <span class="caret">&#9662;</span></span>
         <div class="ddmenu">
-          <a class="ddi" href="mission-vision.html"><b>Mission &amp; Vision</b><span>Why SALSAL exists</span></a>
-          <a class="ddi" href="how-we-help.html"><b>How We Help</b><span>Our four programs</span></a>
-          <a class="ddi" href="board-of-directors.html"><b>Board of Directors</b><span>The people behind the mission</span></a>
+          <a class="ddi" href="mission-vision"><b>Mission &amp; Vision</b><span>Why SALSAL exists</span></a>
+          <a class="ddi" href="how-we-help"><b>How We Help</b><span>Our four programs</span></a>
+          <a class="ddi" href="board-of-directors"><b>Board of Directors</b><span>The people behind the mission</span></a>
         </div>
       </div>
-      <a href="learning-center.html">Learning Center</a>
+      <a href="learning-center">Learning Center</a>
       <div class="dd">
         <span class="ddt">Webinars <span class="caret">&#9662;</span></span>
         <div class="ddmenu">
-          <a class="ddi" href="upcoming-webinars.html"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
-          <a class="ddi" href="resource-library.html#webinars"><b>Resource Library</b><span>Watch recordings, download guides</span></a>
+          <a class="ddi" href="upcoming-webinars"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
+          <a class="ddi" href="resource-library#webinars"><b>Resource Library</b><span>Watch recordings, download guides</span></a>
         </div>
       </div>
       <div class="dd">
         <span class="ddt">Impact <span class="caret">&#9662;</span></span>
         <div class="ddmenu">
-          <a class="ddi" href="community-screening-events.html"><b>Screening &amp; Events</b><span>Free community screenings</span></a>
-          <a class="ddi" href="news.html"><b>News</b><span>What's new at SALSAL</span></a>
+          <a class="ddi" href="community-screening-events"><b>Screening &amp; Events</b><span>Free community screenings</span></a>
+          <a class="ddi" href="news"><b>News</b><span>What's new at SALSAL</span></a>
         </div>
       </div>
-      <a href="get-involved.html">Get Involved</a>
-      <a href="corporate-sponsorship.html">Sponsorship</a>
+      <a href="get-involved">Get Involved</a>
+      <a href="corporate-sponsorship">Sponsorship</a>
     </div>
     <div class="sp"></div>
-    <a class="btn btn-outline" href="shop.html">Shop</a>
-    <a class="btn btn-red" href="donate.html">Donate</a>
+    <a class="btn btn-outline" href="shop">Shop</a>
+    <a class="btn btn-red" href="donate">Donate</a>
   </nav>
 </div>
 <script>
 (function(){
-  var here=(location.pathname.split('/').pop()||'index.html');
+  var seg=location.pathname.split('/').filter(Boolean).pop()||'';
   document.querySelectorAll('.nav .links a').forEach(function(a){
-    if(a.getAttribute('href')===here){a.classList.add('active');}
+    var href=a.getAttribute('href');
+    if(href===seg || (seg==='' && href==='./')){ a.classList.add('active'); }
   });
   // dropdowns: click/tap toggles (hover also works on desktop)
   document.querySelectorAll('.nav .dd .ddt').forEach(function(t){

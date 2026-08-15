@@ -14,44 +14,45 @@
 <!-- NAV:START (edit partials/nav.html, then run build.py) -->
 <div class="navwrap">
   <nav class="nav">
-    <a href="index.html"><img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation"></a>
+    <a href="./"><img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation"></a>
     <div class="links">
       <div class="dd">
         <span class="ddt">About <span class="caret">&#9662;</span></span>
         <div class="ddmenu">
-          <a class="ddi" href="mission-vision.html"><b>Mission &amp; Vision</b><span>Why SALSAL exists</span></a>
-          <a class="ddi" href="how-we-help.html"><b>How We Help</b><span>Our four programs</span></a>
-          <a class="ddi" href="board-of-directors.html"><b>Board of Directors</b><span>The people behind the mission</span></a>
+          <a class="ddi" href="mission-vision"><b>Mission &amp; Vision</b><span>Why SALSAL exists</span></a>
+          <a class="ddi" href="how-we-help"><b>How We Help</b><span>Our four programs</span></a>
+          <a class="ddi" href="board-of-directors"><b>Board of Directors</b><span>The people behind the mission</span></a>
         </div>
       </div>
-      <a href="learning-center.html">Learning Center</a>
+      <a href="learning-center">Learning Center</a>
       <div class="dd">
         <span class="ddt">Webinars <span class="caret">&#9662;</span></span>
         <div class="ddmenu">
-          <a class="ddi" href="upcoming-webinars.html"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
-          <a class="ddi" href="resource-library.html#webinars"><b>Resource Library</b><span>Watch recordings, download guides</span></a>
+          <a class="ddi" href="upcoming-webinars"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
+          <a class="ddi" href="resource-library#webinars"><b>Resource Library</b><span>Watch recordings, download guides</span></a>
         </div>
       </div>
       <div class="dd">
         <span class="ddt">Impact <span class="caret">&#9662;</span></span>
         <div class="ddmenu">
-          <a class="ddi" href="community-screening-events.html"><b>Screening &amp; Events</b><span>Free community screenings</span></a>
-          <a class="ddi" href="news.html"><b>News</b><span>What's new at SALSAL</span></a>
+          <a class="ddi" href="community-screening-events"><b>Screening &amp; Events</b><span>Free community screenings</span></a>
+          <a class="ddi" href="news"><b>News</b><span>What's new at SALSAL</span></a>
         </div>
       </div>
-      <a href="get-involved.html">Get Involved</a>
-      <a href="corporate-sponsorship.html">Sponsorship</a>
+      <a href="get-involved">Get Involved</a>
+      <a href="corporate-sponsorship">Sponsorship</a>
     </div>
     <div class="sp"></div>
-    <a class="btn btn-outline" href="shop.html">Shop</a>
-    <a class="btn btn-red" href="donate.html">Donate</a>
+    <a class="btn btn-outline" href="shop">Shop</a>
+    <a class="btn btn-red" href="donate">Donate</a>
   </nav>
 </div>
 <script>
 (function(){
-  var here=(location.pathname.split('/').pop()||'index.html');
+  var seg=location.pathname.split('/').filter(Boolean).pop()||'';
   document.querySelectorAll('.nav .links a').forEach(function(a){
-    if(a.getAttribute('href')===here){a.classList.add('active');}
+    var href=a.getAttribute('href');
+    if(href===seg || (seg==='' && href==='./')){ a.classList.add('active'); }
   });
   // dropdowns: click/tap toggles (hover also works on desktop)
   document.querySelectorAll('.nav .dd .ddt').forEach(function(t){
@@ -77,8 +78,8 @@
     <h1>Prevention through <span class="hl">action</span>, not words.</h1>
     <p class="sub">SALSAL was founded on the belief that amputation is a treatment failure, not a treatment option, and that most of it can be stopped before it starts.</p>
     <div class="cta">
-      <a class="btn btn-red btn-lg" href="donate.html">Donate</a>
-      <a class="btn btn-ghost btn-lg" href="board-of-directors.html">Meet our board <span class="arw">&rsaquo;</span></a>
+      <a class="btn btn-red btn-lg" href="donate">Donate</a>
+      <a class="btn btn-ghost btn-lg" href="board-of-directors">Meet our board <span class="arw">&rsaquo;</span></a>
     </div>
   </div><div class="pvisual">
       <div class="ptile"><div class="pimg" style="background-image:url('assets/event-group.jpg');background-position:center 40%;"></div>
@@ -152,7 +153,7 @@
     <div class="ctaband">
       <h2>The people setting the direction</h2>
       <p>SALSAL's Board of Directors brings together wound care physicians, nurse practitioners, researchers, and industry leaders who volunteer their time to advance limb preservation.</p>
-      <a class="btn btn-sky btn-lg" href="board-of-directors.html">Meet our board of directors <span class="arw">&rsaquo;</span></a>
+      <a class="btn btn-sky btn-lg" href="board-of-directors">Meet our board of directors <span class="arw">&rsaquo;</span></a>
     </div>
   </div>
 </section>
@@ -169,24 +170,24 @@
       </div>
       <div>
         <h4>About</h4>
-        <a href="mission-vision.html">Mission &amp; Vision</a>
-        <a href="how-we-help.html">How We Help</a>
-        <a href="board-of-directors.html">Board of Directors</a>
-        <a href="news.html">News</a>
+        <a href="mission-vision">Mission &amp; Vision</a>
+        <a href="how-we-help">How We Help</a>
+        <a href="board-of-directors">Board of Directors</a>
+        <a href="news">News</a>
       </div>
       <div>
         <h4>Learn</h4>
-        <a href="learning-center.html">Learning Center</a>
-        <a href="resource-library.html">Resource Library</a>
-        <a href="upcoming-webinars.html">Upcoming Webinars</a>
-        <a href="community-screening-events.html">Screening Events</a>
+        <a href="learning-center">Learning Center</a>
+        <a href="resource-library">Resource Library</a>
+        <a href="upcoming-webinars">Upcoming Webinars</a>
+        <a href="community-screening-events">Screening Events</a>
       </div>
       <div>
         <h4>Support</h4>
-        <a href="donate.html">Donate</a>
-        <a href="become-supporter.html">Become a Supporter</a>
-        <a href="corporate-sponsorship.html">Corporate Sponsorship</a>
-        <a href="shop.html">Shop</a>
+        <a href="donate">Donate</a>
+        <a href="become-supporter">Become a Supporter</a>
+        <a href="corporate-sponsorship">Corporate Sponsorship</a>
+        <a href="shop">Shop</a>
       </div>
     </div>
     <div class="partners">

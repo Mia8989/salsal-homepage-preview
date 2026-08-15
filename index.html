@@ -92,44 +92,45 @@
 <!-- NAV:START (edit partials/nav.html, then run build.py) -->
 <div class="navwrap">
   <nav class="nav">
-    <a href="index.html"><img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation"></a>
+    <a href="./"><img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation"></a>
     <div class="links">
       <div class="dd">
         <span class="ddt">About <span class="caret">&#9662;</span></span>
         <div class="ddmenu">
-          <a class="ddi" href="mission-vision.html"><b>Mission &amp; Vision</b><span>Why SALSAL exists</span></a>
-          <a class="ddi" href="how-we-help.html"><b>How We Help</b><span>Our four programs</span></a>
-          <a class="ddi" href="board-of-directors.html"><b>Board of Directors</b><span>The people behind the mission</span></a>
+          <a class="ddi" href="mission-vision"><b>Mission &amp; Vision</b><span>Why SALSAL exists</span></a>
+          <a class="ddi" href="how-we-help"><b>How We Help</b><span>Our four programs</span></a>
+          <a class="ddi" href="board-of-directors"><b>Board of Directors</b><span>The people behind the mission</span></a>
         </div>
       </div>
-      <a href="learning-center.html">Learning Center</a>
+      <a href="learning-center">Learning Center</a>
       <div class="dd">
         <span class="ddt">Webinars <span class="caret">&#9662;</span></span>
         <div class="ddmenu">
-          <a class="ddi" href="upcoming-webinars.html"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
-          <a class="ddi" href="resource-library.html#webinars"><b>Resource Library</b><span>Watch recordings, download guides</span></a>
+          <a class="ddi" href="upcoming-webinars"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
+          <a class="ddi" href="resource-library#webinars"><b>Resource Library</b><span>Watch recordings, download guides</span></a>
         </div>
       </div>
       <div class="dd">
         <span class="ddt">Impact <span class="caret">&#9662;</span></span>
         <div class="ddmenu">
-          <a class="ddi" href="community-screening-events.html"><b>Screening &amp; Events</b><span>Free community screenings</span></a>
-          <a class="ddi" href="news.html"><b>News</b><span>What's new at SALSAL</span></a>
+          <a class="ddi" href="community-screening-events"><b>Screening &amp; Events</b><span>Free community screenings</span></a>
+          <a class="ddi" href="news"><b>News</b><span>What's new at SALSAL</span></a>
         </div>
       </div>
-      <a href="get-involved.html">Get Involved</a>
-      <a href="corporate-sponsorship.html">Sponsorship</a>
+      <a href="get-involved">Get Involved</a>
+      <a href="corporate-sponsorship">Sponsorship</a>
     </div>
     <div class="sp"></div>
-    <a class="btn btn-outline" href="shop.html">Shop</a>
-    <a class="btn btn-red" href="donate.html">Donate</a>
+    <a class="btn btn-outline" href="shop">Shop</a>
+    <a class="btn btn-red" href="donate">Donate</a>
   </nav>
 </div>
 <script>
 (function(){
-  var here=(location.pathname.split('/').pop()||'index.html');
+  var seg=location.pathname.split('/').filter(Boolean).pop()||'';
   document.querySelectorAll('.nav .links a').forEach(function(a){
-    if(a.getAttribute('href')===here){a.classList.add('active');}
+    var href=a.getAttribute('href');
+    if(href===seg || (seg==='' && href==='./')){ a.classList.add('active'); }
   });
   // dropdowns: click/tap toggles (hover also works on desktop)
   document.querySelectorAll('.nav .dd .ddt').forEach(function(t){
@@ -155,8 +156,8 @@
       <h1>Most amputations are <span class="hl">preventable</span>.</h1>
       <p class="sub">We help patients keep their limbs through education, advocacy, and access to advanced, evidence-based wound care.</p>
       <div class="cta">
-        <a class="btn btn-red btn-lg red-shine" href="donate.html">Donate</a>
-        <a class="btn btn-ghost btn-lg" href="how-we-help.html">How we help <span class="arw">&rsaquo;</span></a>
+        <a class="btn btn-red btn-lg red-shine" href="donate">Donate</a>
+        <a class="btn btn-ghost btn-lg" href="how-we-help">How we help <span class="arw">&rsaquo;</span></a>
       </div>
       <div class="marq"><div class="trk">
         <span><b>Free community screenings</b><i></i> Provider training<i></i> Patient resources<i></i> Live webinars<i></i> Policy advocacy<i></i></span>
@@ -201,19 +202,19 @@
             <span class="evtag scr">Free Screening</span>
             <h3>Free community limb screening, Houston</h3>
             <div class="meta">Sat, Sep 26, 2026 &middot; 9 AM to 2 PM &middot; 100% free</div>
-            <a class="go" href="community-screening-events.html">See screening events <span class="arw">&rsaquo;</span></a>
+            <a class="go" href="community-screening-events">See screening events <span class="arw">&rsaquo;</span></a>
           </div>
           <div class="ev">
             <span class="evtag web">Featured Webinar</span>
             <h3>Time Is Tissue: disrupting biofilm to prevent amputation</h3>
             <div class="meta">On demand &middot; free to watch</div>
-            <a class="go" href="resource-library.html#webinars">Watch on demand <span class="arw">&rsaquo;</span></a>
+            <a class="go" href="resource-library#webinars">Watch on demand <span class="arw">&rsaquo;</span></a>
           </div>
           <div class="ev">
             <span class="evtag lib">Resource Library</span>
             <h3>Watch past webinars anytime</h3>
             <div class="meta">Recorded sessions plus free fact sheets</div>
-            <a class="go" href="resource-library.html">Browse the library <span class="arw">&rsaquo;</span></a>
+            <a class="go" href="resource-library">Browse the library <span class="arw">&rsaquo;</span></a>
           </div>
         </div>
       </div>
@@ -229,7 +230,7 @@
 
 <!-- MISSION PARTNERS STRIP -->
 <section class="pstrip">
-  <div class="lbl">Powered by mission partners &middot; <a href="corporate-sponsorship.html">become one &rsaquo;</a></div>
+  <div class="lbl">Powered by mission partners &middot; <a href="corporate-sponsorship">become one &rsaquo;</a></div>
   <div class="pmarq"><div class="ptrk">
     <img src="assets/partners/organogenesis-logo-1.png" alt="Organogenesis">
     <img src="assets/partners/MC-WM-transparent-1.png" alt="Medline">
@@ -267,10 +268,10 @@
     <div class="eyebrow">Our programs</div>
     <h2 class="sectitle">Four programs carry the mission</h2>
     <div class="grid g2">
-      <div class="card"><h3>Community screening and education</h3><p>Free health screenings and provider education, hosted in the communities that need them most, so at-risk patients find out their risk level before it becomes an emergency.</p><a class="more" href="community-screening-events.html">Screening events &rsaquo;</a></div>
-      <div class="card"><h3>Provider education</h3><p>Webinars, training, and networking conferences that keep clinicians current on peripheral arterial disease, critical limb ischemia, and preventable lower extremity amputation.</p><a class="more" href="learning-center.html">Learning Center &rsaquo;</a></div>
-      <div class="card"><h3>Harold L. Johnson Memorial Scholarship</h3><p>Administered by the American Board of Wound Management Foundation and funded by SALSAL, this scholarship helps healthcare providers earn their wound certification.</p><a class="more" href="get-involved.html">About the scholarship &rsaquo;</a></div>
-      <div class="card"><h3>Patient assistance</h3><p>Direct support, including diabetic shoes, dressing supplies, knee walkers, and other wound-healing items, for patients working to prevent amputation.</p><a class="more" href="how-we-help.html">How we help &rsaquo;</a></div>
+      <div class="card"><h3>Community screening and education</h3><p>Free health screenings and provider education, hosted in the communities that need them most, so at-risk patients find out their risk level before it becomes an emergency.</p><a class="more" href="community-screening-events">Screening events &rsaquo;</a></div>
+      <div class="card"><h3>Provider education</h3><p>Webinars, training, and networking conferences that keep clinicians current on peripheral arterial disease, critical limb ischemia, and preventable lower extremity amputation.</p><a class="more" href="learning-center">Learning Center &rsaquo;</a></div>
+      <div class="card"><h3>Harold L. Johnson Memorial Scholarship</h3><p>Administered by the American Board of Wound Management Foundation and funded by SALSAL, this scholarship helps healthcare providers earn their wound certification.</p><a class="more" href="get-involved">About the scholarship &rsaquo;</a></div>
+      <div class="card"><h3>Patient assistance</h3><p>Direct support, including diabetic shoes, dressing supplies, knee walkers, and other wound-healing items, for patients working to prevent amputation.</p><a class="more" href="how-we-help">How we help &rsaquo;</a></div>
     </div>
   </div>
 </section>
@@ -285,8 +286,8 @@
         <p>Our Resource Library holds recorded sessions like "Life on MARS: Findings from the Successful Implementation of the Manchester Amputation Reduction System" and "Enhancing Patient Care in Peripheral Arterial Disease," featuring specialists from leading wound care and vascular programs. Continuing education credit is available on select sessions.</p>
         <p><em>This information is for educational purposes only and is not intended to replace professional medical advice. Always consult your healthcare provider.</em></p>
         <div class="cta" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
-          <a class="btn btn-red" href="resource-library.html">Browse the Resource Library</a>
-          <a class="btn btn-outline" href="upcoming-webinars.html">Upcoming webinars</a>
+          <a class="btn btn-red" href="resource-library">Browse the Resource Library</a>
+          <a class="btn btn-outline" href="upcoming-webinars">Upcoming webinars</a>
         </div>
       </div>
       <div class="media duo" style="background-image:url('assets/event-audience.jpg');background-position:center 55%;"></div>
@@ -304,7 +305,7 @@
         <h2 class="sectitle">Free community health screening, Houston</h2>
         <p><strong>Saturday, September 26, 2026, 9:00 AM to 2:00 PM</strong><br>Fifth Ward Multi-Service Center, 4104 Market St., Houston, TX 77020. 100% free.</p>
         <p>Early screening finds risk before it becomes an amputation. If you are in the Houston area, or know someone at risk for diabetes-related wounds or PAD, this is the event to bring them to.</p>
-        <a class="btn btn-red" href="community-screening-events.html">Event details &amp; registration</a>
+        <a class="btn btn-red" href="community-screening-events">Event details &amp; registration</a>
       </div>
     </div>
   </div>
@@ -317,8 +318,8 @@
       <h2>Put your support behind prevention</h2>
       <p>"SALSAL is committed to taking action, not just talking about the problem of often-preventable lower extremity amputation." Dr. Desmond Bell, founder. Your donation funds patient assistance, free screenings, and provider education. The Save A Leg, Save A Life Foundation is a 501(c)(3) nonprofit, Tax ID 32-0467696.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-        <a class="btn btn-red btn-lg" href="donate.html">Donate now</a>
-        <a class="btn btn-ghost btn-lg" href="shop.html">Shop to give <span class="arw">&rsaquo;</span></a>
+        <a class="btn btn-red btn-lg" href="donate">Donate now</a>
+        <a class="btn btn-ghost btn-lg" href="shop">Shop to give <span class="arw">&rsaquo;</span></a>
       </div>
     </div>
   </div>
@@ -331,9 +332,9 @@
     <h2 class="sectitle">Latest news</h2>
     <!-- LIVE FEED: wire the 3 most recent News posts here at launch -->
     <div class="grid g3">
-      <div class="card"><h3>SALSAL welcomes new board members</h3><p>Five new directors, each bringing wound care, research, and operations expertise, joined the Board of Directors in 2026.</p><a class="more" href="news.html">Read more &rsaquo;</a></div>
-      <div class="card"><h3>Advancing education in limb salvage</h3><p>An educational webinar for healthcare professionals covering innovative approaches and collaborative care in preventing amputations.</p><a class="more" href="news.html">Read more &rsaquo;</a></div>
-      <div class="card"><h3>Life on MARS: real-world findings</h3><p>A recorded session on outcomes from the UK's Manchester Amputation Reduction System approach to limb preservation.</p><a class="more" href="resource-library.html#webinars">Watch &rsaquo;</a></div>
+      <div class="card"><h3>SALSAL welcomes new board members</h3><p>Five new directors, each bringing wound care, research, and operations expertise, joined the Board of Directors in 2026.</p><a class="more" href="news">Read more &rsaquo;</a></div>
+      <div class="card"><h3>Advancing education in limb salvage</h3><p>An educational webinar for healthcare professionals covering innovative approaches and collaborative care in preventing amputations.</p><a class="more" href="news">Read more &rsaquo;</a></div>
+      <div class="card"><h3>Life on MARS: real-world findings</h3><p>A recorded session on outcomes from the UK's Manchester Amputation Reduction System approach to limb preservation.</p><a class="more" href="resource-library#webinars">Watch &rsaquo;</a></div>
     </div>
   </div>
 </section>
@@ -371,24 +372,24 @@
       </div>
       <div>
         <h4>About</h4>
-        <a href="mission-vision.html">Mission &amp; Vision</a>
-        <a href="how-we-help.html">How We Help</a>
-        <a href="board-of-directors.html">Board of Directors</a>
-        <a href="news.html">News</a>
+        <a href="mission-vision">Mission &amp; Vision</a>
+        <a href="how-we-help">How We Help</a>
+        <a href="board-of-directors">Board of Directors</a>
+        <a href="news">News</a>
       </div>
       <div>
         <h4>Learn</h4>
-        <a href="learning-center.html">Learning Center</a>
-        <a href="resource-library.html">Resource Library</a>
-        <a href="upcoming-webinars.html">Upcoming Webinars</a>
-        <a href="community-screening-events.html">Screening Events</a>
+        <a href="learning-center">Learning Center</a>
+        <a href="resource-library">Resource Library</a>
+        <a href="upcoming-webinars">Upcoming Webinars</a>
+        <a href="community-screening-events">Screening Events</a>
       </div>
       <div>
         <h4>Support</h4>
-        <a href="donate.html">Donate</a>
-        <a href="become-supporter.html">Become a Supporter</a>
-        <a href="corporate-sponsorship.html">Corporate Sponsorship</a>
-        <a href="shop.html">Shop</a>
+        <a href="donate">Donate</a>
+        <a href="become-supporter">Become a Supporter</a>
+        <a href="corporate-sponsorship">Corporate Sponsorship</a>
+        <a href="shop">Shop</a>
       </div>
     </div>
     <div class="partners">
