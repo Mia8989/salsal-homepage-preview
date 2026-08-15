@@ -92,9 +92,30 @@
       <a class="btn btn-ghost btn-lg" href="#partners">See our current partners <span class="arw">&rsaquo;</span></a>
     </div>
   </div><div class="pvisual">
-      <div class="ptile"><div class="pimg" style="background-image:url('assets/events/hall-tables.jpg');background-position:center 55%;"></div>
-        <span class="ptag"><span class="live"></span> Partnership in action</span>
+      <div class="ptile"><div class="pslide on"><div class="pimg" style="background-image:url('assets/events/hall-tables.jpg');background-position:center 55%;"></div></div>
+        <span class="ptag" id="phtag"><span class="live"></span> Partnership in action</span>
       </div>
+      <div class="pfunnel">
+      <div class="pg"><i class="on"></i><i></i><i></i></div>
+      <div class="pf on" data-cap="Partnership in action">
+        <span class="pftag red">Request Packages</span>
+        <h3>Tell us about your org</h3>
+        <div class="pfmeta">We will send our offer</div>
+        <a class="pfgo" href="corporate-sponsorship#request-packages">Request now <span class="arw">&rsaquo;</span></a>
+      </div>
+      <div class="pf" data-cap="Current mission partners">
+        <span class="pftag">7 Partners</span>
+        <h3>Already standing with us</h3>
+        <div class="pfmeta">Organogenesis to SweetBio</div>
+        <a class="pfgo" href="corporate-sponsorship#partners">See our partners <span class="arw">&rsaquo;</span></a>
+      </div>
+      <div class="pf" data-cap="Why partner with us">
+        <span class="pftag blue">Why Partner</span>
+        <h3>Board-directed stewardship</h3>
+        <div class="pfmeta">Your investment, targeted</div>
+        <a class="pfgo" href="corporate-sponsorship">See the benefits <span class="arw">&rsaquo;</span></a>
+      </div>
+    </div>
       <div class="pchip"><b>7</b><span>mission partners and growing</span></div>
     </div></div>
 </header>
@@ -292,6 +313,36 @@
     entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
   },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
   els.forEach(function(e){io.observe(e);});
+})();
+</script>
+<!-- global: hero funnel rotator (rotating offer card + optional photo variety), any inner page -->
+<script>
+(function(){
+  document.querySelectorAll('.pvisual').forEach(function(vis){
+    var slides=vis.querySelectorAll('.ptile .pslide');
+    var pf=vis.querySelectorAll('.pfunnel .pf');
+    var dots=vis.querySelectorAll('.pfunnel .pg i');
+    var tag=vis.querySelector('.ptile .ptag');
+    if(pf.length<=1 && slides.length<=1) return;
+    var caps=[]; pf.forEach(function(el){ caps.push(el.getAttribute('data-cap')||''); });
+    var n=Math.max(pf.length,slides.length,1);
+    var i=0;
+    setInterval(function(){
+      i=(i+1)%n;
+      if(slides.length>1){
+        slides.forEach(function(s,idx){
+          var on=idx===(i%slides.length);
+          s.classList.toggle('on',on);
+          if(on){ var img=s.querySelector('.pimg'); if(img){img.style.animation='none';void img.offsetWidth;img.style.animation='';} }
+        });
+      }
+      if(pf.length>1){
+        pf.forEach(function(p,idx){ p.classList.toggle('on', idx===(i%pf.length)); });
+        dots.forEach(function(d,idx){ d.classList.toggle('on', idx===(i%pf.length)); });
+        if(tag && caps[i%pf.length]){ tag.innerHTML='<span class="live"></span> '+caps[i%pf.length]; }
+      }
+    },4200);
+  });
 })();
 </script>
 <!-- FOOTER:END -->

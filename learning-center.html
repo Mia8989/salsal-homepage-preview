@@ -82,9 +82,30 @@
       <a class="btn btn-ghost btn-lg" href="#salsal-challenge">Read the SALSAL Challenge <span class="arw">&rsaquo;</span></a>
     </div>
   </div><div class="pvisual">
-      <div class="ptile"><div class="pimg" style="background-image:url('assets/event-audience.jpg');background-position:center 50%;"></div>
-        <span class="ptag"><span class="live"></span> Provider education, live</span>
+      <div class="ptile"><div class="pslide on"><div class="pimg" style="background-image:url('assets/event-audience.jpg');background-position:center 50%;"></div></div>
+        <span class="ptag" id="phtag"><span class="live"></span> For providers</span>
       </div>
+      <div class="pfunnel">
+      <div class="pg"><i class="on"></i><i></i><i></i></div>
+      <div class="pf on" data-cap="For providers">
+        <span class="pftag">For Providers</span>
+        <h3>The SALSAL Challenge</h3>
+        <div class="pfmeta">Call a Time-Out before amputation</div>
+        <a class="pfgo" href="learning-center#salsal-challenge">See the policy <span class="arw">&rsaquo;</span></a>
+      </div>
+      <div class="pf" data-cap="Patient resources">
+        <span class="pftag red">Patient Resources</span>
+        <h3>5 free fact sheets</h3>
+        <div class="pfmeta">PAD and diabetes, plain language</div>
+        <a class="pfgo" href="resource-library">Browse the library <span class="arw">&rsaquo;</span></a>
+      </div>
+      <div class="pf" data-cap="On-demand learning">
+        <span class="pftag blue">Keep Learning</span>
+        <h3>Recorded expert webinars</h3>
+        <div class="pfmeta">Watch anytime, free</div>
+        <a class="pfgo" href="resource-library#webinars">Resource Library <span class="arw">&rsaquo;</span></a>
+      </div>
+    </div>
       <div class="pchip"><b>5</b><span>free fact sheets to download</span></div>
     </div></div>
 </header>
@@ -248,6 +269,36 @@
     entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
   },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
   els.forEach(function(e){io.observe(e);});
+})();
+</script>
+<!-- global: hero funnel rotator (rotating offer card + optional photo variety), any inner page -->
+<script>
+(function(){
+  document.querySelectorAll('.pvisual').forEach(function(vis){
+    var slides=vis.querySelectorAll('.ptile .pslide');
+    var pf=vis.querySelectorAll('.pfunnel .pf');
+    var dots=vis.querySelectorAll('.pfunnel .pg i');
+    var tag=vis.querySelector('.ptile .ptag');
+    if(pf.length<=1 && slides.length<=1) return;
+    var caps=[]; pf.forEach(function(el){ caps.push(el.getAttribute('data-cap')||''); });
+    var n=Math.max(pf.length,slides.length,1);
+    var i=0;
+    setInterval(function(){
+      i=(i+1)%n;
+      if(slides.length>1){
+        slides.forEach(function(s,idx){
+          var on=idx===(i%slides.length);
+          s.classList.toggle('on',on);
+          if(on){ var img=s.querySelector('.pimg'); if(img){img.style.animation='none';void img.offsetWidth;img.style.animation='';} }
+        });
+      }
+      if(pf.length>1){
+        pf.forEach(function(p,idx){ p.classList.toggle('on', idx===(i%pf.length)); });
+        dots.forEach(function(d,idx){ d.classList.toggle('on', idx===(i%pf.length)); });
+        if(tag && caps[i%pf.length]){ tag.innerHTML='<span class="live"></span> '+caps[i%pf.length]; }
+      }
+    },4200);
+  });
 })();
 </script>
 <!-- FOOTER:END -->

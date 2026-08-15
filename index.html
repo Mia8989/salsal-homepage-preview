@@ -437,6 +437,36 @@
   els.forEach(function(e){io.observe(e);});
 })();
 </script>
+<!-- global: hero funnel rotator (rotating offer card + optional photo variety), any inner page -->
+<script>
+(function(){
+  document.querySelectorAll('.pvisual').forEach(function(vis){
+    var slides=vis.querySelectorAll('.ptile .pslide');
+    var pf=vis.querySelectorAll('.pfunnel .pf');
+    var dots=vis.querySelectorAll('.pfunnel .pg i');
+    var tag=vis.querySelector('.ptile .ptag');
+    if(pf.length<=1 && slides.length<=1) return;
+    var caps=[]; pf.forEach(function(el){ caps.push(el.getAttribute('data-cap')||''); });
+    var n=Math.max(pf.length,slides.length,1);
+    var i=0;
+    setInterval(function(){
+      i=(i+1)%n;
+      if(slides.length>1){
+        slides.forEach(function(s,idx){
+          var on=idx===(i%slides.length);
+          s.classList.toggle('on',on);
+          if(on){ var img=s.querySelector('.pimg'); if(img){img.style.animation='none';void img.offsetWidth;img.style.animation='';} }
+        });
+      }
+      if(pf.length>1){
+        pf.forEach(function(p,idx){ p.classList.toggle('on', idx===(i%pf.length)); });
+        dots.forEach(function(d,idx){ d.classList.toggle('on', idx===(i%pf.length)); });
+        if(tag && caps[i%pf.length]){ tag.innerHTML='<span class="live"></span> '+caps[i%pf.length]; }
+      }
+    },4200);
+  });
+})();
+</script>
 <!-- FOOTER:END -->
 
 </body>

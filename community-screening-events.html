@@ -82,9 +82,30 @@
       <a class="btn btn-ghost btn-lg" href="#bring-a-screening">Find or host a screening <span class="arw">&rsaquo;</span></a>
     </div>
   </div><div class="pvisual">
-      <div class="ptile"><div class="pimg" style="background-image:url('assets/events/welcome-sign.jpg');background-position:center 40%;"></div>
-        <span class="ptag"><span class="live"></span> Free community screening</span>
+      <div class="ptile"><div class="pslide on"><div class="pimg" style="background-image:url('assets/events/welcome-sign.jpg');background-position:center 40%;"></div></div>
+        <span class="ptag" id="phtag"><span class="live"></span> Upcoming: Houston</span>
       </div>
+      <div class="pfunnel">
+      <div class="pg"><i class="on"></i><i></i><i></i></div>
+      <div class="pf on" data-cap="Upcoming: Houston">
+        <span class="pftag green">Sep 26, 2026</span>
+        <h3>Houston, TX screening</h3>
+        <div class="pfmeta">Fifth Ward Multi-Service Center</div>
+        <a class="pfgo" href="community-screening-events#houston">Register free <span class="arw">&rsaquo;</span></a>
+      </div>
+      <div class="pf" data-cap="Recently held: Buffalo">
+        <span class="pftag blue">May 2, 2026</span>
+        <h3>Buffalo, NY screening</h3>
+        <div class="pfmeta">A recent community event</div>
+        <a class="pfgo" href="community-screening-events#buffalo">See the recap <span class="arw">&rsaquo;</span></a>
+      </div>
+      <div class="pf" data-cap="Host a screening">
+        <span class="pftag red">Bring Us to You</span>
+        <h3>Host a screening</h3>
+        <div class="pfmeta">Become a local ambassador</div>
+        <a class="pfgo" href="get-involved">Get involved <span class="arw">&rsaquo;</span></a>
+      </div>
+    </div>
       <div class="pchip"><b>Sep 26</b><span>Houston, Texas</span></div>
     </div></div>
 </header>
@@ -272,6 +293,36 @@
     entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
   },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
   els.forEach(function(e){io.observe(e);});
+})();
+</script>
+<!-- global: hero funnel rotator (rotating offer card + optional photo variety), any inner page -->
+<script>
+(function(){
+  document.querySelectorAll('.pvisual').forEach(function(vis){
+    var slides=vis.querySelectorAll('.ptile .pslide');
+    var pf=vis.querySelectorAll('.pfunnel .pf');
+    var dots=vis.querySelectorAll('.pfunnel .pg i');
+    var tag=vis.querySelector('.ptile .ptag');
+    if(pf.length<=1 && slides.length<=1) return;
+    var caps=[]; pf.forEach(function(el){ caps.push(el.getAttribute('data-cap')||''); });
+    var n=Math.max(pf.length,slides.length,1);
+    var i=0;
+    setInterval(function(){
+      i=(i+1)%n;
+      if(slides.length>1){
+        slides.forEach(function(s,idx){
+          var on=idx===(i%slides.length);
+          s.classList.toggle('on',on);
+          if(on){ var img=s.querySelector('.pimg'); if(img){img.style.animation='none';void img.offsetWidth;img.style.animation='';} }
+        });
+      }
+      if(pf.length>1){
+        pf.forEach(function(p,idx){ p.classList.toggle('on', idx===(i%pf.length)); });
+        dots.forEach(function(d,idx){ d.classList.toggle('on', idx===(i%pf.length)); });
+        if(tag && caps[i%pf.length]){ tag.innerHTML='<span class="live"></span> '+caps[i%pf.length]; }
+      }
+    },4200);
+  });
 })();
 </script>
 <!-- FOOTER:END -->
