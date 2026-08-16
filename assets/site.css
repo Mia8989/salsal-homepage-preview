@@ -345,3 +345,111 @@ html.js .section .container>*:nth-child(4){transition-delay:.24s;}
 .room-navy .rule{background:rgba(255,255,255,.14);}
 .mt-s{margin-top:22px;} .mt-m{margin-top:44px;} .mt-l{margin-top:72px;}
 .maxw{max-width:66ch;}
+
+/* ============================================================
+   DE-BOX LAYER (Aug 2026)
+   Principle: ONE boxed element on the whole site, the hero funnel card.
+   Everything else is type, hairline rules, whitespace, and images.
+   Cards lose bg/border/shadow/radius and become rule-topped editorial
+   blocks. Applied at the component level so no page markup changes.
+   ============================================================ */
+
+/* --- cards and bento tiles become editorial blocks --- */
+.card,
+.tile,
+.bento .tile,
+.ritem,
+.bcard,
+.plogo{
+  background:transparent !important;
+  border:none !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  padding:0;
+  transition:none;
+}
+.card:hover,.tile:hover,.ritem:hover,.bcard:hover,.plogo:hover{transform:none !important;box-shadow:none !important;}
+
+/* a single hairline above each block does the separating work */
+.card,
+.bento .tile{
+  border-top:1px solid rgba(28,53,87,.16) !important;
+  padding-top:22px;
+}
+.room-navy .card,.room-navy .bento .tile,
+.section.alt .card,.section.alt .tile{border-top-color:rgba(255,255,255,.20) !important;}
+
+/* more air now that there is no container to hold things apart */
+.grid{gap:38px 40px;}
+.bento{gap:44px 40px;}
+
+/* the icon chip becomes a typographic mark, not a gradient square */
+.card .ic{
+  width:auto;height:auto;background:none !important;box-shadow:none !important;
+  border-radius:0;color:var(--sky);font-size:34px;line-height:1;margin-bottom:10px;
+  display:block;
+}
+.card.red .ic{color:var(--red);}
+
+/* dark bento tiles stay as flat colour fields, not floating cards */
+.bento .tile.dark{
+  background:var(--navy) !important;color:#fff;padding:30px 28px !important;
+  border-top:none !important;
+}
+.bento .tile.dark h3,.bento .tile.dark .idx{color:#fff;}
+.bento .tile.dark p{color:#c6d8e8;}
+
+/* --- resource / webinar rows: hairline list, no cards --- */
+.rlist{gap:0;}
+.ritem{
+  padding:22px 4px !important;
+  border-bottom:1px solid rgba(28,53,87,.14) !important;
+  align-items:flex-start;
+}
+.rlist .ritem:first-child{border-top:1px solid rgba(28,53,87,.14) !important;}
+.room-navy .ritem,.section.alt .ritem{border-bottom-color:rgba(255,255,255,.18) !important;}
+.room-navy .rlist .ritem:first-child,.section.alt .rlist .ritem:first-child{border-top-color:rgba(255,255,255,.18) !important;}
+/* tag becomes a plain uppercase label, not a pill */
+.ritem .tag{
+  background:none !important;padding:0 !important;border-radius:0 !important;
+  min-width:104px;color:var(--blue);letter-spacing:.10em;padding-top:4px !important;
+}
+.ritem .tag.doc{color:var(--red);}
+.room-navy .ritem .tag,.section.alt .ritem .tag{color:var(--sky-l);}
+
+/* --- people: circles, names, no cards --- */
+.bcard .pic{
+  aspect-ratio:1/1 !important;border-radius:50% !important;width:190px;max-width:100%;
+  margin-bottom:16px;background-position:center 18%;
+}
+.bgrid{gap:44px 34px;}
+
+/* --- partner logos: sit directly on a white room, no tiles --- */
+.plogo{height:auto !important;padding:6px !important;}
+.plogo img{max-height:46px;filter:grayscale(1);opacity:.72;transition:filter .25s,opacity .25s;}
+.plogo:hover img{filter:none;opacity:1;}
+.pshowcase{gap:40px 46px;align-items:center;}
+
+/* --- CTA: rules and type, not a floating slab --- */
+.ctaband{
+  background:none !important;color:inherit;border-radius:0 !important;box-shadow:none !important;
+  padding:52px 0 !important;border-top:1px solid rgba(28,53,87,.16);border-bottom:1px solid rgba(28,53,87,.16);
+}
+.ctaband::before{display:none !important;}
+.ctaband h2{color:var(--navy);}
+.ctaband p{color:var(--muted);}
+.room-navy .ctaband,.section.alt .ctaband{border-color:rgba(255,255,255,.20);}
+.room-navy .ctaband h2,.section.alt .ctaband h2{color:#fff;}
+.room-navy .ctaband p,.section.alt .ctaband p{color:#c6d8e8;}
+
+/* --- images: let them be images, not framed objects --- */
+.split .media,.shot .im,.numlead .shot .im{border-radius:0 !important;}
+.split .media{box-shadow:none !important;border:none !important;}
+.numlead .shot .im{box-shadow:none !important;}
+
+/* --- stats: naked numerals separated by air --- */
+.statg{background:none !important;border:none !important;box-shadow:none !important;padding:0 !important;}
+.statrow{gap:52px;}
+
+/* the ONE exception: the hero funnel card keeps its glass panel */
+.pfunnel{border-radius:20px !important;}
