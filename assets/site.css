@@ -453,3 +453,6 @@ html.js .section .container>*:nth-child(4){transition-delay:.24s;}
 
 /* the ONE exception: the hero funnel card keeps its glass panel */
 .pfunnel{border-radius:20px !important;}
+/* de-box the image frame itself (the hero .ptile is deliberately excluded) */
+.numlead .shot,.shot{box-shadow:none !important;border-radius:0 !important;border:none !important;}
+.phero .ptile{box-shadow:0 30px 70px rgba(4,14,26,.5) !important;border-radius:26px !important;}
