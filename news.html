@@ -110,28 +110,32 @@
     </div></div>
 </header>
 
-<!-- HOW THIS PAGE IS ORGANIZED -->
-<section class="section">
-  <div class="container">
-    <div class="eyebrow">How this page is organized</div>
-    <h2 class="sectitle">Newest first, pulled from our content feed</h2>
-    <p class="lead">News posts appear here in reverse chronological order, newest first, pulled live from SALSAL's content feed at build time. This page itself does not hold static articles; it is the index and filter layer in front of that feed.</p>
-    <p>Posts generally fall into a few recurring categories:</p>
+<!-- OPENING STATEMENT: a breath, pure type, no image -->
+<section class="room room-white">
+  <div class="wrap">
+    <div class="kick">How this page is organized</div>
+    <h2 class="display sm">Newest first, pulled from our content feed.</h2>
+    <p class="body-lg mt-s">News posts appear here in reverse chronological order, newest first, pulled live from SALSAL's content feed at build time. This page itself does not hold static articles; it is the index and filter layer in front of that feed. Posts generally fall into a few recurring categories:</p>
+  </div>
+</section>
 
-    <!-- LIVE FEED WIRES IN HERE: replace this .grid.g3 with the rendered news feed at build time. Cards below are category placeholders, not individual articles. -->
-    <div class="grid g3">
-      <div class="card">
-        <div class="ic">W</div>
+<!-- CATEGORIES: mixed-span bento -->
+<section class="room room-paper">
+  <div class="wrap">
+    <!-- LIVE FEED WIRES IN HERE: replace this .bento with the rendered news feed at build time. Tiles below are category placeholders, not individual articles. -->
+    <div class="bento">
+      <div class="tile b-feat">
+        <div class="idx">W</div>
         <h3>Webinar &amp; Event Announcements</h3>
         <p>New sessions added to Upcoming Webinars, and recaps once they move to the Resource Library.</p>
       </div>
-      <div class="card red">
-        <div class="ic">B</div>
+      <div class="tile b-two dark">
+        <div class="idx">B</div>
         <h3>Board &amp; Leadership</h3>
         <p>New board members, board transitions, and organizational milestones.</p>
       </div>
-      <div class="card">
-        <div class="ic">F</div>
+      <div class="tile b-half">
+        <div class="idx">F</div>
         <h3>Foundation Updates</h3>
         <p>Broader mission progress, partnerships, and announcements that don't fit a single category.</p>
       </div>
@@ -139,22 +143,24 @@
   </div>
 </section>
 
-<!-- WHAT'S RECENT -->
-<section class="section alt">
-  <div class="container">
-    <div class="eyebrow">What's recent</div>
-    <h2 class="sectitle">The current mix</h2>
-    <p class="lead">Based on the current feed, recent coverage includes new board member announcements, the Life on MARS webinar recap, and upcoming webinar notices, exactly the mix this page is built to organize going forward.</p>
+<!-- WHAT'S RECENT: full-bleed photo moment -->
+<section class="bleedband">
+  <div class="bg" style="background-image:url('assets/events/hall-tables.jpg');background-position:center 35%;"></div>
+  <div class="scrim"></div>
+  <div class="in">
+    <div class="kick">What's recent</div>
+    <h2 class="display sm">The current mix.</h2>
+    <p class="mt-s">Based on the current feed, recent coverage includes new board member announcements, the Life on MARS webinar recap, and upcoming webinar notices, exactly the mix this page is built to organize going forward.</p>
   </div>
 </section>
 
 <!-- STAY IN THE LOOP -->
-<section class="section tight">
-  <div class="container">
-    <div class="ctaband">
-      <h2>Stay in the Loop</h2>
-      <p>Foundation updates land here first, but the newsletter gets them to your inbox the moment they publish.</p>
-      <a class="btn btn-sky btn-lg" href="#">Join the Newsletter</a>
+<section class="room room-sand tightpad">
+  <div class="wrap" style="text-align:center;">
+    <h2 class="display sm" style="margin:0 auto;">Stay in the Loop.</h2>
+    <p class="body-lg" style="margin:16px auto 0;">Foundation updates land here first, but the newsletter gets them to your inbox the moment they publish.</p>
+    <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:28px;">
+      <a class="btn btn-red btn-lg" href="#">Join the Newsletter</a>
     </div>
   </div>
 </section>
