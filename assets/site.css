@@ -711,3 +711,5 @@ html.js .section .container>*:nth-child(4){transition-delay:.24s;}
 .pgicon{height:44px;width:auto;padding:13px 17px;background:var(--navy);
   border-radius:15px;box-shadow:0 8px 20px rgba(28,53,87,.20);}
 .prog:first-child .pgicon{filter:none;}
+/* icon chips: box-sizing was eating the glyph -- give the icon real size */
+.pgicon{height:68px;padding:15px 19px;}
