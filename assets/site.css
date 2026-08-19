@@ -566,3 +566,148 @@ html.js .section .container>*:nth-child(4){transition-delay:.24s;}
 /* a dropdown holding the current page reads as active, like a top-level link */
 .nav .dd.active .ddt{color:var(--red);}
 .nav .dd.active .caret{color:var(--red);}
+
+/* ============================================================
+   NAV CTA BLOCKS -- full-height solid blocks flush to the right
+   edge of the bar (the IRC / cause-site pattern), not floating
+   pills. Makes Donate by Shopping read as a real destination.
+   ============================================================ */
+.nav{padding-right:0;}
+.navcta{display:flex;align-self:stretch;margin:-9px 0 -9px 20px;}
+.ncta{display:inline-flex;align-items:center;gap:9px;padding:0 24px;
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:15px;
+  letter-spacing:-0.01em;white-space:nowrap;
+  transition:background .2s ease,color .2s ease;}
+.ncta .ni{width:18px;height:18px;flex:0 0 auto;}
+.ncta.shop{background:var(--sand);color:var(--navy);}
+.ncta.shop:hover{background:var(--sky);color:#06263a;}
+.ncta.give{background:var(--red);color:#fff;border-radius:0 16px 16px 0;}
+.ncta.give:hover{background:var(--red-dk);}
+/* nav labels read a touch larger -- the rescue.org bar is too small */
+.nav .links a,.dd .ddt{font-size:15.5px;}
+@media(max-width:940px){
+  .navcta{margin-left:auto;}
+  .ncta{padding:0 16px;font-size:14px;}
+  .ncta.shop .ni{display:none;}
+}
+@media(max-width:560px){
+  .ncta.shop{display:none;}
+}
+
+/* ============================================================
+   HOMEPAGE BANDS -- impact programs, because band, give, trust
+   ============================================================ */
+
+/* --- program pair: the two named SALSAL programs --- */
+.progpair{display:grid;grid-template-columns:1fr 1fr;gap:0 64px;}
+.prog{position:relative;padding-top:26px;border-top:2px solid var(--navy);}
+.prog+.prog{border-top-color:var(--sky);}
+.pgicon{height:52px;width:auto;display:block;margin-bottom:18px;}
+.prog:first-child .pgicon{filter:drop-shadow(0 2px 6px rgba(28,53,87,.35));}
+.pgtag{font-family:'Poppins',sans-serif;font-weight:700;font-size:11.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:9px;}
+.prog h3{font-size:clamp(23px,2.5vw,30px);color:var(--navy);margin-bottom:14px;}
+.prog p{font-size:16.5px;line-height:1.62;color:#41566c;margin-bottom:12px;max-width:46ch;}
+.pgnote{font-size:14.5px !important;color:var(--blue) !important;font-style:italic;}
+.pgacts{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;}
+@media(max-width:880px){
+  .progpair{grid-template-columns:1fr;gap:52px;}
+  .prog p{max-width:none;}
+}
+
+/* --- because band: one rotating phrase over a photo --- */
+.becband{position:relative;min-height:420px;display:flex;align-items:center;overflow:hidden;}
+.becband .bg{position:absolute;inset:0;background-size:cover;background-position:center;
+  filter:url(#duo) brightness(.95);transform:scale(1.04);}
+.becband .scrim{position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(11,26,46,.93) 0%,rgba(11,26,46,.80) 55%,rgba(11,26,46,.46) 100%);}
+.becband .in{position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:76px 24px;width:100%;}
+.becband .kick{color:var(--sky-l);}
+.becline{font-family:'Poppins',sans-serif;font-weight:800;color:#fff;
+  font-size:clamp(28px,4.4vw,54px);line-height:1.14;letter-spacing:-0.03em;margin-top:14px;}
+.becrot{position:relative;display:inline-block;vertical-align:top;min-height:1.2em;}
+.becrot i{display:block;font-style:normal;color:var(--sky-l);
+  opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s ease;}
+.becrot i:not(:first-child){position:absolute;left:0;top:0;width:max-content;max-width:100%;}
+.becrot i.on{opacity:1;transform:none;}
+@media(max-width:700px){.becrot i:not(:first-child){position:static;display:none;}
+  .becrot i:not(:first-child).on{display:block;}
+  .becrot i:first-child:not(.on){display:none;}}
+
+/* --- give band: photo left, donation card right --- */
+.giveband{position:relative;overflow:hidden;background:var(--navy3);}
+.giveband .bg{position:absolute;inset:0;background-size:cover;background-position:center;
+  filter:url(#duo) brightness(.9);}
+.giveband .in{position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:88px 24px;
+  display:grid;grid-template-columns:minmax(0,1fr) 420px;gap:56px;align-items:center;}
+.giveband .gcopy .kick{color:var(--sky-l);}
+.giveband .gcopy .display{color:#fff;}
+.giveband .gcopy p{color:#cfe0ee;max-width:46ch;}
+@media(max-width:940px){
+  .giveband .in{grid-template-columns:1fr;gap:38px;padding:64px 24px;}
+}
+
+/* --- donation card --- */
+.dcard{background:var(--paper);border-radius:20px;padding:28px 26px 24px;
+  box-shadow:0 24px 60px rgba(6,20,38,.42);}
+.dhead{font-family:'Poppins',sans-serif;font-weight:700;font-size:17px;color:var(--navy);
+  margin-bottom:16px;}
+.dtoggle{display:grid;grid-template-columns:1fr 1fr;border:2px solid var(--navy);
+  border-radius:12px;overflow:hidden;}
+.dtog{background:transparent;border:0;padding:12px 8px;cursor:pointer;
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:14.5px;color:var(--navy);
+  transition:background .18s,color .18s;}
+.dtog+.dtog{border-left:2px solid var(--navy);}
+.dtog.on{background:var(--navy);color:#fff;}
+.dtog:not(.on):hover{background:rgba(28,53,87,.08);}
+.dsub{margin:20px 0 12px;font-size:14.5px;font-weight:600;color:var(--blue);}
+.damts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.damt{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:13px 6px;
+  font-family:'Poppins',sans-serif;font-weight:700;font-size:16px;color:var(--navy);
+  cursor:pointer;transition:border-color .16s,background .16s,color .16s;}
+.damt:hover{border-color:var(--sky);}
+.damt.on{background:var(--red);border-color:var(--red);color:#fff;}
+.damt.other{display:flex;align-items:center;gap:2px;padding:0 10px;grid-column:span 3;}
+.damt.other .cur{opacity:.55;}
+.damt.other input{width:100%;border:0;background:transparent;font:inherit;color:var(--navy);
+  padding:13px 0;outline:none;}
+.damt.other:focus-within{border-color:var(--sky);}
+.dgo{width:100%;margin-top:16px;background:var(--red);color:#fff;border:0;border-radius:14px;
+  padding:16px;font-family:'Poppins',sans-serif;font-weight:800;font-size:17px;cursor:pointer;
+  box-shadow:0 8px 22px rgba(230,57,71,.34);transition:background .18s,transform .18s;}
+.dgo:hover{background:var(--red-dk);transform:translateY(-2px);}
+.dfine{margin-top:14px;font-size:12px;line-height:1.5;color:var(--muted);}
+
+/* --- trust band: the seal, on the accent --- */
+.trustband{background:var(--sky);color:#06263a;padding:52px 0;}
+.trustband .wrap{max-width:1160px;margin:0 auto;padding:0 24px;}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:34px;}
+.titem{position:relative;padding-left:0;}
+.titem+.titem{border-left:1px solid rgba(6,38,58,.22);padding-left:34px;}
+.ticon{height:30px;width:auto;display:block;margin-bottom:10px;}
+.titem b{display:block;font-family:'Poppins',sans-serif;font-weight:800;font-size:17px;
+  color:#06263a;margin-bottom:7px;letter-spacing:-0.01em;}
+.titem span{display:block;font-size:14.5px;line-height:1.55;color:rgba(6,38,58,.82);}
+@media(max-width:900px){
+  .tgrid{grid-template-columns:1fr 1fr;gap:28px;}
+  .titem+.titem{border-left:none;padding-left:0;}
+  .titem:nth-child(even){border-left:1px solid rgba(6,38,58,.22);padding-left:28px;}
+}
+@media(max-width:560px){
+  .tgrid{grid-template-columns:1fr;}
+  .titem:nth-child(even){border-left:none;padding-left:0;}
+  .titem+.titem{border-top:1px solid rgba(6,38,58,.22);padding-top:22px;}
+}
+
+/* --- homepage band fixes: legibility over photos, icon contrast --- */
+/* the give band photo needs a scrim or the body copy sits on mid-tones */
+.giveband .bg{filter:url(#duo) brightness(.82);}
+.giveband::before{content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(11,26,46,.94) 0%,rgba(11,26,46,.82) 46%,rgba(11,26,46,.42) 100%);}
+@media(max-width:940px){
+  .giveband::before{background:linear-gradient(180deg,rgba(11,26,46,.92) 0%,rgba(11,26,46,.86) 100%);}
+}
+/* brand icons sit on a navy chip -- the white sock vanishes on sand otherwise */
+.pgicon{height:44px;width:auto;padding:13px 17px;background:var(--navy);
+  border-radius:15px;box-shadow:0 8px 20px rgba(28,53,87,.20);}
+.prog:first-child .pgicon{filter:none;}

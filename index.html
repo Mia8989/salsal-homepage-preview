@@ -124,8 +124,13 @@
       <a href="corporate-sponsorship">Sponsorship</a>
     </div>
     <div class="sp"></div>
-    <a class="btn btn-outline" href="shop">Donate by Shopping</a>
-    <a class="btn btn-red" href="donate">Donate</a>
+    <div class="navcta">
+      <a class="ncta shop" href="shop">
+        <svg class="ni" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7L6 8Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M9 8V6a3 3 0 0 1 6 0v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Donate by Shopping</a>
+      <a class="ncta give" href="donate">Donate
+        <svg class="ni" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.6-7-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7 2.6C19 15.4 12 20 12 20Z" fill="currentColor"/></svg></a>
+    </div>
   </nav>
 </div>
 <script>
@@ -323,6 +328,47 @@
   </div>
 </section>
 
+<!-- IMPACT: the two named SALSAL programs, with the brand icons -->
+<section class="room room-sand" id="impact">
+  <div class="wrap">
+    <div class="kick">Our impact</div>
+    <h2 class="display sm">Two programs with our name on them.</h2>
+    <p class="body-lg mt-s" style="max-width:60ch;">One puts peripheral arterial disease in front of the public. The other puts certified wound care clinicians into the field. Both were built by SALSAL.</p>
+
+    <div class="progpair mt-l">
+      <article class="prog">
+        <img class="pgicon" src="assets/sock.svg" alt="" aria-hidden="true">
+        <div class="pgtag">PAD Awareness Month &middot; September</div>
+        <h3>The White Sock Campaign</h3>
+        <p>Wear a single white sock on an exposed leg, photograph it, and post it. One sock draws the eye to the lower limb, and to the fact that many patients cannot afford something as basic as a pair of diabetic socks.</p>
+        <p class="pgnote">A SALSAL original, created by the foundation and now moving through the patent process.</p>
+        <div class="pgacts">
+          <a class="btn btn-red" href="https://mailchi.mp/cf06c1d52e5f/take-the-pledge">Take the pledge</a>
+          <a class="btn btn-outline" href="get-involved#white-sock-campaign">How it works <span class="arw">&rsaquo;</span></a>
+        </div>
+      </article>
+
+      <article class="prog">
+        <img class="pgicon" src="assets/Ribbon.svg" alt="" aria-hidden="true">
+        <div class="pgtag">Established 2018 with ABWM</div>
+        <h3>Harold L. Johnson Memorial Scholarship</h3>
+        <p>Ten wound certification exam scholarships a year, funding clinicians toward CWCA, CWS, and CWSP credentials through the American Board of Wound Management. Preference goes to honorably discharged veterans.</p>
+        <p class="pgnote">Named for a Vietnam veteran who spent years with this foundation, speaking publicly about his own diabetes and peripheral arterial disease.</p>
+        <div class="pgacts">
+          <a class="btn btn-red" href="http://www.abwmfoundation.org/">Apply through ABWM</a>
+          <a class="btn btn-outline" href="how-we-help">Read the story <span class="arw">&rsaquo;</span></a>
+        </div>
+      </article>
+    </div>
+
+    <blockquote class="pullq mt-l">
+      <span class="q">I promised Harold I wouldn't forget him. I pledged a scholarship would be created in his name.</span>
+      <cite class="cite">Dr. Desmond Bell, founder</cite>
+    </blockquote>
+  </div>
+</section>
+
+
 <!-- HOUSTON: full-bleed moment -->
 <section class="bleedband">
   <div class="bg" style="background-image:url('assets/events/welcome-sign.jpg');background-position:center 40%;"></div>
@@ -366,6 +412,76 @@
   </div>
 </section>
 
+<!-- BECAUSE BAND: one rotating phrase, no buttons -->
+<section class="becband">
+  <div class="bg" style="background-image:url('assets/events/welcome-outside.jpg');background-position:center 40%;"></div>
+  <div class="scrim"></div>
+  <div class="in">
+    <div class="kick">We do this</div>
+    <h2 class="becline">Because <span class="becrot"><i class="on">a leg is worth a second opinion.</i><i>testing takes an afternoon.</i><i>no one should find out too late.</i><i>prevention is cheaper than loss.</i></span></h2>
+  </div>
+</section>
+
+
+<!-- GIVE: the ask, with the donation card -->
+<section class="giveband" id="give">
+  <div class="bg" style="background-image:url('assets/events/conversation.jpg');background-position:center 35%;"></div>
+  <div class="in">
+    <div class="gcopy">
+      <div class="kick">Give</div>
+      <h2 class="display sm">Every dollar goes to keeping people whole.</h2>
+      <p class="body-lg mt-s">SALSAL is an all-volunteer 501(c)(3). Your gift funds free community screenings, patient assistance, provider education, and the wound certification scholarships that put trained clinicians where they are needed.</p>
+    </div>
+
+    <form class="dcard" id="dcard" action="donate" method="get">
+      <div class="dhead">Choose how you want to give</div>
+      <div class="dtoggle" role="group" aria-label="Donation frequency">
+        <button type="button" class="dtog on" data-freq="once">Give once</button>
+        <button type="button" class="dtog" data-freq="yearly">Yearly</button>
+      </div>
+      <div class="dsub" id="dsub">Choose an amount to give</div>
+      <div class="damts" id="damts">
+        <button type="button" class="damt" data-amt="25">$25</button>
+        <button type="button" class="damt" data-amt="50">$50</button>
+        <button type="button" class="damt on" data-amt="100">$100</button>
+        <button type="button" class="damt" data-amt="250">$250</button>
+        <button type="button" class="damt" data-amt="500">$500</button>
+        <label class="damt other"><span class="cur">$</span><input type="number" min="1" step="1" placeholder="Other" id="dother" aria-label="Other amount"></label>
+      </div>
+      <input type="hidden" name="amount" id="dAmountField" value="100">
+      <input type="hidden" name="frequency" id="dFreqField" value="once">
+      <button class="dgo" type="submit" id="dgo">Donate $100</button>
+      <p class="dfine">The Save A Leg, Save A Life Foundation is a 501(c)(3) nonprofit. Tax ID 32-0467696. Donations are tax-deductible to the extent allowed by law.</p>
+    </form>
+  </div>
+</section>
+
+
+<!-- TRUST: the seal, on the accent -->
+<section class="trustband">
+  <div class="wrap">
+    <div class="tgrid">
+      <div class="titem">
+        <b>All volunteer</b>
+        <span>No paid staff. The board and its four working groups run every program.</span>
+      </div>
+      <div class="titem">
+        <b>501(c)(3)</b>
+        <span>Federal Tax ID 32-0467696. Florida Solicitation Registration CH47375.</span>
+      </div>
+      <div class="titem">
+        <b>Founded 2015</b>
+        <span>Incorporated by Dr. Desmond Bell to reduce non-traumatic amputations.</span>
+      </div>
+      <div class="titem">
+        <b>Where it goes</b>
+        <span>Screenings, patient assistance, provider education, and certification scholarships.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- SUPPORT CTA -->
 <section class="room room-paper tightpad">
   <div class="wrap" style="text-align:center;">
@@ -402,6 +518,62 @@
     pgs.forEach((p,idx)=>p.classList.toggle('on',idx===i));
     if(phtag){ phtag.innerHTML=caps[i]||''; phtag.style.display=caps[i]?'inline-flex':'none'; }
   },4200);
+</script>
+
+<!-- homepage: because-band rotator + donation card -->
+<script>
+(function(){
+  // rotating phrase, one at a time
+  var rot=document.querySelector('.becrot');
+  if(rot){
+    var lines=rot.querySelectorAll('i'), i=0;
+    if(lines.length>1){
+      setInterval(function(){
+        lines[i].classList.remove('on');
+        i=(i+1)%lines.length;
+        lines[i].classList.add('on');
+      },3600);
+    }
+  }
+
+  // donation card: frequency + amount -> the donate page
+  var card=document.getElementById('dcard');
+  if(!card) return;
+  var freq='once', amt='100';
+  var amtField=document.getElementById('dAmountField');
+  var freqField=document.getElementById('dFreqField');
+  var go=document.getElementById('dgo');
+  var sub=document.getElementById('dsub');
+  var other=document.getElementById('dother');
+
+  function money(v){ return '$'+String(v).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
+  function paint(){
+    amtField.value=amt; freqField.value=freq;
+    sub.textContent = freq==='yearly' ? 'Choose an amount to give each year' : 'Choose an amount to give';
+    go.textContent = amt ? ('Donate '+money(amt)+(freq==='yearly'?' a year':'')) : 'Donate';
+  }
+  card.querySelectorAll('.dtog').forEach(function(b){
+    b.addEventListener('click',function(){
+      card.querySelectorAll('.dtog').forEach(function(o){o.classList.remove('on');});
+      b.classList.add('on'); freq=b.getAttribute('data-freq'); paint();
+    });
+  });
+  card.querySelectorAll('.damt[data-amt]').forEach(function(b){
+    b.addEventListener('click',function(){
+      card.querySelectorAll('.damt').forEach(function(o){o.classList.remove('on');});
+      b.classList.add('on'); if(other) other.value=''; amt=b.getAttribute('data-amt'); paint();
+    });
+  });
+  if(other){
+    other.addEventListener('input',function(){
+      var v=parseInt(other.value,10);
+      card.querySelectorAll('.damt[data-amt]').forEach(function(o){o.classList.remove('on');});
+      amt = (v>0) ? String(v) : '';
+      paint();
+    });
+  }
+  paint();
+})();
 </script>
 
 <!-- FOOTER:START (edit partials/footer.html, then run build.py) -->
