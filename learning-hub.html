@@ -138,26 +138,37 @@
 
         <div class="facet" data-group="type">
           <div class="facet-title">Format</div>
-          <button class="fopt on" type="button" data-val="all" data-label="All formats">All formats <span class="n"></span></button>
-          <button class="fopt" type="button" data-val="doc" data-label="Fact sheets &amp; guides">Fact sheets &amp; guides <span class="n"></span></button>
-          <button class="fopt" type="button" data-val="web" data-label="Recorded webinars">Recorded webinars <span class="n"></span></button>
-        </div>
-
-        <div class="facet" data-group="aud">
-          <div class="facet-title">Made for</div>
-          <button class="fopt on" type="button" data-val="all" data-label="Anyone">Anyone <span class="n"></span></button>
-          <button class="fopt" type="button" data-val="clinicians" data-label="Clinicians">Clinicians <span class="n"></span></button>
-          <button class="fopt" type="button" data-val="patients" data-label="Patients">Patients <span class="n"></span></button>
-          <button class="fopt" type="button" data-val="caregivers" data-label="Caregivers &amp; public">Caregivers &amp; public <span class="n"></span></button>
+          <div class="fopts">
+            <label class="fopt"><input type="checkbox" value="doc"><span class="fl">Fact sheets &amp; guides</span><span class="n"></span></label>
+            <label class="fopt"><input type="checkbox" value="web"><span class="fl">Recorded webinars</span><span class="n"></span></label>
+          </div>
         </div>
 
         <div class="facet" data-group="topic">
           <div class="facet-title">Topic</div>
-          <button class="fopt on" type="button" data-val="all" data-label="All topics">All topics <span class="n"></span></button>
-          <button class="fopt" type="button" data-val="pad" data-label="PAD">Peripheral arterial disease <span class="n"></span></button>
-          <button class="fopt" type="button" data-val="diabetes" data-label="Diabetes">Diabetes <span class="n"></span></button>
-          <button class="fopt" type="button" data-val="limb" data-label="Limb preservation">Limb preservation <span class="n"></span></button>
-          <button class="fopt" type="button" data-val="policy" data-label="Policy &amp; advocacy">Policy &amp; advocacy <span class="n"></span></button>
+          <div class="fopts">
+            <label class="fopt"><input type="checkbox" value="pad"><span class="fl">Peripheral arterial disease</span><span class="n"></span></label>
+            <label class="fopt"><input type="checkbox" value="diabetes"><span class="fl">Diabetes</span><span class="n"></span></label>
+            <label class="fopt"><input type="checkbox" value="limb"><span class="fl">Limb preservation</span><span class="n"></span></label>
+            <label class="fopt"><input type="checkbox" value="policy"><span class="fl">Policy &amp; advocacy</span><span class="n"></span></label>
+          </div>
+        </div>
+
+        <div class="facet" data-group="aud">
+          <div class="facet-title">Made for</div>
+          <div class="fopts">
+            <label class="fopt"><input type="checkbox" value="clinicians"><span class="fl">Clinicians</span><span class="n"></span></label>
+            <label class="fopt"><input type="checkbox" value="patients"><span class="fl">Patients</span><span class="n"></span></label>
+            <label class="fopt"><input type="checkbox" value="caregivers"><span class="fl">Caregivers &amp; public</span><span class="n"></span></label>
+          </div>
+        </div>
+
+        <div class="facet" data-group="year">
+          <div class="facet-title">Year</div>
+          <div class="fopts">
+            <label class="fopt"><input type="checkbox" value="2026"><span class="fl">2026</span><span class="n"></span></label>
+            <label class="fopt"><input type="checkbox" value="2025"><span class="fl">2025</span><span class="n"></span></label>
+          </div>
         </div>
 
         <button class="libdone" id="libdone" type="button">Done</button>
@@ -218,7 +229,7 @@
             <a class="btn btn-outline" href="https://form.jotform.com/The_Save/resources-form">Download</a>
           </div>
 
-          <div class="ritem" data-type="web" data-aud="clinicians caregivers" data-topic="policy">
+          <div class="ritem" data-type="web" data-aud="clinicians caregivers" data-year="2026" data-topic="policy">
             <span class="tag web">Webinar</span>
             <div class="body">
               <b>Advocacy and Legislation in Limb Preservation: What You Need to Know</b>
@@ -227,7 +238,7 @@
             <a class="btn btn-outline" href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">Watch on demand</a>
           </div>
 
-          <div class="ritem" data-type="web" data-aud="clinicians" data-topic="limb">
+          <div class="ritem" data-type="web" data-aud="clinicians" data-year="2026" data-topic="limb">
             <span class="tag web">Webinar</span>
             <div class="body">
               <b>Time Is Tissue: Disrupting Biofilm to Prevent Amputation</b>
@@ -241,7 +252,7 @@
             <a class="btn btn-outline" href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">Watch on demand</a>
           </div>
 
-          <div class="ritem" data-type="web" data-aud="clinicians patients" data-topic="limb policy">
+          <div class="ritem" data-type="web" data-aud="clinicians patients" data-year="2025" data-topic="limb policy">
             <span class="tag web">Webinar</span>
             <div class="body">
               <b>Time Out Before Amputation (TOBA): A Multidisciplinary Approach to Limb Preservation</b>
@@ -250,7 +261,7 @@
             <a class="btn btn-outline" href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">Watch on demand</a>
           </div>
 
-          <div class="ritem" data-type="web" data-aud="patients caregivers clinicians" data-topic="pad">
+          <div class="ritem" data-type="web" data-aud="patients caregivers clinicians" data-year="2025" data-topic="pad">
             <span class="tag web">Webinar</span>
             <div class="body">
               <b>Debunking Myths and Understanding PAD: A Panel Discussion</b>
@@ -259,7 +270,7 @@
             <a class="btn btn-outline" href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">Watch on demand</a>
           </div>
 
-          <div class="ritem" data-type="web" data-aud="clinicians" data-topic="limb">
+          <div class="ritem" data-type="web" data-aud="clinicians" data-year="2025" data-topic="limb">
             <span class="tag web">Webinar</span>
             <div class="body">
               <b>Life on MARS: the Manchester Amputation Reduction System</b>
@@ -268,7 +279,7 @@
             <a class="btn btn-outline" href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">Watch on demand</a>
           </div>
 
-          <div class="ritem" data-type="web" data-aud="clinicians" data-topic="pad">
+          <div class="ritem" data-type="web" data-aud="clinicians" data-year="2025" data-topic="pad">
             <span class="tag web">Webinar</span>
             <div class="body">
               <b>Enhancing Patient Care in PAD: A Micro and Macro Assessment Approach</b>
@@ -466,38 +477,54 @@
 </script>
 <!-- FOOTER:END -->
 
-<!-- library: faceted browse -->
+<!-- library: faceted browse (multi-select facets, counts, applied-filter chips) -->
 <script>
 (function(){
   var root=document.getElementById('library'); if(!root) return;
   var items=[].slice.call(root.querySelectorAll('.ritem'));
+  var rail=document.getElementById('librail');
   var cnt=document.getElementById('libcount');
   var none=document.getElementById('libnone');
   var chips=document.getElementById('libactive');
   var clear=document.getElementById('libclear');
   var qbox=document.getElementById('libq');
-  var rail=document.getElementById('librail');
   var filt=document.getElementById('libfilt');
   var done=document.getElementById('libdone');
   var badge=document.getElementById('libbadge');
-  var state={type:'all',aud:'all',topic:'all',q:''};
-  var GROUPS=['type','aud','topic'];
+  var GROUPS=['type','topic','aud','year'];
+  var MAXVISIBLE=6;
+  var state={q:''};
+  GROUPS.forEach(function(g){ state[g]=[]; });
 
-  items.forEach(function(it){ it._t=(it.textContent||'').toLowerCase(); });
+  items.forEach(function(it){
+    it._t=(it.textContent||'').toLowerCase();
+    it._v={};
+    GROUPS.forEach(function(g){
+      it._v[g]=(it.getAttribute('data-'+g)||'').split(/\s+/).filter(Boolean);
+    });
+  });
 
-  function has(list,v){ return (' '+(list||'')+' ').indexOf(' '+v+' ')>-1; }
+  // within a group the checked values are OR'd; across groups they are AND'd
   function ok(it,s){
-    if(s.type!=='all' && it.getAttribute('data-type')!==s.type) return false;
-    if(s.aud!=='all' && !has(it.getAttribute('data-aud'),s.aud)) return false;
-    if(s.topic!=='all' && !has(it.getAttribute('data-topic'),s.topic)) return false;
+    for(var k=0;k<GROUPS.length;k++){
+      var g=GROUPS[k], sel=s[g];
+      if(!sel.length) continue;
+      var hit=false;
+      for(var m=0;m<sel.length;m++){ if(it._v[g].indexOf(sel[m])>-1){ hit=true; break; } }
+      if(!hit) return false;
+    }
     if(s.q && it._t.indexOf(s.q)<0) return false;
     return true;
   }
-  function countWith(group,val){
-    var s={type:state.type,aud:state.aud,topic:state.topic,q:state.q};
-    s[group]=val;
-    var n=0; items.forEach(function(it){ if(ok(it,s)) n++; });
-    return n;
+  function clone(){ var s={q:state.q}; GROUPS.forEach(function(g){ s[g]=state[g].slice(); }); return s; }
+
+  function boxes(g){
+    var box=rail.querySelector('.facet[data-group="'+g+'"]');
+    return box?[].slice.call(box.querySelectorAll('input[type=checkbox]')):[];
+  }
+  function labelOf(inp){
+    var t=inp.parentElement.querySelector('.fl');
+    return t?t.textContent.trim():inp.value;
   }
 
   function render(){
@@ -510,87 +537,98 @@
     cnt.textContent=shown+(shown===1?' resource':' resources');
     none.hidden=shown!==0;
 
-    // per-option counts, disabled when they would return nothing
+    // counts: how many results you would get if you also ticked this box
     GROUPS.forEach(function(g){
-      var box=rail.querySelector('.facet[data-group="'+g+'"]'); if(!box) return;
-      box.querySelectorAll('.fopt').forEach(function(b){
-        var v=b.getAttribute('data-val');
-        var n=countWith(g,v);
-        var slot=b.querySelector('.n'); if(slot) slot.textContent=n;
-        b.classList.toggle('empty', n===0 && v!=='all');
-        b.classList.toggle('on', state[g]===v);
+      boxes(g).forEach(function(inp){
+        var s=clone();
+        if(s[g].indexOf(inp.value)<0) s[g]=s[g].concat([inp.value]);
+        var n=0; items.forEach(function(it){ if(ok(it,s)) n++; });
+        var slot=inp.parentElement.querySelector('.n'); if(slot) slot.textContent=n;
+        inp.parentElement.classList.toggle('empty', n===0 && !inp.checked);
+        inp.parentElement.classList.toggle('on', inp.checked);
       });
     });
 
-    // active filter chips
+    // applied filters, each removable
     chips.textContent='';
     var nActive=0;
     GROUPS.forEach(function(g){
-      if(state[g]==='all') return;
-      var b=rail.querySelector('.facet[data-group="'+g+'"] .fopt[data-val="'+state[g]+'"]');
-      if(!b) return;
-      nActive++;
-      var c=document.createElement('button');
-      c.type='button'; c.className='libchip';
-      c.appendChild(document.createTextNode(b.getAttribute('data-label')));
-      var x=document.createElement('span'); x.className='x'; x.textContent='×';
-      c.appendChild(x);
-      c.addEventListener('click',function(){ state[g]='all'; render(); });
-      chips.appendChild(c);
+      state[g].forEach(function(v){
+        var inp=boxes(g).filter(function(b){return b.value===v;})[0];
+        if(!inp) return;
+        nActive++;
+        var c=document.createElement('button');
+        c.type='button'; c.className='libchip';
+        c.appendChild(document.createTextNode(labelOf(inp)));
+        var x=document.createElement('span'); x.className='x'; x.textContent='\u00d7';
+        c.appendChild(x);
+        c.addEventListener('click',function(){ inp.checked=false; sync(); });
+        chips.appendChild(c);
+      });
     });
     if(state.q){
       nActive++;
       var c2=document.createElement('button');
       c2.type='button'; c2.className='libchip';
-      c2.appendChild(document.createTextNode('"'+state.q+'"'));
-      var x2=document.createElement('span'); x2.className='x'; x2.textContent='×';
+      c2.appendChild(document.createTextNode('\u201c'+state.q+'\u201d'));
+      var x2=document.createElement('span'); x2.className='x'; x2.textContent='\u00d7';
       c2.appendChild(x2);
-      c2.addEventListener('click',function(){ state.q=''; qbox.value=''; render(); });
+      c2.addEventListener('click',function(){ qbox.value=''; sync(); });
       chips.appendChild(c2);
     }
     clear.hidden = nActive===0;
     if(badge){ badge.hidden = nActive===0; badge.textContent=nActive; }
   }
 
-  rail.querySelectorAll('.facet[data-group] .fopt').forEach(function(b){
-    b.addEventListener('click',function(){
-      var g=b.parentElement.getAttribute('data-group');
-      state[g]=b.getAttribute('data-val');
-      render();
+  function sync(){
+    GROUPS.forEach(function(g){
+      state[g]=boxes(g).filter(function(b){return b.checked;}).map(function(b){return b.value;});
     });
-  });
-  qbox.addEventListener('input',function(){ state.q=qbox.value.trim().toLowerCase(); render(); });
+    state.q=(qbox.value||'').trim().toLowerCase();
+    render();
+  }
 
-  function reset(){ state={type:'all',aud:'all',topic:'all',q:''}; qbox.value=''; render(); }
+  GROUPS.forEach(function(g){ boxes(g).forEach(function(b){ b.addEventListener('change',sync); }); });
+  qbox.addEventListener('input',sync);
+
+  function reset(){
+    GROUPS.forEach(function(g){ boxes(g).forEach(function(b){ b.checked=false; }); });
+    qbox.value=''; sync();
+  }
   clear.addEventListener('click',reset);
   none.querySelector('[data-clear]').addEventListener('click',reset);
 
-  if(filt){
-    filt.addEventListener('click',function(){
-      var open=rail.classList.toggle('open');
-      filt.setAttribute('aria-expanded',open?'true':'false');
+  // long facet groups collapse behind Show all / Show less, the way AMA Ed Hub does
+  GROUPS.forEach(function(g){
+    var box=rail.querySelector('.facet[data-group="'+g+'"]'); if(!box) return;
+    var opts=[].slice.call(box.querySelectorAll('.fopt'));
+    if(opts.length<=MAXVISIBLE) return;
+    var hidden=opts.slice(MAXVISIBLE);
+    hidden.forEach(function(o){ o.classList.add('hid'); });
+    var t=document.createElement('button');
+    t.type='button'; t.className='showall';
+    t.textContent='Show all ('+opts.length+')';
+    t.addEventListener('click',function(){
+      var open=t.classList.toggle('open');
+      hidden.forEach(function(o){ o.classList.toggle('hid',!open); });
+      t.textContent=open?'Show less':'Show all ('+opts.length+')';
     });
-  }
-  if(done){
-    done.addEventListener('click',function(){
-      rail.classList.remove('open');
-      filt.setAttribute('aria-expanded','false');
-      document.getElementById('liblist').scrollIntoView({behavior:'smooth',block:'start'});
-    });
-  }
+    box.appendChild(t);
+  });
 
-  // deep links from the nav: learning-hub?type=web#library, ?aud=clinicians, ?topic=pad
+  // deep links from the nav: learning-hub?type=web#library, ?aud=clinicians, ?topic=pad,policy
   try{
     var qs=new URLSearchParams(location.search);
     GROUPS.forEach(function(g){
-      var v=qs.get(g);
-      if(v && rail.querySelector('.facet[data-group="'+g+'"] .fopt[data-val="'+v+'"]')){ state[g]=v; }
+      var v=qs.get(g); if(!v) return;
+      v.split(',').forEach(function(one){
+        boxes(g).forEach(function(b){ if(b.value===one.trim()) b.checked=true; });
+      });
     });
-    var qv=qs.get('q');
-    if(qv){ state.q=qv.trim().toLowerCase(); qbox.value=qv; }
+    var qv=qs.get('q'); if(qv) qbox.value=qv;
   }catch(e){}
 
-  render();
+  sync();
 })();
 </script>
 
