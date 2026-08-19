@@ -19,16 +19,19 @@
         <span class="ddt">About <span class="caret">&#9662;</span></span>
         <div class="ddmenu">
           <a class="ddi" href="mission-vision"><b>Mission &amp; Vision</b><span>Why SALSAL exists</span></a>
-          <a class="ddi" href="how-we-help"><b>How We Help</b><span>Our four programs</span></a>
+          <a class="ddi" href="how-we-help"><b>How We Help</b><span>Our programs and working groups</span></a>
           <a class="ddi" href="board-of-directors"><b>Board of Directors</b><span>The people behind the mission</span></a>
+          <a class="ddi" href="news"><b>News</b><span>What's new at SALSAL</span></a>
         </div>
       </div>
-      <a href="learning-hub">Learning Hub</a>
       <div class="dd">
-        <span class="ddt">Webinars <span class="caret">&#9662;</span></span>
-        <div class="ddmenu">
-          <a class="ddi" href="upcoming-webinars"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
-          <a class="ddi" href="learning-hub#library"><b>Past Webinars &amp; Resources</b><span>Recordings and free downloads</span></a>
+        <span class="ddt">Learning Hub <span class="caret">&#9662;</span></span>
+        <div class="ddmenu wide">
+          <a class="ddi" href="learning-hub"><b>The Hub</b><span>Everything we teach, in one place</span></a>
+          <a class="ddi" href="provider-education"><b>Provider Education</b><span>Clinical training and the SALSAL Challenge</span></a>
+          <a class="ddi" href="learning-hub?type=doc#library"><b>Resources</b><span>Free fact sheets and guides</span></a>
+          <a class="ddi" href="learning-hub?type=web#library"><b>On-Demand Webinars</b><span>Every recorded session, free</span></a>
+          <a class="ddi" href="upcoming-webinars"><b>Upcoming Webinars</b><span>Register for the next live session</span></a>
         </div>
       </div>
       <div class="dd">
@@ -36,7 +39,6 @@
         <div class="ddmenu">
           <a class="ddi" href="community-screening-events"><b>Screening &amp; Events</b><span>Free community screenings</span></a>
           <a class="ddi" href="toba"><b>TOBA</b><span>Time Out Before Amputation</span></a>
-          <a class="ddi" href="news"><b>News</b><span>What's new at SALSAL</span></a>
         </div>
       </div>
       <a href="get-involved">Get Involved</a>
@@ -51,8 +53,12 @@
 (function(){
   var seg=location.pathname.split('/').filter(Boolean).pop()||'';
   document.querySelectorAll('.nav .links a').forEach(function(a){
-    var href=a.getAttribute('href');
+    var href=(a.getAttribute('href')||'').split('?')[0].split('#')[0];
     if(href===seg || (seg==='' && href==='./')){ a.classList.add('active'); }
+  });
+  // a dropdown whose menu holds the current page gets the active treatment too
+  document.querySelectorAll('.nav .dd').forEach(function(dd){
+    if(dd.querySelector('.ddmenu a.active')){ dd.classList.add('active'); }
   });
   // dropdowns: click/tap toggles (hover also works on desktop)
   document.querySelectorAll('.nav .dd .ddt').forEach(function(t){
@@ -79,7 +85,7 @@
     <p class="sub">One free library for the evidence, the policy, and the plain-language resources that help providers and patients catch peripheral arterial disease before it costs a limb.</p>
     <div class="cta">
       <a class="btn btn-red btn-lg" href="#library">Browse the library</a>
-      <a class="btn btn-ghost btn-lg" href="upcoming-webinars">See upcoming webinars <span class="arw">&rsaquo;</span></a>
+      <a class="btn btn-ghost btn-lg" href="provider-education">Provider education <span class="arw">&rsaquo;</span></a>
     </div>
   </div><div class="pvisual">
       <div class="ptile"><div class="pslide on"><div class="pimg" style="background-image:url('assets/event-audience.jpg');background-position:center 50%;"></div></div>
@@ -91,7 +97,7 @@
         <span class="pftag">For Providers</span>
         <h3>The SALSAL Challenge</h3>
         <div class="pfmeta">Call a time-out before amputation</div>
-        <a class="pfgo" href="#salsal-challenge">See the policy <span class="arw">&rsaquo;</span></a>
+        <a class="pfgo" href="provider-education#challenge">See the policy <span class="arw">&rsaquo;</span></a>
       </div>
       <div class="pf" data-cap="Patient resources">
         <span class="pftag red">Patient Resources</span>
@@ -118,6 +124,7 @@
     <div class="kick">The library</div>
     <h2 class="display sm">Everything we teach, in one place.</h2>
     <p class="body-lg mt-s" style="max-width:64ch;">Fact sheets, guides, and full recorded webinars together in a single list. Free to open, free to share, no account needed. Narrow it down by format, by who it is written for, or by topic.</p>
+    <p class="body-lg mt-s" style="max-width:64ch;">Every session we have hosted stays listed here, including ones that no longer carry continuing education credit. The teaching does not expire when the credit does.</p>
 
     <button class="filtbtn" id="libfilt" type="button" aria-expanded="false">Filters <span class="badge" id="libbadge" hidden>0</span></button>
 
@@ -329,42 +336,21 @@
 </section>
 
 
-<!-- SALSAL CHALLENGE -->
-<section class="room room-white" id="salsal-challenge">
-  <div class="wrap">
-    <div class="kick">The SALSAL Challenge</div>
-    <h2 class="display sm">Call a time-out.</h2>
-    <p class="body-lg mt-s">The SALSAL Challenge asks a simple thing of every hospital: require vascular testing and further assessment before approving a lower extremity amputation.</p>
-    <p class="body-lg mt-s">The model is not new. It mirrors The Joint Commission's 2003 surgical time-out protocol, credited with reducing wrong-site and wrong-procedure surgeries. A vascular time-out before amputation applies the same logic: pause, confirm, and rule out a limb-preserving option before the procedure that cannot be undone.</p>
-    <p class="body-lg mt-s">One North Carolina hospital that adopted the policy reported a significant drop in amputation rates after the first year. SALSAL recommends that hospitals adopt the policy and track their own before-and-after data, so the evidence keeps building.</p>
-    <p class="mt-s" style="font-size:14px;color:var(--muted);"><em>This information is for educational purposes only and is not intended to replace professional medical advice. Always consult your healthcare provider.</em></p>
-    <div class="mt-m">
-      <a class="btn btn-red btn-lg" href="get-involved">Bring the time-out policy to your hospital</a>
-      <a class="btn btn-outline btn-lg" href="toba">Read about TOBA <span class="arw">&rsaquo;</span></a>
-    </div>
-  </div>
-</section>
-
-
-<!-- FOR PROVIDERS -->
+<!-- FOR PROVIDERS: full detail lives on its own page -->
 <section class="room room-paper">
   <div class="wrap">
     <div class="numlead bleed-r">
       <div class="ncol">
         <div class="kick">For providers</div>
-        <h3 class="statement">What our provider education covers.</h3>
-        <p class="body-lg mt-s">Five focus areas, taught to the clinicians who see at-risk patients first.</p>
+        <h3 class="statement">We also teach this in person.</h3>
+        <p class="body-lg mt-s">Provider education covers vascular screening before amputation, care team workflow, revascularization, the economic case, and real cases in limb salvage. It closes with the SALSAL Challenge, our ask that hospitals require vascular testing before approving an amputation. There is no fee to host a session.</p>
+        <div class="mt-m">
+          <a class="btn btn-red btn-lg" href="provider-education">See provider education</a>
+          <a class="btn btn-outline btn-lg" href="learning-hub?aud=clinicians#library">Clinician materials <span class="arw">&rsaquo;</span></a>
+        </div>
       </div>
       <div class="shot"><div class="im" style="background-image:url('assets/event-clinicians.jpg');background-position:center 25%;"></div></div>
     </div>
-    <ul class="curric">
-      <li>The necessity of vascular screening prior to amputation</li>
-      <li>Workflow, triaging, and specialty collaboration across the care team</li>
-      <li>Revascularization concepts and techniques</li>
-      <li>The economic case for amputation prevention</li>
-      <li>Case studies in wound care, intervention, and limb salvage</li>
-    </ul>
-    <a class="btn btn-outline mt-m" href="get-involved">Request provider education for your team <span class="arw">&rsaquo;</span></a>
   </div>
 </section>
 
@@ -384,14 +370,16 @@
         <a href="how-we-help">How We Help</a>
         <a href="board-of-directors">Board of Directors</a>
         <a href="news">News</a>
+        <a href="community-screening-events">Screening &amp; Events</a>
+        <a href="toba">TOBA: Time Out Before Amputation</a>
       </div>
       <div>
-        <h4>Learn</h4>
-        <a href="learning-hub">Learning Hub</a>
-        <a href="learning-hub#library">Past Webinars</a>
+        <h4>Learning Hub</h4>
+        <a href="learning-hub">The Hub</a>
+        <a href="provider-education">Provider Education</a>
+        <a href="learning-hub?type=doc#library">Resources</a>
+        <a href="learning-hub?type=web#library">On-Demand Webinars</a>
         <a href="upcoming-webinars">Upcoming Webinars</a>
-        <a href="community-screening-events">Screening Events</a>
-        <a href="toba">TOBA: Time Out Before Amputation</a>
       </div>
       <div>
         <h4>Support</h4>
@@ -590,6 +578,17 @@
       document.getElementById('liblist').scrollIntoView({behavior:'smooth',block:'start'});
     });
   }
+
+  // deep links from the nav: learning-hub?type=web#library, ?aud=clinicians, ?topic=pad
+  try{
+    var qs=new URLSearchParams(location.search);
+    GROUPS.forEach(function(g){
+      var v=qs.get(g);
+      if(v && rail.querySelector('.facet[data-group="'+g+'"] .fopt[data-val="'+v+'"]')){ state[g]=v; }
+    });
+    var qv=qs.get('q');
+    if(qv){ state.q=qv.trim().toLowerCase(); qbox.value=qv; }
+  }catch(e){}
 
   render();
 })();

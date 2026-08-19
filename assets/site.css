@@ -544,3 +544,9 @@ html.js .section .container>*:nth-child(4){transition-delay:.24s;}
   .ritem .body{order:2;flex:1 1 100%;}
   .ritem .btn{order:3;}
 }
+
+/* wider dropdown for the Learning Hub group (5 items with descriptions) */
+.ddmenu.wide{min-width:310px;}
+/* a dropdown holding the current page reads as active, like a top-level link */
+.nav .dd.active .ddt{color:var(--red);}
+.nav .dd.active .caret{color:var(--red);}

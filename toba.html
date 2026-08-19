@@ -20,16 +20,19 @@
         <span class="ddt">About <span class="caret">&#9662;</span></span>
         <div class="ddmenu">
           <a class="ddi" href="mission-vision"><b>Mission &amp; Vision</b><span>Why SALSAL exists</span></a>
-          <a class="ddi" href="how-we-help"><b>How We Help</b><span>Our four programs</span></a>
+          <a class="ddi" href="how-we-help"><b>How We Help</b><span>Our programs and working groups</span></a>
           <a class="ddi" href="board-of-directors"><b>Board of Directors</b><span>The people behind the mission</span></a>
+          <a class="ddi" href="news"><b>News</b><span>What's new at SALSAL</span></a>
         </div>
       </div>
-      <a href="learning-hub">Learning Hub</a>
       <div class="dd">
-        <span class="ddt">Webinars <span class="caret">&#9662;</span></span>
-        <div class="ddmenu">
-          <a class="ddi" href="upcoming-webinars"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
-          <a class="ddi" href="learning-hub#library"><b>Past Webinars &amp; Resources</b><span>Recordings and free downloads</span></a>
+        <span class="ddt">Learning Hub <span class="caret">&#9662;</span></span>
+        <div class="ddmenu wide">
+          <a class="ddi" href="learning-hub"><b>The Hub</b><span>Everything we teach, in one place</span></a>
+          <a class="ddi" href="provider-education"><b>Provider Education</b><span>Clinical training and the SALSAL Challenge</span></a>
+          <a class="ddi" href="learning-hub?type=doc#library"><b>Resources</b><span>Free fact sheets and guides</span></a>
+          <a class="ddi" href="learning-hub?type=web#library"><b>On-Demand Webinars</b><span>Every recorded session, free</span></a>
+          <a class="ddi" href="upcoming-webinars"><b>Upcoming Webinars</b><span>Register for the next live session</span></a>
         </div>
       </div>
       <div class="dd">
@@ -37,7 +40,6 @@
         <div class="ddmenu">
           <a class="ddi" href="community-screening-events"><b>Screening &amp; Events</b><span>Free community screenings</span></a>
           <a class="ddi" href="toba"><b>TOBA</b><span>Time Out Before Amputation</span></a>
-          <a class="ddi" href="news"><b>News</b><span>What's new at SALSAL</span></a>
         </div>
       </div>
       <a href="get-involved">Get Involved</a>
@@ -52,8 +54,12 @@
 (function(){
   var seg=location.pathname.split('/').filter(Boolean).pop()||'';
   document.querySelectorAll('.nav .links a').forEach(function(a){
-    var href=a.getAttribute('href');
+    var href=(a.getAttribute('href')||'').split('?')[0].split('#')[0];
     if(href===seg || (seg==='' && href==='./')){ a.classList.add('active'); }
+  });
+  // a dropdown whose menu holds the current page gets the active treatment too
+  document.querySelectorAll('.nav .dd').forEach(function(dd){
+    if(dd.querySelector('.ddmenu a.active')){ dd.classList.add('active'); }
   });
   // dropdowns: click/tap toggles (hover also works on desktop)
   document.querySelectorAll('.nav .dd .ddt').forEach(function(t){
@@ -265,14 +271,16 @@
         <a href="how-we-help">How We Help</a>
         <a href="board-of-directors">Board of Directors</a>
         <a href="news">News</a>
+        <a href="community-screening-events">Screening &amp; Events</a>
+        <a href="toba">TOBA: Time Out Before Amputation</a>
       </div>
       <div>
-        <h4>Learn</h4>
-        <a href="learning-hub">Learning Hub</a>
-        <a href="learning-hub#library">Past Webinars</a>
+        <h4>Learning Hub</h4>
+        <a href="learning-hub">The Hub</a>
+        <a href="provider-education">Provider Education</a>
+        <a href="learning-hub?type=doc#library">Resources</a>
+        <a href="learning-hub?type=web#library">On-Demand Webinars</a>
         <a href="upcoming-webinars">Upcoming Webinars</a>
-        <a href="community-screening-events">Screening Events</a>
-        <a href="toba">TOBA: Time Out Before Amputation</a>
       </div>
       <div>
         <h4>Support</h4>
