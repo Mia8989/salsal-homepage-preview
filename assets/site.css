@@ -456,3 +456,91 @@ html.js .section .container>*:nth-child(4){transition-delay:.24s;}
 /* de-box the image frame itself (the hero .ptile is deliberately excluded) */
 .numlead .shot,.shot{box-shadow:none !important;border-radius:0 !important;border:none !important;}
 .phero .ptile{box-shadow:0 30px 70px rgba(4,14,26,.5) !important;border-radius:26px !important;}
+
+/* ---- CURRIC: a taught curriculum as a hairline list, not tiles ---- */
+.curric{list-style:none;margin:56px 0 0;padding:0;max-width:78ch;}
+.curric li{
+  padding:22px 0;
+  border-top:1px solid rgba(28,53,87,.16);
+  font-family:'Poppins',sans-serif;font-weight:500;
+  font-size:clamp(17px,1.55vw,20.5px);line-height:1.42;letter-spacing:-0.012em;
+  color:var(--navy);
+}
+.curric li:last-child{border-bottom:1px solid rgba(28,53,87,.16);}
+.room-navy .curric li{color:#fff;border-top-color:rgba(255,255,255,.20);}
+.room-navy .curric li:last-child{border-bottom-color:rgba(255,255,255,.20);}
+@media(max-width:820px){.curric{margin-top:38px;} .curric li{padding:18px 0;}}
+
+/* ============================================================
+   LIBRARY: facet rail + results list (Learning Hub browse UI)
+   ============================================================ */
+.lib{display:grid;grid-template-columns:248px minmax(0,1fr);gap:0 60px;align-items:start;}
+.librail{position:sticky;top:100px;}
+.facet+.facet{margin-top:32px;}
+.facet-title{display:block;font-family:'Poppins',sans-serif;font-weight:700;font-size:11.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+.libsearch{width:100%;padding:12px 2px;border:0;border-bottom:1.5px solid rgba(28,53,87,.28);
+  background:transparent;font:inherit;font-size:15.5px;color:var(--navy);border-radius:0;}
+.libsearch:focus{outline:none;border-bottom-color:var(--red);}
+.fopt{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;
+  background:none;border:0;border-bottom:1px solid rgba(28,53,87,.12);border-radius:0;
+  padding:10px 0;font:inherit;font-size:15.5px;line-height:1.3;color:var(--navy);
+  text-align:left;cursor:pointer;}
+.fopt .n{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.fopt:hover{color:var(--blue);}
+.fopt.on{font-weight:700;color:var(--red);}
+.fopt.on .n{color:var(--red);}
+.fopt.empty{opacity:.38;}
+.libdone{display:none;}
+
+.resbar{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  padding-bottom:13px;border-bottom:2px solid var(--navy);}
+.resbar .cnt{font-family:'Poppins',sans-serif;font-weight:700;font-size:17px;color:var(--navy);}
+.clearall{background:none;border:0;padding:0;font:inherit;font-size:14px;color:var(--red);
+  cursor:pointer;text-decoration:underline;text-underline-offset:3px;}
+.libchips{display:flex;flex-wrap:wrap;gap:9px;}
+.libchips:not(:empty){margin-top:16px;}
+.libchip{display:inline-flex;align-items:center;gap:8px;background:rgba(0,174,223,.10);
+  border:0;border-radius:999px;padding:7px 13px;font:inherit;font-size:13.5px;
+  color:var(--navy);cursor:pointer;}
+.libchip .x{font-size:15px;line-height:1;color:var(--blue);}
+.libchip:hover{background:rgba(230,57,71,.12);}
+.libchip:hover .x{color:var(--red);}
+#liblist{border-top:1px solid rgba(28,53,87,.14);margin-top:4px;}
+#liblist .ritem:first-child{border-top:none !important;}
+.libnone{padding:40px 0;color:var(--muted);font-size:16px;}
+
+.filtbtn{display:none;}
+@media(max-width:980px){
+  .lib{grid-template-columns:1fr;margin-top:0 !important;}
+  .filtbtn{display:inline-flex;align-items:center;gap:10px;margin-top:30px;
+    background:var(--navy);color:#fff;border:0;border-radius:999px;padding:13px 24px;
+    font-family:'Poppins',sans-serif;font-weight:600;font-size:15px;cursor:pointer;}
+  .filtbtn .badge{background:var(--red);color:#fff;border-radius:999px;
+    min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;
+    font-size:12px;padding:0 6px;}
+  .librail{position:static;display:none;padding:26px 0 8px;margin:22px 0 26px;
+    border-top:1px solid rgba(28,53,87,.16);border-bottom:1px solid rgba(28,53,87,.16);}
+  .librail.open{display:block;}
+  .libdone{display:inline-block;margin-top:26px;background:var(--navy);color:#fff;
+    border:0;border-radius:999px;padding:12px 30px;font-family:'Poppins',sans-serif;
+    font-weight:600;font-size:15px;cursor:pointer;}
+}
+
+/* ---- GIVESTRIP: short mid-scroll support ask ---- */
+.givestrip{display:grid;grid-template-columns:minmax(0,1.6fr) auto;gap:48px;align-items:center;}
+.giveact{display:flex;flex-direction:column;gap:13px;}
+@media(max-width:820px){
+  .givestrip{grid-template-columns:1fr;gap:28px;}
+  .giveact{flex-direction:row;flex-wrap:wrap;}
+}
+
+/* library: mobile fixes -- badge hides properly, rows stack instead of overflowing */
+.filtbtn .badge[hidden]{display:none;}
+@media(max-width:980px){ .libres{margin-top:20px;} }
+@media(max-width:700px){
+  .ritem{flex-wrap:wrap;gap:10px 14px;align-items:flex-start;}
+  .ritem .tag{order:1;flex:0 0 100%;}
+  .ritem .body{order:2;flex:1 1 100%;}
+  .ritem .btn{order:3;}
+}

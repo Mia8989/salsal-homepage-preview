@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Learning Hub | Save a Leg, Save a Life Foundation</title>
+<meta name="description" content="A free library of limb preservation education: fact sheets on PAD and diabetes, recorded expert webinars, and the SALSAL Challenge time-out policy for hospitals.">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<!-- NAV:START (edit partials/nav.html, then run build.py) -->
+<div class="navwrap">
+  <nav class="nav">
+    <a href="./"><img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation"></a>
+    <div class="links">
+      <div class="dd">
+        <span class="ddt">About <span class="caret">&#9662;</span></span>
+        <div class="ddmenu">
+          <a class="ddi" href="mission-vision"><b>Mission &amp; Vision</b><span>Why SALSAL exists</span></a>
+          <a class="ddi" href="how-we-help"><b>How We Help</b><span>Our four programs</span></a>
+          <a class="ddi" href="board-of-directors"><b>Board of Directors</b><span>The people behind the mission</span></a>
+        </div>
+      </div>
+      <a href="learning-hub">Learning Hub</a>
+      <div class="dd">
+        <span class="ddt">Webinars <span class="caret">&#9662;</span></span>
+        <div class="ddmenu">
+          <a class="ddi" href="upcoming-webinars"><b>Upcoming Webinars</b><span>Register for live sessions</span></a>
+          <a class="ddi" href="learning-hub#library"><b>Past Webinars &amp; Resources</b><span>Recordings and free downloads</span></a>
+        </div>
+      </div>
+      <div class="dd">
+        <span class="ddt">Impact <span class="caret">&#9662;</span></span>
+        <div class="ddmenu">
+          <a class="ddi" href="community-screening-events"><b>Screening &amp; Events</b><span>Free community screenings</span></a>
+          <a class="ddi" href="toba"><b>TOBA</b><span>Time Out Before Amputation</span></a>
+          <a class="ddi" href="news"><b>News</b><span>What's new at SALSAL</span></a>
+        </div>
+      </div>
+      <a href="get-involved">Get Involved</a>
+      <a href="corporate-sponsorship">Sponsorship</a>
+    </div>
+    <div class="sp"></div>
+    <a class="btn btn-outline" href="shop">Donate by Shopping</a>
+    <a class="btn btn-red" href="donate">Donate</a>
+  </nav>
+</div>
+<script>
+(function(){
+  var seg=location.pathname.split('/').filter(Boolean).pop()||'';
+  document.querySelectorAll('.nav .links a').forEach(function(a){
+    var href=a.getAttribute('href');
+    if(href===seg || (seg==='' && href==='./')){ a.classList.add('active'); }
+  });
+  // dropdowns: click/tap toggles (hover also works on desktop)
+  document.querySelectorAll('.nav .dd .ddt').forEach(function(t){
+    t.addEventListener('click',function(e){
+      e.stopPropagation();
+      var dd=t.parentElement;
+      document.querySelectorAll('.nav .dd').forEach(function(o){ if(o!==dd) o.classList.remove('open'); });
+      dd.classList.toggle('open');
+    });
+  });
+  document.addEventListener('click',function(){
+    document.querySelectorAll('.nav .dd').forEach(function(o){ o.classList.remove('open'); });
+  });
+})();
+</script>
+<!-- NAV:END -->
+
+<!-- PAGE HERO -->
+<header class="phero">
+  <div class="glow"></div>
+  <div class="in herogrid"><div class="plead">
+    <span class="kicker"><span class="d"></span> Learning hub</span>
+    <h1>The <span class="hl">Learning</span> Hub.</h1>
+    <p class="sub">One free library for the evidence, the policy, and the plain-language resources that help providers and patients catch peripheral arterial disease before it costs a limb.</p>
+    <div class="cta">
+      <a class="btn btn-red btn-lg" href="#library">Browse the library</a>
+      <a class="btn btn-ghost btn-lg" href="upcoming-webinars">See upcoming webinars <span class="arw">&rsaquo;</span></a>
+    </div>
+  </div><div class="pvisual">
+      <div class="ptile"><div class="pslide on"><div class="pimg" style="background-image:url('assets/event-audience.jpg');background-position:center 50%;"></div></div>
+        <span class="ptag" id="phtag"><span class="live"></span> For providers</span>
+      </div>
+      <div class="pfunnel">
+      <div class="pg"><i class="on"></i><i></i><i></i></div>
+      <div class="pf on" data-cap="For providers">
+        <span class="pftag">For Providers</span>
+        <h3>The SALSAL Challenge</h3>
+        <div class="pfmeta">Call a time-out before amputation</div>
+        <a class="pfgo" href="#salsal-challenge">See the policy <span class="arw">&rsaquo;</span></a>
+      </div>
+      <div class="pf" data-cap="Patient resources">
+        <span class="pftag red">Patient Resources</span>
+        <h3>5 free fact sheets</h3>
+        <div class="pfmeta">PAD and diabetes, plain language</div>
+        <a class="pfgo" href="#library">Browse the library <span class="arw">&rsaquo;</span></a>
+      </div>
+      <div class="pf" data-cap="On-demand learning">
+        <span class="pftag blue">Keep Learning</span>
+        <h3>6 recorded webinars</h3>
+        <div class="pfmeta">Watch anytime, free</div>
+        <a class="pfgo" href="#library">Watch on demand <span class="arw">&rsaquo;</span></a>
+      </div>
+    </div>
+      <div class="pchip"><b>11</b><span>free resources, no sign-up</span></div>
+    </div></div>
+</header>
+
+
+<!-- ============ THE LIBRARY: first thing after the hero ============ -->
+<span id="webinars" aria-hidden="true"></span>
+<section class="room room-white" id="library">
+  <div class="wrap">
+    <div class="kick">The library</div>
+    <h2 class="display sm">Everything we teach, in one place.</h2>
+    <p class="body-lg mt-s" style="max-width:64ch;">Fact sheets, guides, and full recorded webinars together in a single list. Free to open, free to share, no account needed. Narrow it down by format, by who it is written for, or by topic.</p>
+
+    <button class="filtbtn" id="libfilt" type="button" aria-expanded="false">Filters <span class="badge" id="libbadge" hidden>0</span></button>
+
+    <div class="lib mt-m">
+      <!-- FACET RAIL -->
+      <aside class="librail" id="librail">
+        <div class="facet">
+          <label class="facet-title" for="libq">Search</label>
+          <input class="libsearch" id="libq" type="search" placeholder="Search the library" autocomplete="off">
+        </div>
+
+        <div class="facet" data-group="type">
+          <div class="facet-title">Format</div>
+          <button class="fopt on" type="button" data-val="all" data-label="All formats">All formats <span class="n"></span></button>
+          <button class="fopt" type="button" data-val="doc" data-label="Fact sheets &amp; guides">Fact sheets &amp; guides <span class="n"></span></button>
+          <button class="fopt" type="button" data-val="web" data-label="Recorded webinars">Recorded webinars <span class="n"></span></button>
+        </div>
+
+        <div class="facet" data-group="aud">
+          <div class="facet-title">Made for</div>
+          <button class="fopt on" type="button" data-val="all" data-label="Anyone">Anyone <span class="n"></span></button>
+          <button class="fopt" type="button" data-val="clinicians" data-label="Clinicians">Clinicians <span class="n"></span></button>
+          <button class="fopt" type="button" data-val="patients" data-label="Patients">Patients <span class="n"></span></button>
+          <button class="fopt" type="button" data-val="caregivers" data-label="Caregivers &amp; public">Caregivers &amp; public <span class="n"></span></button>
+        </div>
+
+        <div class="facet" data-group="topic">
+          <div class="facet-title">Topic</div>
+          <button class="fopt on" type="button" data-val="all" data-label="All topics">All topics <span class="n"></span></button>
+          <button class="fopt" type="button" data-val="pad" data-label="PAD">Peripheral arterial disease <span class="n"></span></button>
+          <button class="fopt" type="button" data-val="diabetes" data-label="Diabetes">Diabetes <span class="n"></span></button>
+          <button class="fopt" type="button" data-val="limb" data-label="Limb preservation">Limb preservation <span class="n"></span></button>
+          <button class="fopt" type="button" data-val="policy" data-label="Policy &amp; advocacy">Policy &amp; advocacy <span class="n"></span></button>
+        </div>
+
+        <button class="libdone" id="libdone" type="button">Done</button>
+      </aside>
+
+      <!-- RESULTS -->
+      <div class="libres">
+        <div class="resbar">
+          <span class="cnt" id="libcount">11 resources</span>
+          <button class="clearall" id="libclear" type="button" hidden>Clear all</button>
+        </div>
+        <div class="libchips" id="libactive"></div>
+
+        <div class="rlist" id="liblist">
+
+          <div class="ritem" data-type="doc" data-aud="patients caregivers" data-topic="diabetes">
+            <span class="tag doc">Fact Sheet</span>
+            <div class="body">
+              <b>Diabetes Foot Care</b>
+              <div class="meta">Daily habits that protect foot health, the warning signs to catch early, and how to prevent complications from becoming serious.</div>
+            </div>
+            <a class="btn btn-outline" href="https://form.jotform.com/The_Save/resources-form">Download</a>
+          </div>
+
+          <div class="ritem" data-type="doc" data-aud="patients caregivers" data-topic="diabetes">
+            <span class="tag doc">Fact Sheet</span>
+            <div class="body">
+              <b>Diabetes Management</b>
+              <div class="meta">A step-by-step guide to monitoring blood sugar, recognizing symptom levels, following an eating plan, and managing hypoglycemia, hyperglycemia, and illness-related complications.</div>
+            </div>
+            <a class="btn btn-outline" href="https://form.jotform.com/The_Save/resources-form">Download</a>
+          </div>
+
+          <div class="ritem" data-type="doc" data-aud="patients caregivers" data-topic="pad">
+            <span class="tag doc">Fact Sheet</span>
+            <div class="body">
+              <b>Peripheral Arterial Disease (PAD) Fact Sheet</b>
+              <div class="meta">PAD risk factors, symptoms, prevention strategies, and why early detection matters for limb preservation.</div>
+            </div>
+            <a class="btn btn-outline" href="https://form.jotform.com/The_Save/resources-form">Download</a>
+          </div>
+
+          <div class="ritem" data-type="doc" data-aud="patients caregivers" data-topic="diabetes limb">
+            <span class="tag doc">Fact Sheet</span>
+            <div class="body">
+              <b>Diabetes and Limb Preservation Fact Sheet</b>
+              <div class="meta">How diabetes affects limb health, and the key strategies for managing complications to reduce amputation risk.</div>
+            </div>
+            <a class="btn btn-outline" href="https://form.jotform.com/The_Save/resources-form">Download</a>
+          </div>
+
+          <div class="ritem" data-type="doc" data-aud="clinicians" data-topic="pad policy">
+            <span class="tag doc">Clinical Guide</span>
+            <div class="body">
+              <b>Clinical Data Supporting Vascular Testing to Prevent Amputations</b>
+              <div class="meta">The evidence behind why vascular assessment reduces unnecessary limb loss and improves outcomes for people with peripheral arterial disease.</div>
+            </div>
+            <a class="btn btn-outline" href="https://form.jotform.com/The_Save/resources-form">Download</a>
+          </div>
+
+          <div class="ritem" data-type="web" data-aud="clinicians caregivers" data-topic="policy">
+            <span class="tag web">Webinar</span>
+            <div class="body">
+              <b>Advocacy and Legislation in Limb Preservation: What You Need to Know</b>
+              <div class="meta">Jun 17, 2026 &middot; State Rep. Jessica Giannino, Mark Molloy, Esq., and Dr. David Alper (moderator)</div>
+            </div>
+            <a class="btn btn-outline" href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">Watch on demand</a>
+          </div>
+
+          <div class="ritem" data-type="web" data-aud="clinicians" data-topic="limb">
+            <span class="tag web">Webinar</span>
+            <div class="body">
+              <b>Time Is Tissue: Disrupting Biofilm to Prevent Amputation</b>
+              <div class="meta">Mar 18, 2026 &middot; Matthew Myntti, PhD, Dr. Matthew Regulski, DPM, and Karen Bauer, DNP (moderator)</div>
+              <div class="avs">
+                <div class="av" style="background-image:url('assets/speakers/matthew-myntti.jpg')"></div>
+                <div class="av" style="background-image:url('assets/speakers/matthew-regulski.jpg')"></div>
+                <div class="av" style="background-image:url('assets/speakers/karen-bauer.jpg')"></div>
+              </div>
+            </div>
+            <a class="btn btn-outline" href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">Watch on demand</a>
+          </div>
+
+          <div class="ritem" data-type="web" data-aud="clinicians patients" data-topic="limb policy">
+            <span class="tag web">Webinar</span>
+            <div class="body">
+              <b>Time Out Before Amputation (TOBA): A Multidisciplinary Approach to Limb Preservation</b>
+              <div class="meta">Dec 3, 2025 &middot; Mary L. Yost, MBA, and Jayer Chung, MD</div>
+            </div>
+            <a class="btn btn-outline" href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">Watch on demand</a>
+          </div>
+
+          <div class="ritem" data-type="web" data-aud="patients caregivers clinicians" data-topic="pad">
+            <span class="tag web">Webinar</span>
+            <div class="body">
+              <b>Debunking Myths and Understanding PAD: A Panel Discussion</b>
+              <div class="meta">Sep 17, 2025 &middot; Dr. Anuj R. Shah and Dr. Lynnette Morrison</div>
+            </div>
+            <a class="btn btn-outline" href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">Watch on demand</a>
+          </div>
+
+          <div class="ritem" data-type="web" data-aud="clinicians" data-topic="limb">
+            <span class="tag web">Webinar</span>
+            <div class="body">
+              <b>Life on MARS: the Manchester Amputation Reduction System</b>
+              <div class="meta">Jun 25, 2025 &middot; Dr. Naseer Ahmad, Kristen Sorensen, and Dr. Laura Swoboda (moderator)</div>
+            </div>
+            <a class="btn btn-outline" href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">Watch on demand</a>
+          </div>
+
+          <div class="ritem" data-type="web" data-aud="clinicians" data-topic="pad">
+            <span class="tag web">Webinar</span>
+            <div class="body">
+              <b>Enhancing Patient Care in PAD: A Micro and Macro Assessment Approach</b>
+              <div class="meta">Mar 26, 2025 &middot; Dr. Mark Melin, Dr. Matthew Regulski, Karen Bauer, and Dr. Alton Johnson (moderator)</div>
+              <div class="avs">
+                <div class="av" style="background-image:url('assets/speakers/mark-melin.jpg')"></div>
+                <div class="av" style="background-image:url('assets/speakers/matthew-regulski.jpg')"></div>
+                <div class="av" style="background-image:url('assets/speakers/karen-bauer.jpg')"></div>
+                <div class="av" style="background-image:url('assets/speakers/alton-johnson.jpg')"></div>
+              </div>
+            </div>
+            <a class="btn btn-outline" href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">Watch on demand</a>
+          </div>
+
+        </div>
+
+        <p class="libnone" id="libnone" hidden>Nothing matches those filters yet. <button class="clearall" type="button" data-clear>Clear all filters</button></p>
+
+        <p style="font-style:italic;color:var(--muted);margin-top:26px;">This information is for educational purposes only and is not intended to replace professional medical advice. Always consult your healthcare provider.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- GIVE STRIP: short, mid-scroll, no hard sell -->
+<section class="room room-navy tightpad">
+  <div class="wrap givestrip">
+    <div>
+      <div class="kick">Free, and staying that way</div>
+      <h3 class="statement">Nothing in this library costs anything to open.</h3>
+      <p class="body-lg mt-s">SALSAL is an all-volunteer 501(c)(3). Donors and shoppers are the reason every fact sheet and every recording stays free for the next patient who needs it.</p>
+    </div>
+    <div class="giveact">
+      <a class="btn btn-red btn-lg" href="donate">Donate</a>
+      <a class="btn btn-outline btn-lg" href="shop">Donate by Shopping</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- LIVE WEBINARS: evergreen, no dates to maintain -->
+<section class="room room-sand">
+  <div class="wrap">
+    <div class="kick">Live sessions</div>
+    <h2 class="display sm">We run live webinars with the clinicians doing this work.</h2>
+    <p class="body-lg mt-s" style="max-width:62ch;">Every session is free to attend, open to providers and to the public, and recorded into the library above once the call ends. The schedule is always on the upcoming webinars page.</p>
+    <div class="mt-m">
+      <a class="btn btn-red btn-lg" href="upcoming-webinars">Register for the next webinar</a>
+      <a class="btn btn-outline btn-lg" href="#library">Watch a past session <span class="arw">&rsaquo;</span></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- BLEEDBAND: why free education matters -->
+<section class="bleedband">
+  <div class="bg" style="background-image:url('assets/events/team-talking.jpg');background-position:center 30%;"></div>
+  <div class="scrim"></div>
+  <div class="in">
+    <div class="kick">Why it matters</div>
+    <h2 class="display sm">Free education keeps working long after the room empties.</h2>
+    <p class="mt-s">Every fact sheet and every recorded session stays free, forever, so the evidence reaches the clinician or the patient who needed it months after the live moment passed.</p>
+  </div>
+</section>
+
+
+<!-- SALSAL CHALLENGE -->
+<section class="room room-white" id="salsal-challenge">
+  <div class="wrap">
+    <div class="kick">The SALSAL Challenge</div>
+    <h2 class="display sm">Call a time-out.</h2>
+    <p class="body-lg mt-s">The SALSAL Challenge asks a simple thing of every hospital: require vascular testing and further assessment before approving a lower extremity amputation.</p>
+    <p class="body-lg mt-s">The model is not new. It mirrors The Joint Commission's 2003 surgical time-out protocol, credited with reducing wrong-site and wrong-procedure surgeries. A vascular time-out before amputation applies the same logic: pause, confirm, and rule out a limb-preserving option before the procedure that cannot be undone.</p>
+    <p class="body-lg mt-s">One North Carolina hospital that adopted the policy reported a significant drop in amputation rates after the first year. SALSAL recommends that hospitals adopt the policy and track their own before-and-after data, so the evidence keeps building.</p>
+    <p class="mt-s" style="font-size:14px;color:var(--muted);"><em>This information is for educational purposes only and is not intended to replace professional medical advice. Always consult your healthcare provider.</em></p>
+    <div class="mt-m">
+      <a class="btn btn-red btn-lg" href="get-involved">Bring the time-out policy to your hospital</a>
+      <a class="btn btn-outline btn-lg" href="toba">Read about TOBA <span class="arw">&rsaquo;</span></a>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOR PROVIDERS -->
+<section class="room room-paper">
+  <div class="wrap">
+    <div class="numlead bleed-r">
+      <div class="ncol">
+        <div class="kick">For providers</div>
+        <h3 class="statement">What our provider education covers.</h3>
+        <p class="body-lg mt-s">Five focus areas, taught to the clinicians who see at-risk patients first.</p>
+      </div>
+      <div class="shot"><div class="im" style="background-image:url('assets/event-clinicians.jpg');background-position:center 25%;"></div></div>
+    </div>
+    <ul class="curric">
+      <li>The necessity of vascular screening prior to amputation</li>
+      <li>Workflow, triaging, and specialty collaboration across the care team</li>
+      <li>Revascularization concepts and techniques</li>
+      <li>The economic case for amputation prevention</li>
+      <li>Case studies in wound care, intervention, and limb salvage</li>
+    </ul>
+    <a class="btn btn-outline mt-m" href="get-involved">Request provider education for your team <span class="arw">&rsaquo;</span></a>
+  </div>
+</section>
+
+
+<!-- FOOTER:START (edit partials/footer.html, then run build.py) -->
+<footer class="footer">
+  <div class="container">
+    <div class="cols">
+      <div class="about">
+        <a href="./" aria-label="Save a Leg, Save a Life Foundation home"><img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation"></a>
+        <p>The Save A Leg, Save A Life Foundation is a 501(c)(3) nonprofit working to reduce preventable lower extremity amputations. Federal Tax ID 32-0467696. Florida Solicitation Registration CH47375.</p>
+        <p>4403 5th Ave NE, Bradenton, FL 34208<br>+1 813-445-3857 &middot; info@thesalsal.org</p>
+      </div>
+      <div>
+        <h4>About</h4>
+        <a href="mission-vision">Mission &amp; Vision</a>
+        <a href="how-we-help">How We Help</a>
+        <a href="board-of-directors">Board of Directors</a>
+        <a href="news">News</a>
+      </div>
+      <div>
+        <h4>Learn</h4>
+        <a href="learning-hub">Learning Hub</a>
+        <a href="learning-hub#library">Past Webinars</a>
+        <a href="upcoming-webinars">Upcoming Webinars</a>
+        <a href="community-screening-events">Screening Events</a>
+        <a href="toba">TOBA: Time Out Before Amputation</a>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <a href="donate">Donate</a>
+        <a href="become-supporter">Become a Supporter</a>
+        <a href="corporate-sponsorship">Corporate Sponsorship</a>
+        <a href="shop">Donate by Shopping</a>
+      </div>
+    </div>
+    <div class="partners">
+      <div class="lbl">Mission partners</div>
+      <div class="row">
+        <img src="assets/partners/organogenesis-logo-1.png" alt="Organogenesis">
+        <img src="assets/partners/MC-WM-transparent-1.png" alt="Medline">
+        <img src="assets/partners/imgi_1_halliburton-logo.svg" alt="Halliburton">
+        <img src="assets/partners/Advanced-Solution-Logo-Color-MAIN-1024x332.png" alt="Advanced Solution">
+        <img src="assets/partners/AIROS-MEDICAL-HORIZONTAL-NO-MARGINS-2.png" alt="Airos Medical">
+        <img src="assets/partners/MIMOSA-Logo-Blue-1-1024x229.jpg" alt="Mimosa">
+        <img src="assets/partners/SweetBio_Logo_Manuka.png" alt="SweetBio">
+      </div>
+    </div>
+    <div class="legal">
+      <span>&copy; 2026 The Save A Leg, Save A Life Foundation. All rights reserved.</span>
+      <span class="socials">
+        <a href="https://www.facebook.com/TheSALSALorg">Facebook</a>
+        <a href="https://twitter.com/thesalsalorg">X</a>
+        <a href="https://www.instagram.com/thesalsalfoundation">Instagram</a>
+        <a href="https://www.linkedin.com/company/the-save-a-leg-save-a-life-foundation/">LinkedIn</a>
+        <a href="https://www.youtube.com/channel/UC62XP_YydDhyI1agjEe9Rcw">YouTube</a>
+      </span>
+    </div>
+  </div>
+</footer>
+<!-- global: duotone photo filter (navy to sky), used by .media.duo and hero photos -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="duo" color-interpolation-filters="sRGB">
+  <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 1 0"/>
+  <feComponentTransfer>
+    <feFuncR type="table" tableValues="0.11 0.87"/>
+    <feFuncG type="table" tableValues="0.21 0.94"/>
+    <feFuncB type="table" tableValues="0.34 0.98"/>
+  </feComponentTransfer>
+</filter></svg>
+<!-- global: scroll-reveal (content stays visible if JS is off) -->
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var els=document.querySelectorAll('.section .container>*');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){io.observe(e);});
+})();
+</script>
+<!-- global: hero funnel rotator (rotating offer card + optional photo variety), any inner page -->
+<script>
+(function(){
+  document.querySelectorAll('.pvisual').forEach(function(vis){
+    var slides=vis.querySelectorAll('.ptile .pslide');
+    var pf=vis.querySelectorAll('.pfunnel .pf');
+    var dots=vis.querySelectorAll('.pfunnel .pg i');
+    var tag=vis.querySelector('.ptile .ptag');
+    if(pf.length<=1 && slides.length<=1) return;
+    var caps=[]; pf.forEach(function(el){ caps.push(el.getAttribute('data-cap')||''); });
+    var n=Math.max(pf.length,slides.length,1);
+    var i=0;
+    setInterval(function(){
+      i=(i+1)%n;
+      if(slides.length>1){
+        slides.forEach(function(s,idx){
+          var on=idx===(i%slides.length);
+          s.classList.toggle('on',on);
+          if(on){ var img=s.querySelector('.pimg'); if(img){img.style.animation='none';void img.offsetWidth;img.style.animation='';} }
+        });
+      }
+      if(pf.length>1){
+        pf.forEach(function(p,idx){ p.classList.toggle('on', idx===(i%pf.length)); });
+        dots.forEach(function(d,idx){ d.classList.toggle('on', idx===(i%pf.length)); });
+        if(tag && caps[i%pf.length]){ tag.innerHTML='<span class="live"></span> '+caps[i%pf.length]; }
+      }
+    },4200);
+  });
+})();
+</script>
+<!-- FOOTER:END -->
+
+<!-- library: faceted browse -->
+<script>
+(function(){
+  var root=document.getElementById('library'); if(!root) return;
+  var items=[].slice.call(root.querySelectorAll('.ritem'));
+  var cnt=document.getElementById('libcount');
+  var none=document.getElementById('libnone');
+  var chips=document.getElementById('libactive');
+  var clear=document.getElementById('libclear');
+  var qbox=document.getElementById('libq');
+  var rail=document.getElementById('librail');
+  var filt=document.getElementById('libfilt');
+  var done=document.getElementById('libdone');
+  var badge=document.getElementById('libbadge');
+  var state={type:'all',aud:'all',topic:'all',q:''};
+  var GROUPS=['type','aud','topic'];
+
+  items.forEach(function(it){ it._t=(it.textContent||'').toLowerCase(); });
+
+  function has(list,v){ return (' '+(list||'')+' ').indexOf(' '+v+' ')>-1; }
+  function ok(it,s){
+    if(s.type!=='all' && it.getAttribute('data-type')!==s.type) return false;
+    if(s.aud!=='all' && !has(it.getAttribute('data-aud'),s.aud)) return false;
+    if(s.topic!=='all' && !has(it.getAttribute('data-topic'),s.topic)) return false;
+    if(s.q && it._t.indexOf(s.q)<0) return false;
+    return true;
+  }
+  function countWith(group,val){
+    var s={type:state.type,aud:state.aud,topic:state.topic,q:state.q};
+    s[group]=val;
+    var n=0; items.forEach(function(it){ if(ok(it,s)) n++; });
+    return n;
+  }
+
+  function render(){
+    var shown=0;
+    items.forEach(function(it){
+      var on=ok(it,state);
+      it.style.display=on?'':'none';
+      if(on) shown++;
+    });
+    cnt.textContent=shown+(shown===1?' resource':' resources');
+    none.hidden=shown!==0;
+
+    // per-option counts, disabled when they would return nothing
+    GROUPS.forEach(function(g){
+      var box=rail.querySelector('.facet[data-group="'+g+'"]'); if(!box) return;
+      box.querySelectorAll('.fopt').forEach(function(b){
+        var v=b.getAttribute('data-val');
+        var n=countWith(g,v);
+        var slot=b.querySelector('.n'); if(slot) slot.textContent=n;
+        b.classList.toggle('empty', n===0 && v!=='all');
+        b.classList.toggle('on', state[g]===v);
+      });
+    });
+
+    // active filter chips
+    chips.textContent='';
+    var nActive=0;
+    GROUPS.forEach(function(g){
+      if(state[g]==='all') return;
+      var b=rail.querySelector('.facet[data-group="'+g+'"] .fopt[data-val="'+state[g]+'"]');
+      if(!b) return;
+      nActive++;
+      var c=document.createElement('button');
+      c.type='button'; c.className='libchip';
+      c.appendChild(document.createTextNode(b.getAttribute('data-label')));
+      var x=document.createElement('span'); x.className='x'; x.textContent='×';
+      c.appendChild(x);
+      c.addEventListener('click',function(){ state[g]='all'; render(); });
+      chips.appendChild(c);
+    });
+    if(state.q){
+      nActive++;
+      var c2=document.createElement('button');
+      c2.type='button'; c2.className='libchip';
+      c2.appendChild(document.createTextNode('"'+state.q+'"'));
+      var x2=document.createElement('span'); x2.className='x'; x2.textContent='×';
+      c2.appendChild(x2);
+      c2.addEventListener('click',function(){ state.q=''; qbox.value=''; render(); });
+      chips.appendChild(c2);
+    }
+    clear.hidden = nActive===0;
+    if(badge){ badge.hidden = nActive===0; badge.textContent=nActive; }
+  }
+
+  rail.querySelectorAll('.facet[data-group] .fopt').forEach(function(b){
+    b.addEventListener('click',function(){
+      var g=b.parentElement.getAttribute('data-group');
+      state[g]=b.getAttribute('data-val');
+      render();
+    });
+  });
+  qbox.addEventListener('input',function(){ state.q=qbox.value.trim().toLowerCase(); render(); });
+
+  function reset(){ state={type:'all',aud:'all',topic:'all',q:''}; qbox.value=''; render(); }
+  clear.addEventListener('click',reset);
+  none.querySelector('[data-clear]').addEventListener('click',reset);
+
+  if(filt){
+    filt.addEventListener('click',function(){
+      var open=rail.classList.toggle('open');
+      filt.setAttribute('aria-expanded',open?'true':'false');
+    });
+  }
+  if(done){
+    done.addEventListener('click',function(){
+      rail.classList.remove('open');
+      filt.setAttribute('aria-expanded','false');
+      document.getElementById('liblist').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+
+  render();
+})();
+</script>
+
+</body>
+</html>
