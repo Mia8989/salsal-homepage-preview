@@ -262,9 +262,9 @@
     <p class="body-lg mt-s">Not a treatment option. SALSAL exists to make sure the evidence, the training, and the screening reach people before a limb does.</p>
     <hr class="rule mt-l">
     <div class="statrow mt-m">
-      <div class="statg"><div class="n">2015</div><div class="t">Founded by Dr. Desmond Bell, a wound care specialist who kept seeing the same preventable outcome.</div></div>
-      <div class="statg"><div class="n">4</div><div class="t">Programs running now: provider education, scholarship, patient assistance, community screening.</div></div>
-      <div class="statg"><div class="n">7</div><div class="t">Mission partners funding the work, from Organogenesis to SweetBio.</div></div>
+      <div class="statg"><div class="n" data-count="2015" data-plain="1">2015</div><div class="t">Founded by Dr. Desmond Bell, a wound care specialist who kept seeing the same preventable outcome.</div></div>
+      <div class="statg"><div class="n" data-count="4">4</div><div class="t">Programs running now: provider education, scholarship, patient assistance, community screening.</div></div>
+      <div class="statg"><div class="n" data-count="7">7</div><div class="t">Mission partners funding the work, from Organogenesis to SweetBio.</div></div>
     </div>
   </div>
 </section>
@@ -316,7 +316,7 @@
           <a class="btn btn-outline" href="upcoming-webinars">Upcoming webinars</a>
         </div>
       </div>
-      <div class="shot"><div class="im" style="background-image:url('assets/events/conversation-2.jpg');background-position:center 28%;"></div></div>
+      <div class="shot"><div class="im" style="background-image:url('assets/events/conversation-2.jpg');background-position:center 12%;"></div></div>
     </div>
   </div>
 </section>
@@ -362,9 +362,63 @@
 </section>
 
 
+<!-- NEXT EVENT: auto-filled from events.json, evergreen fallback if none -->
+<section class="bleedband" id="nextevent" data-state="loading">
+  <div class="bg" style="background-image:url('assets/events/welcome-sign.jpg');background-position:78% 16%;"></div>
+  <div class="scrim"></div>
+  <div class="in">
+    <div class="kick" id="ev-kick">Join us in person</div>
+    <h2 class="display sm" id="ev-title">Free community health screenings.</h2>
+    <p class="mt-s" id="ev-detail">We bring free limb screenings into communities across the country. Early screening finds risk before it becomes an amputation.</p>
+    <a class="btn btn-red btn-lg mt-s" id="ev-cta" href="community-screening-events">See screening events</a>
+  </div>
+</section>
+
+
+<!-- IMPACT: the two named SALSAL programs, with the brand icons -->
+<section class="room room-sand" id="impact">
+  <div class="wrap">
+    <div class="kick">Our impact</div>
+    <h2 class="display sm">Two programs with our name on them.</h2>
+    <p class="body-lg mt-s" style="max-width:60ch;">One puts peripheral arterial disease in front of the public. The other puts certified wound care clinicians into the field. Both were built by SALSAL.</p>
+
+    <div class="progpair mt-l">
+      <article class="prog">
+        <img class="pgicon" src="assets/sock.svg" alt="" aria-hidden="true">
+        <div class="pgtag">PAD Awareness Month &middot; September</div>
+        <h3>The White Sock Campaign</h3>
+        <p>Wear a single white sock on an exposed leg, photograph it, and post it. One sock draws the eye to the lower limb, and to the fact that many patients cannot afford something as basic as a pair of diabetic socks.</p>
+        <p class="pgnote">A SALSAL original, created by the foundation and now moving through the patent process.</p>
+        <div class="pgacts">
+          <a class="btn btn-red" href="https://mailchi.mp/cf06c1d52e5f/take-the-pledge">Take the pledge</a>
+          <a class="btn btn-outline" href="get-involved#white-sock-campaign">How it works <span class="arw">&rsaquo;</span></a>
+        </div>
+      </article>
+
+      <article class="prog">
+        <img class="pgicon" src="assets/Ribbon.svg" alt="" aria-hidden="true">
+        <div class="pgtag">Established 2018 with ABWM</div>
+        <h3>Harold L. Johnson Memorial Scholarship</h3>
+        <p>Ten wound certification exam scholarships a year, funding clinicians toward CWCA, CWS, and CWSP credentials through the American Board of Wound Management. Preference goes to honorably discharged veterans.</p>
+        <p class="pgnote">Named for a Vietnam veteran who spent years with this foundation, speaking publicly about his own diabetes and peripheral arterial disease.</p>
+        <div class="pgacts">
+          <a class="btn btn-red" href="http://www.abwmfoundation.org/">Apply through ABWM</a>
+          <a class="btn btn-outline" href="how-we-help">Read the story <span class="arw">&rsaquo;</span></a>
+        </div>
+      </article>
+    </div>
+
+    <blockquote class="pullq mt-l">
+      <span class="q">I promised Harold I wouldn't forget him. I pledged a scholarship would be created in his name.</span>
+      <cite class="cite">Dr. Desmond Bell, founder</cite>
+    </blockquote>
+  </div>
+</section>
+
+
 <!-- HOUSTON: full-bleed moment -->
 <section class="bleedband">
-  <div class="bg" style="background-image:url('assets/events/welcome-sign.jpg');background-position:center 40%;"></div>
+  <div class="bg" style="background-image:url('assets/events/welcome-sign.jpg');background-position:78% 16%;"></div>
   <div class="scrim"></div>
   <div class="in">
     <div class="kick">Join us in person</div>
@@ -427,24 +481,40 @@
     </div>
 
     <form class="dcard" id="dcard" action="donate" method="get">
-      <div class="dhead">Choose how you want to give</div>
-      <div class="dtoggle" role="group" aria-label="Donation frequency">
-        <button type="button" class="dtog on" data-freq="once">Give once</button>
-        <button type="button" class="dtog" data-freq="yearly">Yearly</button>
+      <div class="dhead">Two ways to give</div>
+      <div class="dtoggle" role="group" aria-label="Ways to give">
+        <button type="button" class="dtog on" data-mode="once">One-time gift</button>
+        <button type="button" class="dtog" data-mode="supporter">Become a supporter</button>
       </div>
-      <div class="dsub" id="dsub">Choose an amount to give</div>
-      <div class="damts" id="damts">
-        <button type="button" class="damt" data-amt="25">$25</button>
-        <button type="button" class="damt" data-amt="50">$50</button>
-        <button type="button" class="damt on" data-amt="100">$100</button>
-        <button type="button" class="damt" data-amt="250">$250</button>
-        <button type="button" class="damt" data-amt="500">$500</button>
-        <label class="damt other"><span class="cur">$</span><input type="number" min="1" step="1" placeholder="Other" id="dother" aria-label="Other amount"></label>
+
+      <div class="dmode" id="mode-once">
+        <div class="dsub">Choose an amount to give</div>
+        <div class="damts">
+          <button type="button" class="damt" data-amt="25">$25</button>
+          <button type="button" class="damt" data-amt="50">$50</button>
+          <button type="button" class="damt on" data-amt="100">$100</button>
+          <button type="button" class="damt" data-amt="250">$250</button>
+          <button type="button" class="damt" data-amt="500">$500</button>
+          <label class="damt other"><span class="cur">$</span><input type="number" min="1" step="1" placeholder="Other" id="dother" aria-label="Other amount"></label>
+        </div>
       </div>
+
+      <div class="dmode" id="mode-supporter" hidden>
+        <div class="dsub">Become a supporter</div>
+        <div class="supcard">
+          <div class="supprice"><b>$49</b><span>per year</span></div>
+          <ul class="supben">
+            <li>A full-color SALSAL member certificate</li>
+            <li>An enamel SALSAL lapel pin</li>
+            <li>Your name behind free screenings, patient assistance, and scholarships</li>
+          </ul>
+        </div>
+      </div>
+
       <input type="hidden" name="amount" id="dAmountField" value="100">
       <input type="hidden" name="frequency" id="dFreqField" value="once">
       <button class="dgo" type="submit" id="dgo">Donate $100</button>
-      <p class="dfine">The Save A Leg, Save A Life Foundation is a 501(c)(3) nonprofit. Tax ID 32-0467696. Donations are tax-deductible to the extent allowed by law.</p>
+      <p class="dfine">The Save A Leg, Save A Life Foundation is a 501(c)(3) nonprofit. Tax ID 32-0467696. Gifts are tax-deductible to the extent allowed by law.</p>
     </form>
   </div>
 </section>
@@ -486,7 +556,7 @@
     <p class="body-lg" style="margin:26px auto 0;">Your donation funds patient assistance, free screenings, and provider education. The Save A Leg, Save A Life Foundation is a 501(c)(3) nonprofit, Tax ID 32-0467696.</p>
     <div style="display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-top:28px;">
       <a class="btn btn-red btn-lg" href="donate">Donate now</a>
-      <a class="btn btn-outline btn-lg" href="shop">Shop to give <span class="arw">&rsaquo;</span></a>
+      <a class="btn btn-outline btn-lg" href="shop">Donate by Shopping <span class="arw">&rsaquo;</span></a>
     </div>
   </div>
 </section>
@@ -529,26 +599,33 @@
     }
   }
 
-  // donation card: frequency + amount -> the donate page
+  // donation card: two ways to give -> the donate page
   var card=document.getElementById('dcard');
   if(!card) return;
-  var freq='once', amt='100';
+  var mode='once', amt='100';
   var amtField=document.getElementById('dAmountField');
   var freqField=document.getElementById('dFreqField');
   var go=document.getElementById('dgo');
-  var sub=document.getElementById('dsub');
   var other=document.getElementById('dother');
+  var paneOnce=document.getElementById('mode-once');
+  var paneSup=document.getElementById('mode-supporter');
 
   function money(v){ return '$'+String(v).replace(/\B(?=(\d{3})+(?!\d))/g,','); }
   function paint(){
-    amtField.value=amt; freqField.value=freq;
-    sub.textContent = freq==='yearly' ? 'Choose an amount to give each year' : 'Choose an amount to give';
-    go.textContent = amt ? ('Donate '+money(amt)+(freq==='yearly'?' a year':'')) : 'Donate';
+    if(mode==='supporter'){
+      paneOnce.hidden=true; paneSup.hidden=false;
+      amtField.value='49'; freqField.value='yearly';
+      go.textContent='Become a supporter \u00b7 $49/year';
+    }else{
+      paneOnce.hidden=false; paneSup.hidden=true;
+      amtField.value=amt||''; freqField.value='once';
+      go.textContent = amt ? ('Donate '+money(amt)) : 'Donate';
+    }
   }
   card.querySelectorAll('.dtog').forEach(function(b){
     b.addEventListener('click',function(){
       card.querySelectorAll('.dtog').forEach(function(o){o.classList.remove('on');});
-      b.classList.add('on'); freq=b.getAttribute('data-freq'); paint();
+      b.classList.add('on'); mode=b.getAttribute('data-mode'); paint();
     });
   });
   card.querySelectorAll('.damt[data-amt]').forEach(function(b){
@@ -569,9 +646,63 @@
 })();
 </script>
 
+<!-- homepage: auto-fill the next event from events.json (edit that file, never this page) -->
+<script>
+(function(){
+  var band=document.getElementById('nextevent'); if(!band) return;
+  fetch('events.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){
+    var list=(d&&d.events)||[];
+    var today=new Date(); today.setHours(0,0,0,0);
+    var up=list.filter(function(e){
+      var t=new Date((e.date||'')+'T00:00:00'); return !isNaN(t)&&t>=today;
+    }).sort(function(a,b){return new Date(a.date)-new Date(b.date);});
+    if(!up.length){ band.setAttribute('data-state','evergreen'); return; }
+    var e=up[0];
+    var dt=new Date(e.date+'T00:00:00');
+    var nice=dt.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});
+    var kick=document.getElementById('ev-kick');
+    var title=document.getElementById('ev-title');
+    var detail=document.getElementById('ev-detail');
+    var cta=document.getElementById('ev-cta');
+    if(kick) kick.textContent='Next event \u00b7 '+(e.city||'');
+    if(title) title.textContent=e.title+(e.city?(', '+e.city):'')+'.';
+    if(detail){
+      var bits=[]; bits.push(nice); if(e.time) bits.push(e.time); if(e.cost) bits.push(e.cost);
+      detail.innerHTML='<strong>'+bits.join(' \u00b7 ')+'.</strong>'+(e.venue?(' '+e.venue+'.'):'')
+        +' Early screening finds risk before it becomes an amputation.';
+    }
+    if(cta){ cta.textContent='Event details and registration'; if(e.url) cta.setAttribute('href',e.url); }
+    band.setAttribute('data-state','event');
+  }).catch(function(){ band.setAttribute('data-state','evergreen'); });
+})();
+</script>
+
 <!-- FOOTER:START (edit partials/footer.html, then run build.py) -->
 <footer class="footer">
   <div class="container">
+
+    <!-- persistent support banner: tagline + the two ways to give + newsletter -->
+    <div class="fdrive">
+      <div class="fdrive-l">
+        <div class="ftag">Put your support behind prevention.</div>
+        <p>SALSAL is an all-volunteer 501(c)(3). Give once, or become a supporter for $49 a year.</p>
+        <div class="fdrive-act">
+          <a class="btn btn-red" href="donate">Donate Now</a>
+          <a class="btn btn-outline light" href="donate#supporter">Become a supporter</a>
+        </div>
+      </div>
+      <form class="fnews" action="https://thesalsal.us11.list-manage.com/subscribe/post?u=c31278d2251f4b5f2bd3fa1f4&amp;id=cf440d2f8b&amp;f_id=00d596e0f0" method="post" target="_blank" novalidate>
+        <label class="fnews-lbl" for="fnews-email">Get SALSAL news and event alerts</label>
+        <div class="fnews-row">
+          <input id="fnews-email" type="email" name="EMAIL" placeholder="Your email address" autocomplete="email" required>
+          <button type="submit">Sign up</button>
+        </div>
+        <!-- mailchimp bot field: keep, do not remove -->
+        <div aria-hidden="true" style="position:absolute;left:-5000px"><input type="text" name="b_c31278d2251f4b5f2bd3fa1f4_cf440d2f8b" tabindex="-1" value=""></div>
+        <p class="fnews-fine">No spam. Unsubscribe anytime.</p>
+      </form>
+    </div>
+
     <div class="cols">
       <div class="about">
         <a href="./" aria-label="Save a Leg, Save a Life Foundation home"><img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation"></a>
@@ -636,16 +767,60 @@
     <feFuncB type="table" tableValues="0.34 0.98"/>
   </feComponentTransfer>
 </filter></svg>
-<!-- global: scroll-reveal (content stays visible if JS is off) -->
+<!-- global: scroll-reveal + count-up (content stays visible if JS is off) -->
 <script>
 (function(){
-  document.documentElement.classList.add('js');
-  var els=document.querySelectorAll('.section .container>*');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var root=document.documentElement;
+  root.classList.add('js');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // elements that rise in on scroll: direct children of every band's inner wrapper
+  var sel = '.section .container>*, .room .wrap>*, .giveband .gcopy>*, .giveband .dcard,'
+          + ' .bleedband .in>*, .becband .in>*, .trustband .wrap>*, .progpair>.prog,'
+          + ' .statrow>.statg, .curric>li, #liblist>.ritem';
+  var els = [].slice.call(document.querySelectorAll(sel));
+  // stagger siblings so a row cascades instead of popping at once
+  els.forEach(function(e){
+    var p=e.parentNode, idx=[].indexOf.call(p.children, e);
+    e.classList.add('rise');
+    e.style.transitionDelay = Math.min(idx,6)*70 + 'ms';
+  });
+
+  function countUp(el){
+    var target=parseFloat(el.getAttribute('data-count'));
+    if(isNaN(target)) return;
+    var plain=el.getAttribute('data-plain')==='1';
+    var suffix=el.getAttribute('data-suffix')||'';
+    if(reduce){ el.textContent=(plain?target:target.toLocaleString())+suffix; return; }
+    var dur=1400, t0=null;
+    function fmt(v){ v=Math.round(v); return (plain?String(v):v.toLocaleString())+suffix; }
+    function step(ts){
+      if(!t0) t0=ts;
+      var p=Math.min((ts-t0)/dur,1);
+      var e=1-Math.pow(1-p,3); // easeOutCubic
+      el.textContent=fmt(target*e);
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  if(!('IntersectionObserver' in window) || reduce){
+    els.forEach(function(e){e.classList.add('in');e.style.transitionDelay='0ms';});
+    document.querySelectorAll('[data-count]').forEach(countUp);
+    return;
+  }
   var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
-  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      en.target.classList.add('in');
+      en.target.querySelectorAll?en.target.querySelectorAll('[data-count]').forEach(countUp):0;
+      if(en.target.hasAttribute&&en.target.hasAttribute('data-count')) countUp(en.target);
+      io.unobserve(en.target);
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -50px 0px'});
   els.forEach(function(e){io.observe(e);});
+  // stat numbers observed directly too (in case their parent is not in the set)
+  document.querySelectorAll('[data-count]').forEach(function(e){io.observe(e);});
 })();
 </script>
 <!-- global: hero funnel rotator (rotating offer card + optional photo variety), any inner page -->

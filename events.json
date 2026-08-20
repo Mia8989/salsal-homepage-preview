@@ -1,0 +1,14 @@
+{
+  "_comment": "SALSAL events. Add an object to 'events' and the homepage 'Join us in person' band updates itself. Date format YYYY-MM-DD. Past events drop off automatically. If the list is empty or all past, the homepage shows the evergreen message instead.",
+  "events": [
+    {
+      "title": "Free Community Health Screening",
+      "city": "Houston, TX",
+      "venue": "Fifth Ward Multi-Service Center, 4104 Market St., Houston, TX 77020",
+      "date": "2026-09-26",
+      "time": "9:00 AM to 2:00 PM",
+      "cost": "100% free",
+      "url": "community-screening-events"
+    }
+  ]
+}

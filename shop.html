@@ -87,7 +87,7 @@
   <div class="glow"></div>
   <div class="in herogrid"><div class="plead">
     <span class="kicker"><span class="d"></span> Shop</span>
-    <h1>Shop to give. Every purchase helps <span class="hl">save a limb</span>.</h1>
+    <h1>Donate by shopping. Every purchase helps <span class="hl">save a limb</span>.</h1>
     <p class="sub">Our store funds the same mission as every donation: free screenings, provider education, and direct patient assistance. Shop apparel and gear that puts limb preservation on display.</p>
     <div class="cta">
       <a class="btn btn-red btn-lg" href="https://shop.thesalsal.org" target="_blank" rel="noopener noreferrer">Visit the Shop</a>
@@ -100,7 +100,7 @@
       <div class="pfunnel">
       <div class="pg"><i class="on"></i><i></i><i></i></div>
       <div class="pf on" data-cap="Donate by shopping">
-        <span class="pftag red">Shop to Give</span>
+        <span class="pftag red">Donate by Shopping</span>
         <h3>Every purchase helps</h3>
         <div class="pfmeta">No extra cost to you</div>
         <a class="pfgo" href="https://shop.thesalsal.org">Visit the shop <span class="arw">&rsaquo;</span></a>
@@ -165,6 +165,29 @@
 <!-- FOOTER:START (edit partials/footer.html, then run build.py) -->
 <footer class="footer">
   <div class="container">
+
+    <!-- persistent support banner: tagline + the two ways to give + newsletter -->
+    <div class="fdrive">
+      <div class="fdrive-l">
+        <div class="ftag">Put your support behind prevention.</div>
+        <p>SALSAL is an all-volunteer 501(c)(3). Give once, or become a supporter for $49 a year.</p>
+        <div class="fdrive-act">
+          <a class="btn btn-red" href="donate">Donate Now</a>
+          <a class="btn btn-outline light" href="donate#supporter">Become a supporter</a>
+        </div>
+      </div>
+      <form class="fnews" action="https://thesalsal.us11.list-manage.com/subscribe/post?u=c31278d2251f4b5f2bd3fa1f4&amp;id=cf440d2f8b&amp;f_id=00d596e0f0" method="post" target="_blank" novalidate>
+        <label class="fnews-lbl" for="fnews-email">Get SALSAL news and event alerts</label>
+        <div class="fnews-row">
+          <input id="fnews-email" type="email" name="EMAIL" placeholder="Your email address" autocomplete="email" required>
+          <button type="submit">Sign up</button>
+        </div>
+        <!-- mailchimp bot field: keep, do not remove -->
+        <div aria-hidden="true" style="position:absolute;left:-5000px"><input type="text" name="b_c31278d2251f4b5f2bd3fa1f4_cf440d2f8b" tabindex="-1" value=""></div>
+        <p class="fnews-fine">No spam. Unsubscribe anytime.</p>
+      </form>
+    </div>
+
     <div class="cols">
       <div class="about">
         <a href="./" aria-label="Save a Leg, Save a Life Foundation home"><img class="logo" src="assets/logo.png" alt="Save a Leg, Save a Life Foundation"></a>
@@ -229,16 +252,60 @@
     <feFuncB type="table" tableValues="0.34 0.98"/>
   </feComponentTransfer>
 </filter></svg>
-<!-- global: scroll-reveal (content stays visible if JS is off) -->
+<!-- global: scroll-reveal + count-up (content stays visible if JS is off) -->
 <script>
 (function(){
-  document.documentElement.classList.add('js');
-  var els=document.querySelectorAll('.section .container>*');
-  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var root=document.documentElement;
+  root.classList.add('js');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // elements that rise in on scroll: direct children of every band's inner wrapper
+  var sel = '.section .container>*, .room .wrap>*, .giveband .gcopy>*, .giveband .dcard,'
+          + ' .bleedband .in>*, .becband .in>*, .trustband .wrap>*, .progpair>.prog,'
+          + ' .statrow>.statg, .curric>li, #liblist>.ritem';
+  var els = [].slice.call(document.querySelectorAll(sel));
+  // stagger siblings so a row cascades instead of popping at once
+  els.forEach(function(e){
+    var p=e.parentNode, idx=[].indexOf.call(p.children, e);
+    e.classList.add('rise');
+    e.style.transitionDelay = Math.min(idx,6)*70 + 'ms';
+  });
+
+  function countUp(el){
+    var target=parseFloat(el.getAttribute('data-count'));
+    if(isNaN(target)) return;
+    var plain=el.getAttribute('data-plain')==='1';
+    var suffix=el.getAttribute('data-suffix')||'';
+    if(reduce){ el.textContent=(plain?target:target.toLocaleString())+suffix; return; }
+    var dur=1400, t0=null;
+    function fmt(v){ v=Math.round(v); return (plain?String(v):v.toLocaleString())+suffix; }
+    function step(ts){
+      if(!t0) t0=ts;
+      var p=Math.min((ts-t0)/dur,1);
+      var e=1-Math.pow(1-p,3); // easeOutCubic
+      el.textContent=fmt(target*e);
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  if(!('IntersectionObserver' in window) || reduce){
+    els.forEach(function(e){e.classList.add('in');e.style.transitionDelay='0ms';});
+    document.querySelectorAll('[data-count]').forEach(countUp);
+    return;
+  }
   var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} });
-  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+    entries.forEach(function(en){
+      if(!en.isIntersecting) return;
+      en.target.classList.add('in');
+      en.target.querySelectorAll?en.target.querySelectorAll('[data-count]').forEach(countUp):0;
+      if(en.target.hasAttribute&&en.target.hasAttribute('data-count')) countUp(en.target);
+      io.unobserve(en.target);
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -50px 0px'});
   els.forEach(function(e){io.observe(e);});
+  // stat numbers observed directly too (in case their parent is not in the set)
+  document.querySelectorAll('[data-count]').forEach(function(e){io.observe(e);});
 })();
 </script>
 <!-- global: hero funnel rotator (rotating offer card + optional photo variety), any inner page -->
